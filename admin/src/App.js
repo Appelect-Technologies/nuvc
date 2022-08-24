@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import Router from './routes';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import ThemeProvider from './theme';
-import * as AuthActions from './store/auth/actions';
+// import * as AuthActions from './store/auth/actions';
 
 // components
 import ScrollToTop from './components/ScrollToTop';
@@ -11,28 +12,28 @@ import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
 // ----------------------------------------------------------------------
 
 export default function App() {
-  const [isFetching, setIsFetching] = useState(false);
-  const dispatch = useDispatch();
+  // const [isFetching, setIsFetching] = useState(false);
+  // const dispatch = useDispatch();
 
-  const handleFetchSession = async () => {
-    try {
-      if (!localStorage.getItem('access_token')) return;
-      setIsFetching(true);
-      dispatch(AuthActions.UserSession());
-    } catch (error) {
-      console.error('Error while fetching session: ', error);
-    } finally {
-      setIsFetching(false);
-    }
-  };
+  // const handleFetchSession = async () => {
+  //   try {
+  //     if (!localStorage.getItem('access_token')) return;
+  //     setIsFetching(true);
+  //     dispatch(AuthActions.UserSession());
+  //   } catch (error) {
+  //     console.error('Error while fetching session: ', error);
+  //   } finally {
+  //     setIsFetching(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    handleFetchSession();
-  }, []);
+  // useEffect(() => {
+  //   handleFetchSession();
+  // }, []);
 
-  if (isFetching) {
-    return <div>fetching...</div>;
-  }
+  // if (isFetching) {
+  //   return <div>fetching...</div>;
+  // }
   return (
     <ThemeProvider>
       <ScrollToTop />
