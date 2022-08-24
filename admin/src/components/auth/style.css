@@ -1,0 +1,11 @@
+.cardLeftSide{
+    padding: 50px;
+    text-align: center;
+}
+.loginContainer{
+    background-color: #ecf1fa;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

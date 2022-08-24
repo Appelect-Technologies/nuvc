@@ -1,0 +1,1 @@
+scp server.zip ubuntu@nuvc.org:/home/ubuntu/navch
