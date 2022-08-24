@@ -1,11 +1,11 @@
-import React from 'react';
 import { Avatar, Button, Container, Stack, Tooltip, Typography } from '@mui/material';
+import React from 'react';
 import DataGridCompnent from 'src/components/utils/uiComponents/dataGrid';
 
 const cols = [
   { field: 'id', headerName: 'ID', width: 90, hide: true },
   {
-    field: 'icon',
+    field: 'image',
     headerName: 'Image',
     width: 150,
     renderCell: (param) => <Avatar src={param.value} />,
@@ -13,7 +13,7 @@ const cols = [
   {
     field: 'title',
     headerName: 'title',
-    width: 400,
+    width: 300,
   },
   {
     field: 'description',
@@ -24,62 +24,23 @@ const cols = [
     },
   },
   {
-    field: 'exam_date',
-    headerName: 'exam date',
-    width: 150,
-  },
-  {
-    field: 'application_fee_dis',
-    headerName: 'application fee dis',
-    width: 180,
-  },
-  {
-    field: 'application_fee',
-    headerName: 'application fee',
-    width: 180,
-  },
-  {
-    field: 'url1',
-    headerName: 'url1',
-    width: 150,
-  },
-  {
-    field: 'url2',
-    headerName: 'url2',
-    width: 150,
-  },
-  {
-    field: 'qualification',
-    headerName: 'qualification',
-    width: 150,
-  },
-  {
-    field: 'number_of_vacancies',
-    headerName: 'No of vacancies',
-    width: 150,
-  },
-  {
-    field: 'salary',
-    headerName: 'salary',
-    width: 150,
-  },
-  {
-    field: 'syllabus url',
-    headerName: 'syllabus url',
-    width: 150,
+    field: 'date',
+    headerName: 'Date',
+    width: 200,
+    renderCell: (param) => new Date(param.value).toLocaleString(),
   },
 ];
 
-function ListJobs({ data, onAdd = () => {} }) {
+function ListNews({ data, onAdd = () => {} }) {
   return (
     <Container maxWidth="xl">
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>
         <Typography variant="h4" gutterBottom>
-          Jobs
+          Notifications
         </Typography>
         <Tooltip title="click to add job">
           <Button variant="contained" onClick={onAdd}>
-            Add Job
+            Add
           </Button>
         </Tooltip>
       </Stack>
@@ -88,4 +49,4 @@ function ListJobs({ data, onAdd = () => {} }) {
   );
 }
 
-export default ListJobs;
+export default ListNews;

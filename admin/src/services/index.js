@@ -8,6 +8,8 @@ import {
   GET_LEADS,
   GET_JOBS,
   GET_COURSES,
+  GET_NEWS,
+  GET_NOTIFICATIONS,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -39,4 +41,10 @@ export function getJobs() {
 
 export function getCourses() {
   return Axios.get(GET_COURSES);
+}
+export function getNews(query = '') {
+  return Axios.get(`${GET_NEWS}${query}`);
+}
+export function getNotifications(query = '') {
+  return Axios.get(`${GET_NEWS}${query}`);
 }

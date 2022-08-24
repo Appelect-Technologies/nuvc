@@ -1,9 +1,9 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { getUsers } from 'src/services';
-import AllUsersComponent from '../../components/users';
+import { getNotifications } from 'src/services';
+import ListComponent from './list';
 
-const AllUsers = () => {
+const Notifications = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [values, setValues] = useState([]);
 
@@ -11,9 +11,11 @@ const AllUsers = () => {
     (async () => {
       try {
         setIsFetching(true);
-        const res = await getUsers();
-        const vals = res.data.users.map((item, i) => ({ ...item, id: i + 1 }));
-        setValues(vals);
+        const res = await getNotifications('?type=notify');
+        if (Array.isArray(res.data.news)) {
+          const vals = res.data.news.map((item, i) => ({ ...item, id: i + 1 }));
+          setValues(vals);
+        }
       } catch (error) {
         alert(JSON.stringify(error));
       } finally {
@@ -25,7 +27,7 @@ const AllUsers = () => {
   }, []);
 
   if (isFetching) return <CircularProgress />;
-  return <AllUsersComponent data={values} />;
+  return <ListComponent data={values} />;
 };
 
-export default AllUsers;
+export default Notifications;

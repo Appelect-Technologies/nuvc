@@ -6,3 +6,5 @@ export const GET_USERS = '/users';
 export const GET_LEADS = '/leads';
 export const GET_JOBS = '/jobs';
 export const GET_COURSES = '/digitals';
+export const GET_NEWS = '/getAllNews';
+export const GET_NOTIFICATIONS = '/getAllNews';

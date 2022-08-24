@@ -18,17 +18,27 @@ const navConfig = [
   {
     title: 'Jobs',
     path: '/dashboard/jobs',
-    icon: getIcon('eva:people-fill'),
+    icon: getIcon('eos-icons:job'),
   },
   {
     title: 'Digital Learning Programs',
     path: '/dashboard/courses',
-    icon: getIcon('eva:people-fill'),
+    icon: getIcon('icon-park-outline:degree-hat'),
+  },
+  {
+    title: 'News',
+    path: '/dashboard/news',
+    icon: getIcon('akar-icons:newspaper'),
+  },
+  {
+    title: 'Notifications',
+    path: '/dashboard/notifications',
+    icon: getIcon('carbon:notification'),
   },
   {
     title: 'Leads',
     path: '/dashboard/leads',
-    icon: getIcon('eva:people-fill'),
+    icon: getIcon('icon-park-twotone:history-query'),
   },
 ];
 
