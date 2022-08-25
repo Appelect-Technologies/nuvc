@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 // import logo from '../../asstes/logo/logo.jpeg'
-// import top from '../../asstes/top.jpg'
+import top from "../../asstes/top-banner.jpeg";
 // import top_alternate from '../../asstes/top_alt.jpg'
 
 //SEED_LOGO_FB.png";
@@ -25,7 +25,7 @@ function Botton() {
     <div className="bottom-container">
       {isMobile ? (
         <img
-          src={"/static/media/top-banner.jpeg"}
+          src={top}
           alt="logo"
           style={{
             width: "100%",
@@ -35,7 +35,7 @@ function Botton() {
         />
       ) : (
         <img
-          src={"/static/media/top-banner.jpeg"}
+          src={top}
           alt="logo"
           style={{
             width: "100%",
