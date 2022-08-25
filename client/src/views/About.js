@@ -1,9 +1,8 @@
 import React from "react";
-import banner from "../asstes/new banners/about-us.jpeg";
 function About() {
   return (
     <div>
-      <img src={banner} style={{ width: "100%" }} />
+      <img src={"/static/media/about-us.jpeg"} style={{ width: "100%" }} />
 
       <div className="container">
         <div className="card shadow-sm my-5">

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 // import logo from '../../asstes/logo/logo.jpeg'
-import top from "../../asstes/new banners/one.jpeg";
 // import top from '../../asstes/top.jpg'
 // import top_alternate from '../../asstes/top_alt.jpg'
 
@@ -26,7 +25,7 @@ function Botton() {
     <div className="bottom-container">
       {isMobile ? (
         <img
-          src={top}
+          src={"/static/media/top-banner.jpeg"}
           alt="logo"
           style={{
             width: "100%",
@@ -36,7 +35,7 @@ function Botton() {
         />
       ) : (
         <img
-          src={top}
+          src={"/static/media/top-banner.jpeg"}
           alt="logo"
           style={{
             width: "100%",

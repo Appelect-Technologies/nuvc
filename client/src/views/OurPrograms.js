@@ -1,8 +1,4 @@
 import React from "react";
-import entrepreneur from "../asstes/program/entrepreneur.jpeg";
-import employment from "../asstes/program/employment.jpeg";
-import skill from "../asstes/program/skill.jpeg";
-import education from "../asstes/program/education.jpeg";
 
 function OurPrograms({ data }) {
   return (
@@ -42,7 +38,7 @@ OurPrograms.defaultProps = {
       apprentice program, National Career service, NSDC ASEEM PORTAL,
       SKILL INDIA, GOVERNMENT Employment exchange, Atmanirvar Bharat
       Rojgar Abhiyan, Gareeb Kalyan Rojgar Abhiyan etc`,
-      image: entrepreneur,
+      image: "/static/media/entrepreneur.jpeg",
     },
     {
       heading: "Entrepreneur Development Center",
@@ -51,7 +47,7 @@ OurPrograms.defaultProps = {
       Entrepreneurship Development Program of different Ministries.
       Promoting awareness on fundraising through loan or equity
       investor.`,
-      image: employment,
+      image: "/static/media/employment.jpeg",
     },
     {
       heading: "Skill Development Program",
@@ -59,7 +55,7 @@ OurPrograms.defaultProps = {
       various entrepreneurship skill development program as PMKVY, Sikho
       Kamao, DAY-NULM, DDUGKY, Hunar se Rojgar Tak, Sankalp scheme, Nayi
       Roshni, Recruit-Train-Deploy Skill Development Program`,
-      image: skill,
+      image: "/static/media/skill.jpeg",
     },
     {
       heading: "Empowerment Education System",
@@ -68,7 +64,7 @@ OurPrograms.defaultProps = {
       Education System, One Compulsory Skill Development Subject in
       every course, Coding Class from class 6, KAUSHAL YUVA - KUSHAL
       BHARAT, AATMANIRBHAR YUVA- AATMANIRBHAR BHARAT.`,
-      image: education,
+      image: "/static/media/education.jpeg",
     },
   ],
 };

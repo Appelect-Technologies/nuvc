@@ -5,7 +5,6 @@ import { getDigitalCourses } from "../../utils/dataApi";
 import madImage from "../../asstes/digital/mad.jpeg";
 import dmImage from "../../asstes/digital/digi-marketing.jpeg";
 import bsImage from "../../asstes/digital/blog-social.jpeg";
-import banner from "../../asstes/new banners/digi_learning.jpeg";
 
 function DigitalLearning() {
   const [courses, setCourses] = React.useState([]);
@@ -38,7 +37,7 @@ function DigitalLearning() {
   }, []);
   return (
     <div>
-      <img src={banner} style={{ width: "100%" }} />
+      <img src={"/static/media/digi_learning.jpeg"} style={{ width: "100%" }} />
       <div className="container" style={{ paddingTop: 15, paddingBottom: 15 }}>
         <div className="row">
           {courses?.map((course) => {
