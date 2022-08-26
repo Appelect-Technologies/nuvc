@@ -30,6 +30,8 @@ app.get("/reg", (req, res) => {
 });
 app.post("/api/reg", register);
 
+app.get("/v", (req, res) => res.sendStatus(200));
+
 aws.config.update({
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET,

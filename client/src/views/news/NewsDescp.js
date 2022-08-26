@@ -1,9 +1,8 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getNews } from "../../utils/dataApi";
 
 function NewsDiscp() {
-  const history = useHistory();
   let { nid } = useParams();
 
   const [news, setNews] = React.useState(null);
@@ -17,8 +16,6 @@ function NewsDiscp() {
       setNews(null);
     };
   }, []);
-  // alert(id);
-  console.log("this is news: ", news);
 
   if (!news) {
     return (

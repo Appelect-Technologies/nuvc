@@ -21,11 +21,7 @@ function Apply() {
         return <Jobs />;
     }
   };
-  return (
-    <div className="container-fluid d-flex justify-content-center align-items-center my-4">
-      {handleRenderStep()}
-    </div>
-  );
+  return <div className="container-fluid">{handleRenderStep()}</div>;
 }
 
 export default Apply;

@@ -4,8 +4,11 @@ import { useHistory } from "react-router-dom";
 function CourseDiscp({ job }) {
   const history = useHistory();
   return (
-    <div className="col-12 col-sm-6 col-md-4">
-      <div class="card mx-lg-4  my-4 shadow-sm" style={{ maxWidth: 500 }}>
+    <div className="col-12 col-lg-6 col-xl-4">
+      <div
+        class="card m-auto mx-lg-4  my-4 shadow-sm"
+        style={{ maxWidth: 500 }}
+      >
         <div class="card-header bg-white">
           <h5 class="card-title">{job.title}</h5>
         </div>

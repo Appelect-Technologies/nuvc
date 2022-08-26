@@ -1,6 +1,9 @@
 export const config = {
   // baseUrl: "https://nuvc.org", //"https://seedonline.org","http://localhost:4000"
-  baseUrl: "http://localhost:80",
+  baseUrl:
+    process.env.NODE_ENV === "production"
+      ? "https://api.nuvc.org"
+      : "http://localhost:80",
   register: "/api/reg",
   personal: "/api/personal",
   address: "/api/address",
@@ -19,4 +22,8 @@ export const config = {
   news: "/api/news",
   getAllNews: "/api/getAllNews",
   leads: "/api/leads",
+  paymentUrl:
+    process.env.NODE_ENV === "production"
+      ? "https://api.nuvc.org/pay10"
+      : "http://localhost:80/pay10",
 };

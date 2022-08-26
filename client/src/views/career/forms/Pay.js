@@ -1,4 +1,5 @@
 import React from "react";
+import { config } from "../../../config";
 import pay from "../../../utils/pay";
 
 function Pay({ id, uid, body, email }) {
@@ -37,7 +38,7 @@ function Pay({ id, uid, body, email }) {
          <button class="btn btn-primary" onClick={handlePay}>
             Pay
           </button> */}
-        <form className="form" method="post" action="https://nuvc.org/pay10">
+        <form className="form" method="post" action={config.paymentUrl}>
           <div class="mb-3">
             <label htmlFor="id">ID</label>
             <input

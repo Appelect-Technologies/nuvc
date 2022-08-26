@@ -57,7 +57,7 @@ function Register({ handleNext }) {
     }));
   };
   return (
-    <div class="card">
+    <div class="card m-auto my-4" style={{ maxWidth: 300 }}>
       <center>
         <img
           src={login}
