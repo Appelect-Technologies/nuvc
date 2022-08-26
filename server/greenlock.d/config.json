@@ -17,7 +17,12 @@
   "sites": [
     {
       "subject": "nuvc.org",
-      "altnames": ["nuvc.org", "www.nuvc.org"],
+      "altnames": [
+        "nuvc.org",
+        "www.nuvc.org",
+        "admin.nuvc.org",
+        "api.nuvc.org"
+      ],
       "renewAt": 1
     }
   ]

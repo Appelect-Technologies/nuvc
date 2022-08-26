@@ -3,7 +3,12 @@ import banner from "../asstes/about-us.jpeg";
 function About() {
   return (
     <div>
-      <img src={banner} style={{ width: "100%" }} />
+      <img
+        src={
+          "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661526920825-917177555-about-us.jpeg"
+        }
+        style={{ width: "100%" }}
+      />
 
       <div className="container">
         <div className="card shadow-sm my-5">

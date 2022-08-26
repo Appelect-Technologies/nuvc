@@ -7,7 +7,7 @@ require("greenlock-express")
     packageRoot: __dirname,
 
     // contact for security and critical bug notices
-    maintainerEmail: "nsrock727@gmail.com",
+    maintainerEmail: "gggk15@gmail.com",
 
     // where to look for configuration
     configDir: "./greenlock.d",
