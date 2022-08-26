@@ -1,12 +1,15 @@
 require("dotenv").config();
 const express = require("express");
-const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
 const app = express();
 const crypto = require("crypto");
-
+const multer = require("multer");
+const fs = require("fs");
+const aws = require("aws-sdk");
+const helmet = require("helmet");
 app.use(cors());
+app.use(helmet());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
@@ -27,6 +30,16 @@ app.get("/reg", (req, res) => {
 });
 app.post("/api/reg", register);
 
+aws.config.update({
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.SECRET,
+  region: process.env.REGION,
+  Bucket: process.env.BUCKET,
+  signatureVersion: "v4",
+});
+
+const s3 = new aws.S3({ signatureVersion: "v4" });
+
 //
 // global.rootDir = __dirname;
 
@@ -39,10 +52,46 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + "-" + file.originalname);
   },
 });
-
 const upload = multer({ storage: storage });
+
 app.post("/upload", upload.single("file"), (req, res) => {
-  res.send({ ...req.file, ...req.body }).end();
+  const file = { ...req.file, ...req.body };
+  if (file) {
+    const filePath = path.join(__dirname, "uploads", file.filename);
+    try {
+      fs.readFile(filePath, (err, fileBody) => {
+        if (err) {
+          res.status(400).json({ error: "Error in uploading files" });
+          // console.log("Error", err);
+        } else {
+          let params = {
+            Bucket: process.env.BUCKET,
+            Key: file.filename,
+            Body: fileBody,
+          };
+          s3.upload(params, (err, result) => {
+            if (err) {
+              // console.log("error in s3 upload", err);
+              res.status(400).json({ error: "Error in uploading files" });
+            } else {
+              // console.log("S3 Response", result);
+              res.status(200).json({ file: result.Location });
+            }
+          });
+        }
+      });
+    } catch (error) {
+      // console.log("catch error", error);
+      res.status(400).json({ error: "Error in uploading files" });
+    } finally {
+      setTimeout(() => {
+        fs.unlinkSync(filePath);
+      }, 5000);
+    }
+  } else {
+    console.log("file object error", file);
+    res.status(400).json({ error: "Error in uploading files" });
+  }
 });
 
 app.use("/api", require("./routes/dataRoutes"));

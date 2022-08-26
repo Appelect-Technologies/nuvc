@@ -8,6 +8,7 @@ import ThemeProvider from './theme';
 // components
 import ScrollToTop from './components/ScrollToTop';
 import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
+import { Toaster } from 'react-hot-toast';
 
 // ----------------------------------------------------------------------
 
@@ -39,6 +40,7 @@ export default function App() {
       <ScrollToTop />
       <BaseOptionChartStyle />
       <Router />
+      <Toaster position="top-right" />
     </ThemeProvider>
   );
 }

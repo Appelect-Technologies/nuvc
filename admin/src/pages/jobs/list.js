@@ -42,11 +42,25 @@ const cols = [
     field: 'url1',
     headerName: 'url1',
     width: 150,
+    renderCell: (param) => (
+      <Tooltip title="Click to go to url">
+        <Button href={param.value} target="_blank">
+          Link
+        </Button>
+      </Tooltip>
+    ),
   },
   {
     field: 'url2',
     headerName: 'url2',
     width: 150,
+    renderCell: (param) => (
+      <Tooltip title="Click to go to url">
+        <Button href={param.value} target="_blank">
+          Link
+        </Button>
+      </Tooltip>
+    ),
   },
   {
     field: 'qualification',
@@ -64,9 +78,16 @@ const cols = [
     width: 150,
   },
   {
-    field: 'syllabus url',
+    field: 'syllabus_url',
     headerName: 'syllabus url',
     width: 150,
+    renderCell: (param) => (
+      <Tooltip title="Click to go to url">
+        <Button href={param.value} target="_blank">
+          Link
+        </Button>
+      </Tooltip>
+    ),
   },
 ];
 

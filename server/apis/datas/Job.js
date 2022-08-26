@@ -3,18 +3,10 @@ const JOB = require("../../models/Job");
 const createJob = async (req, res) => {
   try {
     const { title } = req.body;
-    console.log(" req.body", req.body);
-    const job = await JOB.updateOne(
-      {
-        title,
-      },
-      req.body,
-      {
-        upsert: true,
-      }
-    );
-    console.log("job added");
-    return res.status(200).json({ msg: "new job added" });
+    // console.log(" req.body", req.body);
+    const job = await JOB.create(req.body);
+    // console.log("job added");
+    return res.status(200).json({ msg: "new job added", job });
   } catch (error) {
     console.log("job added", error);
     return res.status(500).json({ msg: "server error" });

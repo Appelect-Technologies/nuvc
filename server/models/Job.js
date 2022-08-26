@@ -5,10 +5,11 @@ const jobSchema = mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     icon: {
       type: String,
+      default:
+        "https://nuvc-public.s3.ap-south-1.amazonaws.com/follow-me-social-business-theme-design_24877-50426.webp",
     },
     description: {
       type: String,

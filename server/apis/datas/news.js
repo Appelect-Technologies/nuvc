@@ -2,18 +2,13 @@ const News = require("../../models/News");
 
 const createNews = async (req, res) => {
   try {
-    const { title } = req.body;
-    console.log(" req.body", req.body);
-    const news = await News.updateOne(
-      {
-        title,
-      },
-      req.body,
-      {
-        upsert: true,
-      }
-    );
-    console.log("News added");
+    const { type = "news" } = req.query;
+    const inst = {
+      ...req.body,
+      type,
+    };
+    await News.create(inst);
+    // console.log("News added");
     return res.status(200).json({ msg: "new News added" });
   } catch (error) {
     console.log("News added", error);

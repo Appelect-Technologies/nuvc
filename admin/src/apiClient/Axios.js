@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const Axios = axios.create({
-  baseURL: 'https://ed13-103-211-13-77.in.ngrok.io/api',
-  // baseURL: 'http://localhost:80/api',
+  baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:80' : 'http://api.nuvc.org',
 });
 
 // export const responseInterceptor = Axios.interceptors.response.use((response) => {

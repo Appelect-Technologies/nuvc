@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Axios from '../apiClient/Axios';
 import {
   GET_APP_DATA,
@@ -10,6 +11,10 @@ import {
   GET_COURSES,
   GET_NEWS,
   GET_NOTIFICATIONS,
+  CREATE_JOB,
+  CREATE_NOTIFICATION,
+  CREATE_NEWS,
+  FILE_UPLOAD,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -45,6 +50,29 @@ export function getCourses() {
 export function getNews(query = '') {
   return Axios.get(`${GET_NEWS}${query}`);
 }
+
+export function createNewJob(values) {
+  return Axios.post(CREATE_JOB, values);
+}
+
+export function createNews(values) {
+  return Axios.post(CREATE_NEWS, values);
+}
+
 export function getNotifications(query = '') {
   return Axios.get(`${GET_NEWS}${query}`);
+}
+
+export function createNotification(values) {
+  return Axios.post(CREATE_NOTIFICATION, values);
+}
+
+export function UploadFileToS3(file) {
+  const form = new FormData();
+  form.append('file', file);
+  return Axios.post(FILE_UPLOAD, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 }
