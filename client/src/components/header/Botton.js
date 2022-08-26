@@ -25,7 +25,9 @@ function Botton() {
     <div className="bottom-container">
       {isMobile ? (
         <img
-          src={top}
+          src={
+            "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
+          }
           alt="logo"
           style={{
             width: "100%",
@@ -35,7 +37,9 @@ function Botton() {
         />
       ) : (
         <img
-          src={top}
+          src={
+            "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
+          }
           alt="logo"
           style={{
             width: "100%",
