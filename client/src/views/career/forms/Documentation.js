@@ -34,52 +34,52 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     e.preventDefault();
     console.log("data--", data);
 
-    if (data.signature.length < 5) {
-      setError({
-        signature: "Please upload signature",
-        photo: "",
-        idBack: "",
-        idFront: "",
-        idName: "0",
-      });
-      return;
-    }
+    // if (data.signature.length < 5) {
+    //   setError({
+    //     signature: "Please upload signature",
+    //     photo: "",
+    //     idBack: "",
+    //     idFront: "",
+    //     idName: "0",
+    //   });
+    //   return;
+    // }
 
-    if (data.photo.length < 5) {
-      setError({
-        signature: "",
-        photo: "Please upload your photo",
-        idBack: "",
-        idFront: "",
-        idName: "0",
-      });
-      return;
-    }
+    // if (data.photo.length < 5) {
+    //   setError({
+    //     signature: "",
+    //     photo: "Please upload your photo",
+    //     idBack: "",
+    //     idFront: "",
+    //     idName: "0",
+    //   });
+    //   return;
+    // }
 
-    if (data.idFront.length < 5) {
-      setError({
-        signature: "",
-        photo: "",
-        idBack: "",
-        idFront: "Please upload front side of  your id",
-        idName: "0",
-      });
+    // if (data.idFront.length < 5) {
+    //   setError({
+    //     signature: "",
+    //     photo: "",
+    //     idBack: "",
+    //     idFront: "Please upload front side of  your id",
+    //     idName: "0",
+    //   });
 
-      return;
-    }
-    if (data.idName == "0") {
-      if (data.idBack.length < 5) {
-        setError({
-          signature: "",
-          photo: "",
-          idBack: "Please upload back side of id",
-          idFront: "",
-          idName: "0",
-        });
+    //   return;
+    // }
+    // if (data.idName == "0") {
+    //   if (data.idBack.length < 5) {
+    //     setError({
+    //       signature: "",
+    //       photo: "",
+    //       idBack: "Please upload back side of id",
+    //       idFront: "",
+    //       idName: "0",
+    //     });
 
-        return;
-      }
-    }
+    //     return;
+    //   }
+    // }
     data.jobApplyId = jobApplyId;
     data.jobId = jobId;
     axios

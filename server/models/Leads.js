@@ -12,9 +12,7 @@ const leadSchema = mongoose.Schema(
     number: String,
     message: String,
   },
-  {
-    timeStamps: true,
-  }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Leads", leadSchema);

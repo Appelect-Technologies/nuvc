@@ -26,7 +26,7 @@ const userSubscriptionSchema = mongoose.Schema(
     },
   },
   {
-    timeStamps: true,
+    timestamps: true,
   }
 );
 

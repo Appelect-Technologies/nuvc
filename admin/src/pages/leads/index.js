@@ -30,6 +30,12 @@ const cols = [
     headerName: 'message',
     width: 500,
   },
+  {
+    field: 'createdAt',
+    headerName: 'Date',
+    width: 150,
+    renderCell: (param) => new Date(param.value).toDateString(),
+  },
 ];
 
 const Leads = () => {
