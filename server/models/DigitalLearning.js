@@ -8,6 +8,7 @@ const digitalSchema = mongoose.Schema(
     },
     icon: {
       type: String,
+      default: "",
     },
     description: {
       type: String,

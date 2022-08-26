@@ -15,6 +15,7 @@ import {
   CREATE_NOTIFICATION,
   CREATE_NEWS,
   FILE_UPLOAD,
+  CREATE_COURSES,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -47,6 +48,11 @@ export function getJobs() {
 export function getCourses() {
   return Axios.get(GET_COURSES);
 }
+
+export function createCourse(values) {
+  return Axios.post(CREATE_COURSES, values);
+}
+
 export function getNews(query = '') {
   return Axios.get(`${GET_NEWS}${query}`);
 }

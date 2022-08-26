@@ -54,12 +54,12 @@ const cols = [
   {
     field: 'certificationProgram',
     headerName: 'Certification Program',
-    width: 150,
+    width: 200,
   },
   {
     field: 'certificationPartner',
     headerName: 'Certification Partner',
-    width: 150,
+    width: 200,
   },
 ];
 

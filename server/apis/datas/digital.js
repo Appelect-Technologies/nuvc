@@ -3,17 +3,7 @@ const Digital = require("../../models/DigitalLearning");
 const createDigital = async (req, res) => {
   try {
     console.log(" req.body", req.body);
-    // const Digital = await Digital.updateOne(
-    //   {
-    //     title,
-    //   },
-    //   req.body,
-    //   {
-    //     upsert: true,
-    //   }
-    // );
-    const newDigitalCourse = new Digital(req.body);
-    await newDigitalCourse.save();
+    await Digital.create(req.body);
     console.log("Digital added");
     return res.status(200).json({ msg: "new Digital added" });
   } catch (error) {
