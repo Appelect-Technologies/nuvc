@@ -1,6 +1,6 @@
 import React from "react";
 // import desc from "../../asstes/desc.jpg";
-import banner from "../../asstes/new banners/scholarship.jpeg";
+// import banner from "../../asstes/new banners/scholarship.jpeg";
 import { useHistory, useParams } from "react-router-dom";
 import { getJob } from "../../utils/dataApi";
 
@@ -28,7 +28,10 @@ function CourseDiscp() {
 
   return (
     <div>
-      <img src={banner} style={{ width: "100%" }} />
+      <img
+        src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/scholarship.jpeg"}
+        style={{ width: "100%" }}
+      />
       <div className="container">
         <div class="card mx-lg-4  my-4 shadow-sm" style={{ maxWidth: 500 }}>
           <div class="card-header bg-white">

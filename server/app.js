@@ -8,8 +8,11 @@ const multer = require("multer");
 const fs = require("fs");
 const aws = require("aws-sdk");
 const helmet = require("helmet");
+const compression = require("compression");
+
 app.use(cors());
 app.use(helmet());
+app.use(compression());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
