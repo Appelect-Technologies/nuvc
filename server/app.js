@@ -7,12 +7,12 @@ const crypto = require("crypto");
 const multer = require("multer");
 const fs = require("fs");
 const aws = require("aws-sdk");
-const helmet = require("helmet");
-const compression = require("compression");
+// const helmet = require("helmet");
+// const compression = require("compression");
 
 app.use(cors());
-app.use(helmet());
-app.use(compression());
+// app.use(helmet());
+// app.use(compression());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
@@ -188,19 +188,20 @@ app.post("/pay10", async (req, res) => {
         jobApplyId: req.body.id + req.body.email,
       });
       if (!application) {
-        return res.status(400).json({ msg: "apply first" });
+        return res
+          .status(400)
+          .send(`<h1>Apply First</h1>`)
+          .redirect("https://nuvc.org");
+      }
+
+      let job = await JOB.findOne({ _id: req.body.id });
+      if (!job) {
+        return res.status(404).redirect("https://nuvc.org");
       }
 
       if (application.category === "SC" || application.category === "PC") {
-        let job = await JOB.findOne({ _id: req.body.id });
-
-        if (!job) return res.status(400).json({ msg: "bad request" });
-
         payment10(job.application_fee_dis, req, res);
       } else {
-        let job = await JOB.findOne({ _id: req.body.id });
-        console.log("jobid", job, req.body.id);
-        if (!job) return res.status(400).json({ msg: "bad request" });
         payment10(job.application_fee, req, res);
       }
     } else {
@@ -212,14 +213,16 @@ app.post("/pay10", async (req, res) => {
     // payment10(1, req, res);
   } catch (er) {
     console.log(er);
+    res.redirect("https://nuvc.org");
   }
 });
 var pay = require("./pay10Util");
 const { userSubscription10 } = require("./apis/users/subscription.js");
 const payment10 = async (amount, req, res) => {
   const result = req.body;
-  console.log("response ->>>>>>>>", result);
-  const hostname = "https://nuvc.org";
+  console.log(amount, "response ->>>>>>>>", result);
+  const hostname = "http://localhost:80";
+  // const hostname = "https://api.nuvc.org";
 
   var data = {
     AMOUNT: parseInt(amount) * 100,
@@ -245,7 +248,7 @@ const payment10 = async (amount, req, res) => {
     RETURN_URL: hostname + "/response",
     TXNTYPE: "SALE",
   };
-
+  // pay.isProdMode("prod");
   var transaction = pay.createTransaction(data);
   var gateway_url = pay.getPaymentUrl();
   console.log("___", gateway_url);
@@ -306,33 +309,39 @@ app.post("/response", (req, res) => {
 
     arr.forEach((row) => {
       const cols = row.split("=");
+      console.log(cols);
       if (cols.length == 2) {
         response_html +=
           "<tr><td>" + cols[0] + "</td><td>" + cols[1] + "</td></tr>";
 
-        if (cols[0].includes("STATUS") && cols[1] == "Captured") {
+        if (cols[0] === "STATUS" && cols[1]?.toLowerCase() == "captured") {
           pStatus = true;
         }
 
-        if (cols[0].includes("PAY_ID")) {
+        if (cols[0] === "PAY_ID") {
           rec.paymentID = cols[1];
         }
-        if (cols[0].includes("ORDER_ID")) {
+        if (cols[0] === "ORDER_ID") {
           rec.orderId = cols[1];
         }
-        if (cols[0].includes("AMOUNT")) {
-          rec.amount = cols[1];
+        if (cols[0] === "AMOUNT") {
+          rec.amount = parseInt(cols[1]) / 100;
         }
-        if (cols[0].includes("CUST_EMAIL")) {
+        if (cols[0] === "CUST_EMAIL") {
           rec.email = cols[1];
         }
-        if (cols[0].includes("PRODUCT_DESC")) {
+        if (cols[0] === "PRODUCT_DESC") {
           rec.id = cols[1].split(":")[0];
           rec.uid = cols[1].split(":")[1];
         }
       }
     });
-    userSubscription10(rec);
+    console.log("this is rec: ", rec, pStatus);
+
+    if (pStatus) {
+      // if payment if captured then update it on database
+      userSubscription10(rec);
+    }
 
     response_html += "</table>";
 

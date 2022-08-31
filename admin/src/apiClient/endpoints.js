@@ -5,6 +5,7 @@ export const GET_APP_DATA = '/api/app-data';
 export const GET_USERS = '/api/users';
 export const GET_LEADS = '/api/leads';
 export const GET_JOBS = '/api/jobs';
+export const GET_JOB_APPLICANTS = '/api/jobapplicants';
 
 export const CREATE_COURSES = '/api/digital';
 export const GET_COURSES = '/api/digitals';

@@ -1,8 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import Jobs from "./jobs";
+import { getAuth } from "firebase/auth";
 import Register from "./register";
+import { app } from "../../../auth/auth";
 
 function Apply() {
+  const auth = getAuth(app);
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -14,6 +17,7 @@ function Apply() {
   };
 
   const handleRenderStep = () => {
+    if (auth.currentUser) return <Jobs />;
     switch (activeStep) {
       case 0:
         return <Register handleNext={handleNext} />;

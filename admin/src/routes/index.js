@@ -15,6 +15,7 @@ import Jobs from 'src/pages/jobs';
 import Courses from 'src/pages/courses';
 import News from 'src/pages/news';
 import Notifications from 'src/pages/notifications';
+import Applicants from 'src/pages/applicants';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -37,6 +38,7 @@ export default function Router() {
         { path: 'app', element: PrivateRoute(DashboardApp) },
         { path: 'users', element: PrivateRoute(Users) },
         { path: 'jobs', element: PrivateRoute(Jobs) },
+        { path: 'applicants', element: PrivateRoute(Applicants) },
         { path: 'news', element: PrivateRoute(News) },
         { path: 'notifications', element: PrivateRoute(Notifications) },
         { path: 'courses', element: PrivateRoute(Courses) },

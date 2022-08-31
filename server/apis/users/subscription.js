@@ -65,7 +65,7 @@ const userSubscription10 = async ({
     });
 
     await newUserSubscription.save();
-    const job = await JobApply.findOne({ jobApplyId: id });
+    const job = await JobApply.findOne({ jobApplyId: `${id}${email}` });
     console.log("--", job);
 
     job.isPaid = true;

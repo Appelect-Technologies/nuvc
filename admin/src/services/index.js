@@ -16,6 +16,7 @@ import {
   CREATE_NEWS,
   FILE_UPLOAD,
   CREATE_COURSES,
+  GET_JOB_APPLICANTS,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -43,6 +44,10 @@ export function getLeads() {
 }
 export function getJobs() {
   return Axios.get(GET_JOBS);
+}
+
+export function getJobApplicants() {
+  return Axios.get(GET_JOB_APPLICANTS);
 }
 
 export function getCourses() {

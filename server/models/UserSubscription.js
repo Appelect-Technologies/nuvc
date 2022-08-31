@@ -18,7 +18,6 @@ const userSubscriptionSchema = mongoose.Schema(
       id: {
         type: String,
         required: true,
-        unique: true,
       },
       amount: Number,
       paymentID: String,

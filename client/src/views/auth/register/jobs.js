@@ -30,7 +30,7 @@ function Jobs() {
   }
   return (
     <div className="row">
-      {jobs.concat(jobs).map((job, i) => (
+      {jobs.map((job, i) => (
         <CourseDiscp job={job} onSelect={(id) => console.log(id)} />
       ))}
     </div>

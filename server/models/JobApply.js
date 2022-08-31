@@ -8,18 +8,18 @@ const jobApplySchema = mongoose.Schema(
       unique: true,
     },
     jobId: {
-      type: String,
+      type: mongoose.Types.ObjectId,
       required: true,
+      ref: "JOB",
     },
-
     email: {
       type: String,
       required: true,
     },
-    fatherName: String,
     fname: String,
-    gender: String,
     lname: String,
+    gender: String,
+    fatherName: String,
     motherName: String,
     phone: String,
     dob: String, //

@@ -16,6 +16,11 @@ const navConfig = [
     icon: getIcon('eva:people-fill'),
   },
   {
+    title: 'Applicants',
+    path: '/dashboard/applicants',
+    icon: getIcon('eos-icons:job'),
+  },
+  {
     title: 'Jobs',
     path: '/dashboard/jobs',
     icon: getIcon('eos-icons:job'),

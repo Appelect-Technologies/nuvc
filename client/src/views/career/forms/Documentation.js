@@ -76,7 +76,6 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     //       idFront: "",
     //       idName: "0",
     //     });
-
     //     return;
     //   }
     // }

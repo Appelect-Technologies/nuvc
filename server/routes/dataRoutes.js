@@ -16,6 +16,7 @@ const {
 } = require("../apis/datas/digital");
 const { createFAQ, getFAQ, deleteFAQ } = require("../apis/datas/faq");
 const { createJob, getJob, deleteJob, getJobs } = require("../apis/datas/Job");
+const { getJobApplicants } = require("../apis/datas/jobapplies");
 const { createLead, getLeads } = require("../apis/datas/leads");
 const {
   createNews,
@@ -34,6 +35,9 @@ router.post("/job", createJob);
 router.get("/job", getJob);
 router.delete("/job", deleteJob);
 router.get("/jobs", getJobs);
+
+// job applies
+router.get("/jobapplicants", getJobApplicants);
 
 //faq
 router.post("/faq", createFAQ);
