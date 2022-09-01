@@ -51,7 +51,7 @@ async function makeCoursePayment(amount, req, res) {
   console.log(amount, "response ->>>>>>>>", result);
   // return;
 
-  const hostname = process.env.CLIENT_FRONTEND_URL;
+  const hostname = process.env.SERVER_URL;
   const data = {
     AMOUNT: parseInt(amount) * 100,
     CURRENCY_CODE: 356,
@@ -111,7 +111,7 @@ async function makeJobPayment(amount, req, res) {
   // console.log(amount, "response ->>>>>>>>", result);
   // return testResponse(req, res);
 
-  const hostname = process.env.CLIENT_FRONTEND_URL;
+  const hostname = process.env.SERVER_URL;
   const data = {
     AMOUNT: parseInt(amount) * 100,
     CURRENCY_CODE: 356,
@@ -359,7 +359,7 @@ const payment10 = async (amount, req, res) => {
   console.log(amount, "response ->>>>>>>>", result);
   return;
 
-  const hostname = process.env.CLIENT_FRONTEND_URL;
+  const hostname = process.env.SERVER_URL;
   var data = {
     AMOUNT: parseInt(amount) * 100,
     CURRENCY_CODE: 356,

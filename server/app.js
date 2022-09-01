@@ -175,5 +175,3 @@ app.get("*", (req, res) => {
 app.listen(80, () => {
   console.log("server lesten on 80");
 });
-
-// module.exports = app;
