@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TermAndConditions() {
   return (
@@ -19,16 +20,15 @@ function TermAndConditions() {
                 <br />
                 These terms and conditions outline the rules and regulations for
                 the use of Navachar Udyamita Vikash Council’s Website, located
-                at https://nuvc.org.
-                <br />
-                By accessing this website we assume you accept these terms and
-                conditions. Do not continue to use Navachar if you do not agree
-                to take all of the terms and conditions stated on this page.
+                at https://nuvc.org. By accessing this website we assume you
+                accept these terms and conditions. Do not continue to use
+                Navachar if you do not agree to take all of the terms and
+                conditions stated on this page.
                 <br />
                 <br />
                 The following terminology applies to these Terms and Conditions,
                 Privacy Statement and Disclaimer Notice and all Agreements:
-                “Client”, “You” and “Your” refers to you, the person log on this
+                “Client”, “You” and your” refers to you, the person log on this
                 website and compliant to the Company’s terms and conditions.
                 “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our
                 Company. “Party”, “Parties”, or “Us”, refers to both the Client
@@ -40,15 +40,15 @@ function TermAndConditions() {
                 with and subject to, prevailing law of Netherlands. Any use of
                 the above terminology or other words in the singular, plural,
                 capitalization, and/or he/she or they, are taken as
-                interchangeable and therefore as referring to same.
+                interchangeable and therefore as referring to same
               </p>
               <h3>
                 <strong>Cookies</strong>
               </h3>
               <p>
                 We employ the use of cookies. By accessing Udyamit, you agreed
-                to use cookies in agreement with the Udyamit Seva Samiti
-                Foundation’s Privacy Policy.
+                to use cookies in agreement with the Navachar Udyamita Vikash
+                Council’s Privacy Policy.
               </p>
               <p>
                 Most interactive websites use cookies to let us retrieve the
@@ -61,7 +61,7 @@ function TermAndConditions() {
                 <strong>License</strong>
               </h3>
               <p>
-                Unless otherwise stated, Udyamit Seva Samiti Foundation and/or
+                Unless otherwise stated, Navachar Udyamita Vikash Council and/or
                 its licensors own the intellectual property rights for all
                 material on Udyamit. All intellectual property rights are
                 reserved. You may access this from Udyamit for your own personal
@@ -84,16 +84,16 @@ function TermAndConditions() {
               <p>
                 Parts of this website offer an opportunity for users to post and
                 exchange opinions and information in certain areas of the
-                website. Udyamit Seva Samiti Foundation does not filter, edit,
+                website.Navachar Udyamita Vikash Council does not filter, edit,
                 publish or review Comments prior to their presence on the
                 website. Comments do not reflect the views and opinions Navachar
-                Udyamita Vikas Council,its agents and/or affiliates. Comments
+                Udyamita Vikas Council, its agents and/or affiliates. Comments
                 reflect the views and opinions of the person who post their
-                views and opinions. To the extent permitted by applicable laws,
-                Udyamit Seva Samiti Foundation shall not be liable for the
-                Comments or for any liability, damages or expenses caused and/or
-                suffered as a result of any use of and/or posting of and/or
-                appearance of the Comments on this website.
+                views and opinions. To the extent permitted by applicable
+                laws,Navachar Udyamita Vikash Council shall not be liable for
+                the Comments or for any liability, damages or expenses caused
+                and/or suffered as a result of any use of and/or posting of
+                and/or appearance of the Comments on this website.
               </p>
               <p>
                 Udyamit Seva Samiti Foundation reserves the right to monitor all
@@ -113,7 +113,7 @@ function TermAndConditions() {
                   any third party.
                 </li>
                 <li>
-                  The Comments do not contain any defamatory, libelous,
+                  The Comments do not contain any defamatory, libellous,
                   offensive, indecent or otherwise unlawful material which is an
                   invasion of privacy
                 </li>
@@ -124,16 +124,16 @@ function TermAndConditions() {
                 </li>
               </ul>
               <p>
-                You hereby grant Udyamit Seva Samiti Foundation a non-exclusive
-                license to use, reproduce, edit and authorize others to use,
-                reproduce and edit any of your Comments in any and all forms,
-                formats or media.
+                You hereby grant Navachar Udyamita Vikash Council a
+                non-exclusive license to use, reproduce, edit and authorize
+                others to use, reproduce and edit any of your Comments in any
+                and all forms, formats or media.
               </p>
               <h3>
                 <strong>Hyperlinking to our Content</strong>
               </h3>
               <p>
-                The following organizations may link to our Website without
+                The following organizations may link to our website without
                 prior written approval:
               </p>
               <ul>
@@ -176,7 +176,7 @@ function TermAndConditions() {
               </ul>
               <p>
                 We will approve link requests from these organizations if we
-                decide that: (a) the link would not make us look unfavorably to
+                decide that: (a) the link would not make us look unfavourably to
                 ourselves or to our accredited businesses; (b) the organization
                 does not have any negative records with us; (c) the benefit to
                 us from the visibility of the hyperlink compensates the absence
@@ -188,12 +188,13 @@ function TermAndConditions() {
                 link: (a) is not in any way deceptive; (b) does not falsely
                 imply sponsorship, endorsement or approval of the linking party
                 and its products or services; and (c) fits within the context of
+                the linking party’s site.s; and (c) fits within the context of
                 the linking party’s site.
               </p>
               <p>
                 If you are one of the organizations listed in paragraph 2 above
                 and are interested in linking to our website, you must inform us
-                by sending an e-mail to Udyamit Seva Samiti Foundation. Please
+                by sending an e-mail to Navachar Udyamita Vikash Council. Please
                 include your name, your organization name, contact information
                 as well as the URL of your site, a list of any URLs from which
                 you intend to link to our Website, and a list of the URLs on our
@@ -201,7 +202,7 @@ function TermAndConditions() {
                 response.
               </p>
               <p>
-                Approved organizations may hyperlink to our Website as follows:
+                Approved organizations may hyperlink to our website as follows:
               </p>
               <ul>
                 <li>By use of our corporate name; or</li>
@@ -225,7 +226,7 @@ function TermAndConditions() {
               <p>
                 Without prior approval and written permission, you may not
                 create frames around our Webpages that alter in any way the
-                visual presentation or appearance of our Website.
+                visual presentation or appearance of our website.
               </p>
               <h3>
                 <strong>Content Liability</strong>
@@ -234,9 +235,9 @@ function TermAndConditions() {
                 We shall not be hold responsible for any content that appears on
                 your Website. You agree to protect and defend us against all
                 claims that is rising on your Website. No link(s) should appear
-                on any Website that may be interpreted as libelous, obscene or
+                on any Website that may be interpreted as libellous, obscene or
                 criminal, or which infringes, otherwise violates, or advocates
-                the infringement or other violation of, any third party rights.
+                the infringement or other violation of, any third-party rights.
               </p>
               <p>
                 <strong>Legal: </strong>This website is controlled by Navachar
@@ -249,7 +250,7 @@ function TermAndConditions() {
                 will apply to all matters relating to the use of this website
                 and the purchase of any products or services through this site.
                 Furthermore, any action to enforce this User Agreement shall be
-                brought in the federal or state courts locatedDelhi, India. You
+                brought in the federal or state courts located Delhi, India. You
                 hereby agree to personal jurisdiction by such courts, and waive
                 any jurisdictional, venue, or inconvenient forum objections to
                 such courts.
@@ -257,16 +258,18 @@ function TermAndConditions() {
               <h3>
                 <strong>Your Privacy</strong>
               </h3>
-              <p>Please read Privacy Policy</p>
+              <p>
+                Please read <Link to="/privacy">Privacy Policy</Link>
+              </p>
               <h3>
                 <strong>Reservation of Rights</strong>
               </h3>
               <p>
                 We reserve the right to request that you remove all links or any
-                particular link to our Website. You approve to immediately
+                particular link to our website. You approve to immediately
                 remove all links to our Website upon request. We also reserve
                 the right to amen these terms and conditions and it’s linking
-                policy at any time. By continuously linking to our Website, you
+                policy at any time. By continuously linking to our website, you
                 agree to be bound to and follow these linking terms and
                 conditions.
               </p>
@@ -274,7 +277,7 @@ function TermAndConditions() {
                 <strong>Removal of links from our website</strong>
               </h3>
               <p>
-                If you find any link on our Website that is offensive for any
+                If you find any link on our website that is offensive for any
                 reason, you are free to contact and inform us any moment. We
                 will consider requests to remove links but we are not obligated
                 to or so or to respond to you directly.
@@ -291,9 +294,9 @@ function TermAndConditions() {
               <p>
                 To the maximum extent permitted by applicable law, we exclude
                 all representations, warranties and conditions relating to our
-                website and the use of this website. Nothing in this disclaimer
-                will:
+                website and the use of this website.
               </p>
+              <p>Nothing in this disclaimer will:</p>
               <ul>
                 <li>
                   limit or exclude our or your liability for death or personal
