@@ -1,28 +1,46 @@
-import React from 'react'
+import React from "react";
 
 function TermAndConditions() {
   return (
-    <div class='container'>
-      <div id='primary' class='content-area'>
-        <main id='main' class='site-main'>
+    <div class="container">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
           <article
-            id='post-1011'
-            class='post-1011 page type-page status-publish hentry'
+            id="post-1011"
+            class="post-1011 page type-page status-publish hentry my-4 shadow-sm p-2"
           >
-            <header class='entry-header mt-4'>
-              <h1 class='entry-title'>Terms and Conditions</h1>{' '}
+            <header class="entry-header mt-4">
+              <h1 class="entry-title">Terms and Conditions</h1>{" "}
             </header>
-            <figure class='post-thumbnail'></figure>{' '}
-            <div class='entry-content' itemprop='text'>
+            <figure class="post-thumbnail"></figure>{" "}
+            <div class="entry-content" itemprop="text">
               <p>
                 Welcome to Navachar!
                 <br />
-                These terms and conditions outline the rules and regulations for the use of Navachar Udyamita Vikash Council’s Website, located at https://nuvc.org.
+                These terms and conditions outline the rules and regulations for
+                the use of Navachar Udyamita Vikash Council’s Website, located
+                at https://nuvc.org.
                 <br />
-                By accessing this website we assume you accept these terms and conditions. Do not continue to use Navachar if you do not agree to take all of the terms and conditions stated on this page.
+                By accessing this website we assume you accept these terms and
+                conditions. Do not continue to use Navachar if you do not agree
+                to take all of the terms and conditions stated on this page.
                 <br />
                 <br />
-                The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log on this website and compliant to the Company’s terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves. All terms refer to the offer, acceptance, and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of the provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization, and/or he/she or they, are taken as interchangeable and therefore as referring to same.
+                The following terminology applies to these Terms and Conditions,
+                Privacy Statement and Disclaimer Notice and all Agreements:
+                “Client”, “You” and “Your” refers to you, the person log on this
+                website and compliant to the Company’s terms and conditions.
+                “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our
+                Company. “Party”, “Parties”, or “Us”, refers to both the Client
+                and ourselves. All terms refer to the offer, acceptance, and
+                consideration of payment necessary to undertake the process of
+                our assistance to the Client in the most appropriate manner for
+                the express purpose of meeting the Client’s needs in respect of
+                the provision of the Company’s stated services, in accordance
+                with and subject to, prevailing law of Netherlands. Any use of
+                the above terminology or other words in the singular, plural,
+                capitalization, and/or he/she or they, are taken as
+                interchangeable and therefore as referring to same.
               </p>
               <h3>
                 <strong>Cookies</strong>
@@ -58,22 +76,21 @@ function TermAndConditions() {
               </ul>
               <p>
                 This Agreement shall begin on the date hereof. Our Terms and
-                Conditions were created with the help of the&nbsp;
-                <a href='https://www.termsandconditionsgenerator.com/'>
+                Conditions were created with the help of the{" "}
+                <a href="https://www.termsandconditionsgenerator.com/">
                   Terms And Conditions Generator
                 </a>
-                .
               </p>
               <p>
                 Parts of this website offer an opportunity for users to post and
                 exchange opinions and information in certain areas of the
                 website. Udyamit Seva Samiti Foundation does not filter, edit,
                 publish or review Comments prior to their presence on the
-                website. Comments do not reflect the views and opinions of
-                Udyamit Seva Samiti Foundation,its agents and/or affiliates.
-                Comments reflect the views and opinions of the person who post
-                their views and opinions. To the extent permitted by applicable
-                laws, Udyamit Seva Samiti Foundation shall not be liable for the
+                website. Comments do not reflect the views and opinions Navachar
+                Udyamita Vikas Council,its agents and/or affiliates. Comments
+                reflect the views and opinions of the person who post their
+                views and opinions. To the extent permitted by applicable laws,
+                Udyamit Seva Samiti Foundation shall not be liable for the
                 Comments or for any liability, damages or expenses caused and/or
                 suffered as a result of any use of and/or posting of and/or
                 appearance of the Comments on this website.
@@ -88,12 +105,12 @@ function TermAndConditions() {
               <ul>
                 <li>
                   You are entitled to post the Comments on our website and have
-                  all necessary licenses and consents to do so;
+                  all necessary licenses and consents to do so
                 </li>
                 <li>
                   The Comments do not invade any intellectual property right,
                   including without limitation copyright, patent or trademark of
-                  any third party;
+                  any third party.
                 </li>
                 <li>
                   The Comments do not contain any defamatory, libelous,
@@ -163,7 +180,7 @@ function TermAndConditions() {
                 ourselves or to our accredited businesses; (b) the organization
                 does not have any negative records with us; (c) the benefit to
                 us from the visibility of the hyperlink compensates the absence
-                of Udyamit Seva Samiti Foundation; and (d) the link is in the
+                Navachar Udyamita Vikas Council; and (d) the link is in the
                 context of general resource information.
               </p>
               <p>
@@ -198,7 +215,7 @@ function TermAndConditions() {
                 </li>
               </ul>
               <p>
-                No use of Udyamit Seva Samiti Foundation’s logo or other artwork
+                No use Navachar Udyamita Vikas Council’s logo or other artwork
                 will be allowed for linking absent a trademark license
                 agreement.
               </p>
@@ -220,6 +237,22 @@ function TermAndConditions() {
                 on any Website that may be interpreted as libelous, obscene or
                 criminal, or which infringes, otherwise violates, or advocates
                 the infringement or other violation of, any third party rights.
+              </p>
+              <p>
+                <strong>Legal: </strong>This website is controlled by Navachar
+                Udyamit Viaksh Council from our offices located in Delhi, India.
+                It can be accessed by most countries around the world. As each
+                country has laws that may differ from those of Delhi, India by
+                accessing our website, you agree that the statutes and laws of
+                Delhi, India without regard to the conflict of laws and the
+                United Nations Convention on the International Sales of Goods,
+                will apply to all matters relating to the use of this website
+                and the purchase of any products or services through this site.
+                Furthermore, any action to enforce this User Agreement shall be
+                brought in the federal or state courts locatedDelhi, India. You
+                hereby agree to personal jurisdiction by such courts, and waive
+                any jurisdictional, venue, or inconvenient forum objections to
+                such courts.
               </p>
               <h3>
                 <strong>Your Privacy</strong>
@@ -284,7 +317,7 @@ function TermAndConditions() {
                 Section and elsewhere in this disclaimer: (a) are subject to the
                 preceding paragraph; and (b) govern all liabilities arising
                 under the disclaimer, including liabilities arising in contract,
-                in tort and for breach of statutory duty.
+                in tort and for breach of statutory duty
               </p>
               <p>
                 As long as the website and the information and services on the
@@ -292,12 +325,12 @@ function TermAndConditions() {
                 any loss or damage of any nature.
               </p>
             </div>
-            <footer class='entry-footer'></footer>
+            <footer class="entry-footer"></footer>
           </article>
         </main>
       </div>
     </div>
-  )
+  );
 }
 
-export default TermAndConditions
+export default TermAndConditions;

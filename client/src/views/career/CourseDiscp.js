@@ -81,13 +81,23 @@ function CourseDiscp() {
               <small class="text-muted">Last updated 3 mins ago</small>
             </p>
 
-            <button
-              type="button"
-              class="btn btn-outline-success w-100"
-              onClick={() => history.push("/apply/" + id)}
-            >
-              Apply Now <i class="fas fa-long-arrow-alt-right"></i>
-            </button>
+            {false ? (
+              <button
+                type="button"
+                class="btn btn-success w-100"
+                // onClick={() => history.push("/apply/" + id)}
+              >
+                Already Enrolled <i class="fas fa-long-arrow-alt-right"></i>
+              </button>
+            ) : (
+              <button
+                type="button"
+                class="btn btn-outline-success w-100"
+                onClick={() => history.push("/apply/" + id)}
+              >
+                Apply Now <i class="fas fa-long-arrow-alt-right"></i>
+              </button>
+            )}
           </div>
 
           {/* <div class="row g-0">

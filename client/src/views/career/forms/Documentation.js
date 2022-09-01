@@ -34,51 +34,50 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     e.preventDefault();
     console.log("data--", data);
 
-    // if (data.signature.length < 5) {
-    //   setError({
-    //     signature: "Please upload signature",
-    //     photo: "",
-    //     idBack: "",
-    //     idFront: "",
-    //     idName: "0",
-    //   });
-    //   return;
-    // }
+    if (data.signature.length < 5) {
+      setError({
+        signature: "Please upload signature",
+        photo: "",
+        idBack: "",
+        idFront: "",
+        idName: "0",
+      });
+      return;
+    }
 
-    // if (data.photo.length < 5) {
-    //   setError({
-    //     signature: "",
-    //     photo: "Please upload your photo",
-    //     idBack: "",
-    //     idFront: "",
-    //     idName: "0",
-    //   });
-    //   return;
-    // }
+    if (data.photo.length < 5) {
+      setError({
+        signature: "",
+        photo: "Please upload your photo",
+        idBack: "",
+        idFront: "",
+        idName: "0",
+      });
+      return;
+    }
 
-    // if (data.idFront.length < 5) {
-    //   setError({
-    //     signature: "",
-    //     photo: "",
-    //     idBack: "",
-    //     idFront: "Please upload front side of  your id",
-    //     idName: "0",
-    //   });
+    if (data.idFront.length < 5) {
+      setError({
+        signature: "",
+        photo: "",
+        idBack: "",
+        idFront: "Please upload front side of  your id",
+        idName: "0",
+      });
+      return;
+    }
 
-    //   return;
-    // }
-    // if (data.idName == "0") {
-    //   if (data.idBack.length < 5) {
-    //     setError({
-    //       signature: "",
-    //       photo: "",
-    //       idBack: "Please upload back side of id",
-    //       idFront: "",
-    //       idName: "0",
-    //     });
-    //     return;
-    //   }
-    // }
+    if (data.idBack.length < 5) {
+      setError({
+        signature: "",
+        photo: "",
+        idBack: "Please upload back side of your id",
+        idFront: "",
+        idName: "0",
+      });
+      return;
+    }
+
     data.jobApplyId = jobApplyId;
     data.jobId = jobId;
     axios
@@ -110,21 +109,19 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
       [name]: value,
     }));
   };
-  const handleSetData = (name, responce) => {
-    handleChange(name, responce.filename);
-    // if (name === "signature") {
-    //   // data.signature = responce.filename;
-    //   handleChange(name, responce.filename);
-    // }
-    // if (name === "photo") {
-    //   data.photo = responce.filename;
-    // }
-    // if (name === "back") {
-    //   data.idBack = responce.filename;
-    // }
-    // if (name === "front") {
-    //   data.idFront = responce.filename;
-    // }
+  const handleSetData = (name, fileUrl) => {
+    if (name === "signature") {
+      handleChange("signature", fileUrl);
+    }
+    if (name === "photo") {
+      handleChange("photo", fileUrl);
+    }
+    if (name === "back") {
+      handleChange("back", fileUrl);
+    }
+    if (name === "front") {
+      handleChange("front", fileUrl);
+    }
   };
 
   const handleFile = (e) => {
@@ -140,8 +137,8 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
         },
       })
       .then((res) => {
-        // console.log("file", res.data);
-        handleSetData(res.data.name, res.data);
+        console.log("file", res.data);
+        handleSetData(e.target.name, res.data.file);
       })
       .catch((err) => {
         console.log("err", err);

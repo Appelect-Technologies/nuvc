@@ -93,6 +93,23 @@ function CourseDetails() {
   if (!auth.currentUser) {
     return null;
   }
+
+  if (!course) {
+    return (
+      <div className="container">
+        <div
+          class="card mb-3"
+          style={{ border: "none", borderRadius: 0, marginTop: 10 }}
+        >
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="container">
       <div
@@ -101,7 +118,7 @@ function CourseDetails() {
       >
         <div class="row g-0">
           <div class="col-md-8">
-            {course ? (
+            <div className="card">
               <div class="card-body">
                 <h5 class="card-title">{course.name}</h5>
                 <br />
@@ -115,8 +132,8 @@ function CourseDetails() {
                 <h5 class="card-subtitle mb-2 text-muted">
                   Pre Educational Qualification : {course.qualification}
                   {/* <a href={course.syllabus_url}>
-                    <i class="fas fa-link"></i>
-                  </a> */}
+               <i class="fas fa-link"></i>
+             </a> */}
                 </h5>
                 <h5 class="card-subtitle mb-2 text-muted">
                   Price : {course.price}
@@ -140,10 +157,13 @@ function CourseDetails() {
                 </h5>
 
                 <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                  <small class="text-muted">
+                    {new Date(course.createdAt).toDateString()}
+                  </small>
                 </p>
 
-                <form method="post" action="https://nuvc.org/pay10">
+                {/* <form method="post" action="https://api.nuvc.org/pay10"> </form>*/}
+                <form method="post" action="http://localhost:80/pay10">
                   <input type="text" value={cid} name="id" hidden />
                   <input type="text" value={uid} name="uid" hidden />
                   <input type="text" value={email} name="email" hidden />
@@ -153,8 +173,8 @@ function CourseDetails() {
                   <input type="text" value="course" name="type" hidden />
 
                   {/* <button type="submit" class="btn btn-primary">
-                    Pay
-                  </button> */}
+               Pay
+             </button> */}
                   <button
                     type="submit"
                     class="btn btn-outline-success"
@@ -164,9 +184,7 @@ function CourseDetails() {
                   </button>
                 </form>
               </div>
-            ) : (
-              <div class="card-body">Loading...</div>
-            )}
+            </div>
           </div>
         </div>
       </div>

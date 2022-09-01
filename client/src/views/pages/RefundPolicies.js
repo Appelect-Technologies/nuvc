@@ -7,7 +7,7 @@ function RefundPolicies() {
         <main id="main" class="site-main">
           <article
             id="post-1013"
-            class="post-1013 page type-page status-publish hentry"
+            class="post-1013 shadow-sm p-2 my-5 page type-page status-publish hentry"
           >
             <header class="entry-header mt-4">
               <h1 class="entry-title">Refund Policy</h1>{" "}
@@ -51,7 +51,7 @@ function RefundPolicies() {
                     <strong>Company</strong> (referred to as either "the
                     Company", "We", "Us" or "Our" in this Agreement) refers to
                     Navachar Udyamita Vikash Council, 70/1/2, Gali No. 25,
-                    Marble Market, Sector 2 Rohini, New Delhi.
+                    Marble Market, Sector 2 Rohini, New Delhi..
                   </p>
                 </li>
                 <li>
@@ -73,7 +73,7 @@ function RefundPolicies() {
                 </li>
                 <li>
                   <p>
-                    <strong>Website</strong> refers to Udyamit, accessible from{" "}
+                    <strong>Website</strong> refers to the Website{" "}
                     <a
                       href="https://nuvc.org"
                       rel="external nofollow noopener"
@@ -180,7 +180,10 @@ function RefundPolicies() {
                 to Us. You should send the Goods at the following address:
               </p>
               <p>
-                70/1/2, Gali no. 24, Marble Market, Sector 2 Rohini, New Delhi
+                <strong>
+                  B15 Shankar Garden, Janakpuri west metro station, New
+                  Delhi-110018
+                </strong>
               </p>
               <p>
                 We cannot be held responsible for Goods damaged or lost in
