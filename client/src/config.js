@@ -24,7 +24,7 @@ export const config = {
   leads: "/api/leads",
   paymentUrl:
     process.env.NODE_ENV === "production"
-      ? "https://api.nuvc.org/pay10"
+      ? "https://api.nuvc.org/payment"
       : "http://localhost:80/payment",
   // : "http://localhost:80/pay10",
 };

@@ -55,21 +55,21 @@ async function makeCoursePayment(amount, req, res) {
   const data = {
     AMOUNT: parseInt(amount) * 100,
     CURRENCY_CODE: 356,
-    CUST_NAME: result.name || "test name",
-    CUST_EMAIL: result.email || "test@gamil.com",
-    CUST_PHONE: result.phone || "9876543212",
-    CUST_STREET_ADDRESS1: "Vyapar Marg, Sector 4",
-    CUST_CITY: "Noida",
-    CUST_STATE: "Haryana",
+    CUST_NAME: result.name,
+    CUST_EMAIL: result.email,
+    CUST_PHONE: result.phone,
+    CUST_STREET_ADDRESS1: "",
+    CUST_CITY: "",
+    CUST_STATE: "",
     CUST_COUNTRY: "India",
-    CUST_ZIP: "201301",
-    CUST_SHIP_NAME: result.name || "test name",
-    CUST_SHIP_PHONE: result.phone || "9876543212",
-    CUST_SHIP_CITY: "Noida",
-    CUST_SHIP_STATE: "Haryana",
-    CUST_SHIP_COUNTRY: "India",
-    CUST_SHIP_STREET_ADDRESS1: "Vyapar Marg, Sector 4",
-    CUST_SHIP_ZIP: "201301",
+    CUST_ZIP: "",
+    CUST_SHIP_NAME: result.name,
+    CUST_SHIP_PHONE: result.phone,
+    CUST_SHIP_CITY: "",
+    CUST_SHIP_STATE: "",
+    CUST_SHIP_COUNTRY: "",
+    CUST_SHIP_STREET_ADDRESS1: "",
+    CUST_SHIP_ZIP: "",
     ORDER_ID: Math.random().toString(16, 10).slice(2, 16).toUpperCase(),
     PAY_ID: pay_payid,
     PRODUCT_DESC: result.id + ":" + result.uid,
@@ -107,29 +107,29 @@ async function makeCoursePayment(amount, req, res) {
 
 async function makeJobPayment(amount, req, res) {
   const result = req.body;
-  console.log(amount, "response ->>>>>>>>", result);
 
-  return testResponse(req, res);
+  // console.log(amount, "response ->>>>>>>>", result);
+  // return testResponse(req, res);
 
   const hostname = process.env.CLIENT_FRONTEND_URL;
   const data = {
     AMOUNT: parseInt(amount) * 100,
     CURRENCY_CODE: 356,
-    CUST_NAME: result.name || "test name",
-    CUST_EMAIL: result.email || "test@gamil.com",
-    CUST_PHONE: result.phone || "9876543212",
-    CUST_STREET_ADDRESS1: "Vyapar Marg, Sector 4",
-    CUST_CITY: "Noida",
-    CUST_STATE: "Haryana",
+    CUST_NAME: result.name,
+    CUST_EMAIL: result.email,
+    CUST_PHONE: result.phone,
+    CUST_STREET_ADDRESS1: "",
+    CUST_CITY: "",
+    CUST_STATE: "",
     CUST_COUNTRY: "India",
-    CUST_ZIP: "201301",
-    CUST_SHIP_NAME: result.name || "test name",
-    CUST_SHIP_PHONE: result.phone || "9876543212",
-    CUST_SHIP_CITY: "Noida",
-    CUST_SHIP_STATE: "Haryana",
+    CUST_ZIP: "",
+    CUST_SHIP_NAME: result.name,
+    CUST_SHIP_PHONE: result.phone,
+    CUST_SHIP_CITY: "",
+    CUST_SHIP_STATE: "",
     CUST_SHIP_COUNTRY: "India",
-    CUST_SHIP_STREET_ADDRESS1: "Vyapar Marg, Sector 4",
-    CUST_SHIP_ZIP: "201301",
+    CUST_SHIP_STREET_ADDRESS1: "",
+    CUST_SHIP_ZIP: "",
     ORDER_ID: Math.random().toString(16, 10).slice(2, 16).toUpperCase(),
     PAY_ID: pay_payid,
     PRODUCT_DESC: result.id + ":" + result.uid,
@@ -139,7 +139,7 @@ async function makeJobPayment(amount, req, res) {
   // pay.isProdMode("prod");
   const transaction = pay.createTransaction(data);
   const gateway_url = pay.getPaymentUrl();
-  console.log("___", transaction, gateway_url);
+  // console.log("___", transaction, gateway_url);
 
   let form_html =
     '<form method="post" action="' + gateway_url + '" name="payForm">';
@@ -172,30 +172,30 @@ function decryptMessage(message) {
   return decryptor.update(message, "base64", "utf8") + decryptor.final("utf8");
 }
 
-async function testResponse(req, res) {
-  try {
-    console.log("collect ", req.body);
-    let result = req.body;
-    let rec = {
-      id: "63090b13d7abd31d4812cbc6",
-      uid: "XDk4C7mHIWWjFyCgIFtOyaUkcpf2",
-      type: "course",
-      email: "tedovov867@ulforex.com",
-      amount: "2",
-      paymentID: "pay_001",
-      orderId: "order_0012345",
-    };
-    await userSubscription10(rec);
-    response_html += "</table>";
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/html");
-    res.write("<style>td{padding:1em}</style>");
-    res.write("<center style='margin:3rem;'>" + response_html + "</center>");
-    res.end();
-  } catch (error) {
-    res.send(error);
-  }
-}
+// async function testResponse(req, res) {
+//   try {
+//     console.log("collect ", req.body);
+//     let result = req.body;
+//     let rec = {
+//       id: "63090b13d7abd31d4812cbc6",
+//       uid: "XDk4C7mHIWWjFyCgIFtOyaUkcpf2",
+//       type: "course",
+//       email: "tedovov867@ulforex.com",
+//       amount: "2",
+//       paymentID: "pay_001",
+//       orderId: "order_0012345",
+//     };
+//     await userSubscription10(rec);
+//     response_html += "</table>";
+//     res.statusCode = 200;
+//     res.setHeader("Content-Type", "text/html");
+//     res.write("<style>td{padding:1em}</style>");
+//     res.write("<center style='margin:3rem;'>" + response_html + "</center>");
+//     res.end();
+//   } catch (error) {
+//     res.send(error);
+//   }
+// }
 
 router.post("/job-payment-response", async (req, res) => {
   console.log("collect ", req.body);

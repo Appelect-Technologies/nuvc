@@ -97,49 +97,46 @@ function CourseDetails() {
   }
   return (
     <div className="container">
-      <div
-        class="card mb-3"
-        style={{ border: "none", borderRadius: 0, marginTop: 10 }}
-      >
+      <div class="card m-1 m-md-4 shadow-sm">
         <div class="row g-0">
+          <div className="col-md-4">
+            <img
+              src={course.icon}
+              style={{
+                objectFit: "contain",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </div>
           <div class="col-md-8">
             <div className="card">
               <div class="card-body">
-                <h5 class="card-title">{course.name}</h5>
+                <h4 class="card-title">{course.name}</h4>
                 <br />
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Course Description
-                </h5>
+                <h5 class="card-subtitle mb-2">Course Description</h5>
                 <p class="card-text">{course.description}</p>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Language : {course.language}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
+                <h6 class="card-subtitle mb-2">Language : {course.language}</h6>
+                <h6 class="card-subtitle mb-2">
                   Pre Educational Qualification : {course.qualification}
                   {/* <a href={course.syllabus_url}>
                <i class="fas fa-link"></i>
              </a> */}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Price : {course.price}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Sector : {course.sector}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Duration : {course.duration}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
+                </h6>
+                <h6 class="card-subtitle mb-2">Price : {course.price}</h6>
+                <h6 class="card-subtitle mb-2">Sector : {course.sector}</h6>
+                <h6 class="card-subtitle mb-2">Duration : {course.duration}</h6>
+                <h6 class="card-subtitle mb-2">
                   Availability : {course.availability}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  Certification Availability from Knowledge Partner :
+                </h6>
+                <h6 class="card-subtitle mb-2">
+                  Certification Availability from Knowledge Partner:{" "}
                   {course.certificationPartner}
-                </h5>
-                <h5 class="card-subtitle mb-2 text-muted">
-                  IT Certification Availability from SEED Program :
+                </h6>
+                <h6 class="card-subtitle mb-2">
+                  IT Certification Availability from SEED Program:{" "}
                   {course.certificationProgram}
-                </h5>
+                </h6>
 
                 <p class="card-text">
                   <small class="text-muted">
@@ -154,7 +151,10 @@ function CourseDetails() {
                   <input type="text" value={phoneNumber} name="phone" hidden />
                   <input type="text" value={displayName} name="name" hidden />
                   <input type="text" value="course" name="type" hidden />
-                  <button type="submit" class="btn btn-outline-success">
+                  <button
+                    type="submit"
+                    class="btn w-100 btn-lg btn-outline-success"
+                  >
                     Get Now <i class="fas fa-long-arrow-alt-right"></i>
                   </button>
                 </form>
