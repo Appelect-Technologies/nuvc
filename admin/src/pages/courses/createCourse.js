@@ -9,11 +9,13 @@ function CreateCourse() {
   const handleSubmit = async (values) => {
     try {
       //  await
-      const fileres = await UploadFileToS3(values.image);
       const new_values = {
         ...values,
-        icon: fileres.data.file,
       };
+      if (values.image) {
+        const fileres = await UploadFileToS3(values.image);
+        new_values.icon = fileres.data.file;
+      }
       await createCourse(new_values);
       toast.success('Successfully created');
       formik.resetForm();
@@ -41,9 +43,10 @@ function CreateCourse() {
       certificationPartner: '',
     },
     validate: (values) => {
+      const includes = ['name', 'description', 'price'];
       const errors = {};
       for (const key in values) {
-        if (!values[key] || values[key]?.toString().trim().length === 0) {
+        if (includes.includes(key) && (!values[key] || values[key]?.toString().trim().length === 0)) {
           errors[key] = 'Field is required';
         }
       }

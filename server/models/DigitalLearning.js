@@ -16,19 +16,15 @@ const digitalSchema = mongoose.Schema(
     },
     qualification: {
       type: String,
-      required: true,
     },
     language: {
       type: String,
-      required: true,
     },
     duration: {
       type: String,
-      required: true,
     },
     sector: {
       type: String,
-      required: true,
     },
     price: {
       type: Number,
@@ -36,7 +32,6 @@ const digitalSchema = mongoose.Schema(
     },
     availability: {
       type: String,
-      required: true,
     },
     certificationProgram: {
       type: String,

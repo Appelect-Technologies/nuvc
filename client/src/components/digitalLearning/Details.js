@@ -99,16 +99,18 @@ function CourseDetails() {
     <div className="container">
       <div class="card m-1 m-md-4 shadow-sm">
         <div class="row g-0">
-          <div className="col-md-4">
-            <img
-              src={course.icon}
-              style={{
-                objectFit: "contain",
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </div>
+          {course.icon && (
+            <div className="col-md-4">
+              <img
+                src={course.icon}
+                style={{
+                  objectFit: "contain",
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            </div>
+          )}
           <div class="col-md-8">
             <div className="card">
               <div class="card-body">
@@ -116,27 +118,47 @@ function CourseDetails() {
                 <br />
                 <h5 class="card-subtitle mb-2">Course Description</h5>
                 <p class="card-text">{course.description}</p>
-                <h6 class="card-subtitle mb-2">Language : {course.language}</h6>
-                <h6 class="card-subtitle mb-2">
-                  Pre Educational Qualification : {course.qualification}
-                  {/* <a href={course.syllabus_url}>
+                {course.language && (
+                  <h6 class="card-subtitle mb-2">
+                    Language : {course.language}
+                  </h6>
+                )}
+                {course.qualification && (
+                  <h6 class="card-subtitle mb-2">
+                    Pre Educational Qualification : {course.qualification}
+                    {/* <a href={course.syllabus_url}>
                <i class="fas fa-link"></i>
              </a> */}
-                </h6>
+                  </h6>
+                )}
                 <h6 class="card-subtitle mb-2">Price : {course.price}</h6>
-                <h6 class="card-subtitle mb-2">Sector : {course.sector}</h6>
-                <h6 class="card-subtitle mb-2">Duration : {course.duration}</h6>
-                <h6 class="card-subtitle mb-2">
-                  Availability : {course.availability}
-                </h6>
-                <h6 class="card-subtitle mb-2">
-                  Certification Availability from Knowledge Partner:{" "}
-                  {course.certificationPartner}
-                </h6>
-                <h6 class="card-subtitle mb-2">
-                  IT Certification Availability from SEED Program:{" "}
-                  {course.certificationProgram}
-                </h6>
+                {course.sector && (
+                  <h6 class="card-subtitle mb-2">Sector : {course.sector}</h6>
+                )}
+                {course.duration && (
+                  <h6 class="card-subtitle mb-2">
+                    Duration : {course.duration}
+                  </h6>
+                )}
+                {course.availability && (
+                  <h6 class="card-subtitle mb-2">
+                    Availability : {course.availability}
+                  </h6>
+                )}
+
+                {course.certificationPartner && (
+                  <h6 class="card-subtitle mb-2">
+                    Certification Availability from Knowledge Partner:{" "}
+                    {course.certificationPartner}
+                  </h6>
+                )}
+
+                {course.certificationProgram && (
+                  <h6 class="card-subtitle mb-2">
+                    IT Certification Availability from SEED Program:{" "}
+                    {course.certificationProgram}
+                  </h6>
+                )}
 
                 <p class="card-text">
                   <small class="text-muted">
