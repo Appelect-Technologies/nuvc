@@ -25,7 +25,10 @@ const {
   getAllNews,
 } = require("../apis/datas/news");
 const { getUsers } = require("../apis/users/list");
-const { userSubscription } = require("../apis/users/subscription");
+const {
+  userSubscription,
+  getSubscriptions,
+} = require("../apis/users/subscription");
 
 // users
 router.get("/users", getUsers);
@@ -70,5 +73,8 @@ router.get("/getAllNews", getAllNews);
 // Leads
 router.post("/leads", createLead);
 router.get("/leads", getLeads);
+
+// purchases
+router.get("/subscriptions", getSubscriptions);
 
 module.exports = router;

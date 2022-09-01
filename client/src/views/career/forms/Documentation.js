@@ -116,11 +116,11 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     if (name === "photo") {
       handleChange("photo", fileUrl);
     }
-    if (name === "back") {
-      handleChange("back", fileUrl);
+    if (name === "idBack") {
+      handleChange("idBack", fileUrl);
     }
-    if (name === "front") {
-      handleChange("front", fileUrl);
+    if (name === "idFront") {
+      handleChange("idFront", fileUrl);
     }
   };
 

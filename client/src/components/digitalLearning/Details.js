@@ -6,13 +6,14 @@ import { getAuth } from "firebase/auth";
 import coursePay from "../../utils/coursePay";
 
 import axios from "axios";
+import { config } from "../../config";
 
 function CourseDetails() {
   const auth = getAuth(app);
   // pay(jobId, auth?.currentUser?.uid, res.data.body);
+  const [course, setCourse] = React.useState(null);
   const history = useHistory();
   let { cid } = useParams();
-  console.log("this is auth: ", auth);
 
   const {
     email = "",
@@ -55,11 +56,14 @@ function CourseDetails() {
   };
 
   async function fetchData() {
-    const courseData = await getDigitalCourse("?id=" + cid);
-    setCourse(courseData && courseData.digital);
+    try {
+      const courseData = await getDigitalCourse("?id=" + cid);
+      setCourse(courseData && courseData.digital);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  const [course, setCourse] = React.useState(null);
   React.useEffect(() => {
     if (!auth.currentUser) {
       history.push("/reg");
@@ -69,25 +73,6 @@ function CourseDetails() {
     return () => {
       setCourse(null);
     };
-  }, []);
-  // alert(id);
-
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
-
-  React.useEffect(() => {
-    loadScript("https://checkout.razorpay.com/v1/checkout.js");
   }, []);
 
   if (!auth.currentUser) {
@@ -162,24 +147,14 @@ function CourseDetails() {
                   </small>
                 </p>
 
-                {/* <form method="post" action="https://api.nuvc.org/pay10"> </form>*/}
-                <form method="post" action="http://localhost:80/pay10">
+                <form method="post" action={config.paymentUrl}>
                   <input type="text" value={cid} name="id" hidden />
                   <input type="text" value={uid} name="uid" hidden />
                   <input type="text" value={email} name="email" hidden />
-                  <input type="text" value={cid} name="jobId" hidden />
                   <input type="text" value={phoneNumber} name="phone" hidden />
                   <input type="text" value={displayName} name="name" hidden />
                   <input type="text" value="course" name="type" hidden />
-
-                  {/* <button type="submit" class="btn btn-primary">
-               Pay
-             </button> */}
-                  <button
-                    type="submit"
-                    class="btn btn-outline-success"
-                    // onClick={() => pay()}
-                  >
+                  <button type="submit" class="btn btn-outline-success">
                     Get Now <i class="fas fa-long-arrow-alt-right"></i>
                   </button>
                 </form>

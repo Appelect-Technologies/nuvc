@@ -224,31 +224,37 @@ const checkApplyStatus = async (req, res) => {
     console.log("job get", req.query);
     const job = await JobApply.findOne({ jobApplyId: req.query.id });
     console.log("job get", job);
-    if (Job && !Job.isPaid && job.step === 5)
-      return res.status(201).json({
+    // if (job && !job.isPaid && job.step === 5)
+    if (job) {
+      return res.json({
         msg: "job fatched",
         applyStatus: {
           _id: job._id,
           jobId: job.jobId,
           jobApplyId: job.jobApplyId,
-          isPaid: Job.isPaid,
+          isPaid: job.isPaid,
           name: job.fname + " " + job.lname,
           email: job.email,
           phone: job.phone,
           step: job.step,
         },
       });
-    return res.status(200).json({
-      msg: "job fatched",
-      applyStatus: {
-        _id: job._id,
-        jobApplyId: job.jobApplyId,
-        name: job.fname + " " + job.lname,
-        email: job.email,
-        phone: job.phone,
-        step: job.step,
-      },
-    });
+    } else {
+      res.sendStatus(404);
+    }
+
+    // return res.status(200).json({
+    //   msg: "job fatched",
+    //   applyStatus: {
+    //     _id: job._id,
+    //     jobApplyId: job.jobApplyId,
+    //     isPaid: job.isPaid,
+    //     name: job.fname + " " + job.lname,
+    //     email: job.email,
+    //     phone: job.phone,
+    //     step: job.step,
+    //   },
+    // });
   } catch (error) {
     console.log("get jobs", error);
     return res.status(500).json({ msg: "server error" });

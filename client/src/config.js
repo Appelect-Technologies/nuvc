@@ -25,5 +25,6 @@ export const config = {
   paymentUrl:
     process.env.NODE_ENV === "production"
       ? "https://api.nuvc.org/pay10"
-      : "http://localhost:80/pay10",
+      : "http://localhost:80/payment",
+  // : "http://localhost:80/pay10",
 };

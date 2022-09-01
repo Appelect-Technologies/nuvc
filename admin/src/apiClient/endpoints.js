@@ -6,6 +6,7 @@ export const GET_USERS = '/api/users';
 export const GET_LEADS = '/api/leads';
 export const GET_JOBS = '/api/jobs';
 export const GET_JOB_APPLICANTS = '/api/jobapplicants';
+export const GET_SUBSCRIPTIONS = '/api/subscriptions';
 
 export const CREATE_COURSES = '/api/digital';
 export const GET_COURSES = '/api/digitals';

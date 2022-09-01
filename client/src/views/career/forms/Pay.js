@@ -1,31 +1,8 @@
 import React from "react";
 import { config } from "../../../config";
-import pay from "../../../utils/pay";
 
 function Pay({ id, uid, body, email }) {
   const { phone, jobId, name } = body;
-  const handlePay = () => {
-    // body.jobId = id;
-    pay(id, uid, body);
-  };
-
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
-  React.useEffect(() => {
-    loadScript("https://checkout.razorpay.com/v1/checkout.js");
-  });
-
   return (
     <div class="card">
       <div class="card-header bg-white">
@@ -47,6 +24,10 @@ function Pay({ id, uid, body, email }) {
               value={id}
               id="id"
               name="id"
+              required
+              onChange={(e) => {
+                e.target.value = id;
+              }}
             />
           </div>
           <div class="mb-3">
@@ -57,6 +38,10 @@ function Pay({ id, uid, body, email }) {
               value={uid}
               id="uid"
               name="uid"
+              required
+              onChange={(e) => {
+                e.target.value = uid;
+              }}
             />
           </div>
           <div class="mb-3">
@@ -67,8 +52,13 @@ function Pay({ id, uid, body, email }) {
               class="form-control"
               value={email}
               name="email"
+              required
+              onChange={(e) => {
+                e.target.value = email;
+              }}
             />
           </div>
+          {/*
           <div class="mb-3">
             <label htmlFor="jobId">Job Id</label>
             <input
@@ -79,15 +69,16 @@ function Pay({ id, uid, body, email }) {
               name="jobId"
             />
           </div>
+        */}
           <div class="mb-3">
             <label htmlFor="phone">Phone</label>
             <input
-              type="text"
               class="form-control"
               type="number"
               value={phone}
               name="phone"
               id="phone"
+              required
             />
           </div>
           <div class="mb-3">
@@ -98,6 +89,7 @@ function Pay({ id, uid, body, email }) {
               value={name}
               name="name"
               id="name"
+              required
             />
           </div>
           <div class="mb-3">
@@ -108,6 +100,10 @@ function Pay({ id, uid, body, email }) {
               value="job"
               name="type"
               id="type"
+              required
+              onChange={(e) => {
+                e.target.value = "job";
+              }}
             />
           </div>
 

@@ -2,7 +2,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { TextField, Box, Grid } from '@mui/material';
 import React, { useState } from 'react';
 
-const DataGridCompnent = ({ rows, columns }) => {
+const DataGridCompnent = ({ rows, columns, dgProps = {} }) => {
   const [value, setValue] = useState(rows);
   const requestSearch = (searchedVal) => {
     const filteredRows = rows.filter((_) =>
@@ -62,6 +62,7 @@ const DataGridCompnent = ({ rows, columns }) => {
         columns={columns}
         pageSize={6}
         disableSelectionOnClick
+        {...dgProps}
         density="comfortable"
         sx={{
           background: 'white',

@@ -16,6 +16,7 @@ import Courses from 'src/pages/courses';
 import News from 'src/pages/news';
 import Notifications from 'src/pages/notifications';
 import Applicants from 'src/pages/applicants';
+import Subscriptions from 'src/pages/subscriptions';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -39,6 +40,7 @@ export default function Router() {
         { path: 'users', element: PrivateRoute(Users) },
         { path: 'jobs', element: PrivateRoute(Jobs) },
         { path: 'applicants', element: PrivateRoute(Applicants) },
+        { path: 'subscriptions', element: PrivateRoute(Subscriptions) },
         { path: 'news', element: PrivateRoute(News) },
         { path: 'notifications', element: PrivateRoute(Notifications) },
         { path: 'courses', element: PrivateRoute(Courses) },

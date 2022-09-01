@@ -17,6 +17,7 @@ import {
   FILE_UPLOAD,
   CREATE_COURSES,
   GET_JOB_APPLICANTS,
+  GET_SUBSCRIPTIONS,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -48,6 +49,10 @@ export function getJobs() {
 
 export function getJobApplicants() {
   return Axios.get(GET_JOB_APPLICANTS);
+}
+
+export function getSubscriptions() {
+  return Axios.get(GET_SUBSCRIPTIONS);
 }
 
 export function getCourses() {

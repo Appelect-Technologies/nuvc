@@ -31,6 +31,11 @@ const navConfig = [
     icon: getIcon('icon-park-outline:degree-hat'),
   },
   {
+    title: 'Subscriptions',
+    path: '/dashboard/subscriptions',
+    icon: getIcon('eos-icons:job'),
+  },
+  {
     title: 'News',
     path: '/dashboard/news',
     icon: getIcon('akar-icons:newspaper'),

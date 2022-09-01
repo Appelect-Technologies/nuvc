@@ -53,8 +53,8 @@ function Index({ user }) {
     }));
   };
 
-  React.useEffect(() => {
-    async function fatchData() {
+  async function fatchData() {
+    try {
       const res = await checkApplyStatus("?id=" + jobId + user.email);
       const { isPaid, step } = res.data?.applyStatus;
       // pay(jobId, user.uid, res.data?.applyStatus);
@@ -63,9 +63,13 @@ function Index({ user }) {
       } else {
         setState({ step: step + 1 });
       }
-
       console.log("apply data", res?.data);
+    } catch (error) {
+      console.log("error occured: ", error);
     }
+  }
+
+  React.useEffect(() => {
     fatchData();
     return () => {
       setState({ step: 1 });

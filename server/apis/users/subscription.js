@@ -1,5 +1,8 @@
 const UserSubscription = require("../../models/UserSubscription");
 const JobApply = require("../../models/JobApply");
+const Jobs = require("../../models/Job");
+const Courses = require("../../models/DigitalLearning");
+const Mongoose = require("mongoose");
 
 const userSubscription = async (req, res) => {
   try {
@@ -40,7 +43,7 @@ const userSubscription = async (req, res) => {
   }
 };
 
-const userSubscription10 = async ({
+const userSubscription10 = ({
   id,
   uid,
   type,
@@ -49,36 +52,74 @@ const userSubscription10 = async ({
   paymentID,
   orderId,
 }) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const newUserSubscription = new UserSubscription({
+        uid,
+        email,
+        type,
+        subscriptions: {
+          id,
+          amount,
+          paymentID,
+          orderId,
+        },
+      });
+      await newUserSubscription.save();
+      const job = await JobApply.findOne({ jobApplyId: `${id}${email}` });
+      console.log("--", job);
+      job.isPaid = true;
+      await job.save();
+
+      //---------------send email logic===========\
+
+      //------------------end logic-------------
+
+      console.log("payment details saved");
+      resolve("payment details saved");
+    } catch (error) {
+      console.log(error);
+      reject(error.message);
+    }
+  });
+};
+
+const getSubscriptions = async (req, res) => {
   try {
-    // console.log("---------sub-----", req.body);
-
-    const newUserSubscription = new UserSubscription({
-      uid,
-      email,
-      type,
-      subscriptions: {
-        id,
-        amount,
-        paymentID,
-        orderId,
-      },
+    const data = await UserSubscription.find({}).lean();
+    // joining job or course title
+    const promisesarr = data.map((item) => {
+      if (item.type === "job") {
+        return Jobs.findOne(
+          {
+            _id: Mongoose.Types.ObjectId(item.subscriptions.id),
+          },
+          "title -_id"
+        ).lean();
+      } else {
+        return Courses.findOne(
+          {
+            _id: Mongoose.Types.ObjectId(item.subscriptions.id),
+          },
+          "name -_id"
+        ).lean();
+      }
     });
-
-    await newUserSubscription.save();
-    const job = await JobApply.findOne({ jobApplyId: `${id}${email}` });
-    console.log("--", job);
-
-    job.isPaid = true;
-    await job.save();
-
-    //---------------send email logic===========\
-
-    //------------------end logic-------------
-
-    console.log("payment details saved");
+    const results = await Promise.all(promisesarr);
+    const arr = data.map((item, i) => {
+      return {
+        ...item,
+        subscriptions: {
+          ...item.subscriptions,
+          title: results[i].title,
+        },
+      };
+    });
+    return res.send({ msg: "successful", data: arr });
   } catch (error) {
     console.log(error);
+    return res.status(400).json({ msg: "error occured" });
   }
 };
 
-module.exports = { userSubscription10, userSubscription };
+module.exports = { userSubscription10, userSubscription, getSubscriptions };
