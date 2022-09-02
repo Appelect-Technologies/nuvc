@@ -4,7 +4,6 @@ const jobSchema = mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
     },
     icon: {
       type: String,
@@ -13,7 +12,7 @@ const jobSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
+      default: "",
     },
     url1: {
       type: String,
@@ -25,31 +24,31 @@ const jobSchema = mongoose.Schema(
     },
     qualification: {
       type: String,
-      required: true,
+      default: "",
     },
     number_of_vacancies: {
       type: String,
-      required: true,
+      default: "",
     },
     salary: {
       type: String,
-      required: true,
+      default: "",
     },
     syllabus_url: {
       type: String,
-      required: true,
+      default: "",
     },
     exam_date: {
       type: String,
-      required: true,
+      default: "",
     },
     application_fee_dis: {
       type: String,
-      required: true,
+      default: "",
     },
     application_fee: {
       type: String,
-      required: true,
+      default: "",
     },
   },
   {

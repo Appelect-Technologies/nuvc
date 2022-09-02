@@ -46,11 +46,11 @@ function CreateJobForm() {
     },
     validate: (values) => {
       const errors = {};
-      for (const key in values) {
-        if (!values[key] || values[key]?.toString().trim().length === 0) {
-          errors[key] = 'Field is required';
-        }
-      }
+      // for (const key in values) {
+      //   if (!values[key] || values[key]?.toString().trim().length === 0) {
+      //     errors[key] = 'Field is required';
+      //   }
+      // }
       return errors;
     },
     onSubmit: (values) => {
