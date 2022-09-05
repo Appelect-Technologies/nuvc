@@ -15,7 +15,6 @@
 /uploads
 
 # misc
-config.js
 
 .DS_Store
 .env.local
