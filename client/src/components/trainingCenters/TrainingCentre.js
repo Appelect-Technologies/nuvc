@@ -1,88 +1,53 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Location from './byLocation';
-
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+import * as React from "react";
+import { getTrainingCentres } from "../../utils/dataApi";
+import Location from "./byLocation";
+import Center from "./centres";
 
 export default function TrainingCentre() {
-  const [value, setValue] = React.useState(0);
+  const [values, setValues] = React.useState([]);
+  const [filteredValues, setFilteredValues] = React.useState([]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const fetchData = async () => {
+    try {
+      const res = await getTrainingCentres();
+      const arr = res.data.map((item, i) => {
+        item._id = i + 1;
+        return item;
+      });
+      setValues(arr);
+      setFilteredValues(arr);
+      // console.log(arr);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const [age, setAge] = React.useState('');
 
-  const handleChange1 = (event) => {
-    setAge(event.target.value);
+  const handleFilterCenters = (val, key) => {
+    if (key === "state") {
+      const arr = values.filter(
+        ({ state }) => state.toLowerCase() === val.toLowerCase()
+      );
+      setFilteredValues(arr);
+    }
+    if (key === "district") {
+      const arr = filteredValues.filter(
+        ({ state, districts }) => districts.toLowerCase() === val.toLowerCase()
+      );
+      setFilteredValues(arr);
+    }
   };
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-    <div style={{ padding:"10px" ,
-    margin: "10px" ,
-        border: "5px outset ",
-            
-        textAlign: "center"}}>
-         
-         <h2 style={{ color: "#5c007a" }}>Training Centre</h2>
-         <br></br>
-    <Box sx={{ width: '100%' , }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
-          <Tab label="" {...a11yProps(0)} />
-          <Tab label="" {...a11yProps(1)} />
-          <Tab label="Search By Location" {...a11yProps(2)} />
-        </Tabs>
-      </Box>  
-      {/* <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel> */}
-      <TabPanel value={value} index={2}>
-      <Location />
-      </TabPanel>
-    </Box>
+    <div className="my-4 p-2 p-md-4">
+      <h2 style={{ color: "#5c007a", textAlign: "center" }}>
+        Training Centres
+      </h2>
+      <Location handleFilterCenters={handleFilterCenters} />
+      <Center values={filteredValues} />
     </div>
   );
 }

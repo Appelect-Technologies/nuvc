@@ -81,3 +81,8 @@ export const getNews = async (query) => {
 export const postQuery = (values) => {
   return axios.post(config.baseUrl + config.leads, values);
 };
+
+// training centres
+export const getTrainingCentres = () => {
+  return axios.get(config.baseUrl + config.trainingCentres);
+};

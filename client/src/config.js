@@ -27,4 +27,5 @@ export const config = {
       ? "https://api.nuvc.org/payment"
       : "http://localhost:80/payment",
   // : "http://localhost:80/pay10",
+  trainingCentres: "/api/training-centers",
 };
