@@ -87,6 +87,21 @@ function Register({ handleNext }) {
         <br />
         <div class="input-group flex-nowrap">
           <span class="input-group-text" id="addon-wrapping">
+            <i class="fas fa-phone"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Phone Number"
+            aria-label="Number"
+            aria-describedby="addon-wrapping"
+            name="number"
+            onChange={handleChange}
+          />
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">
             <i class="fas fa-user"></i>
           </span>
           <input
