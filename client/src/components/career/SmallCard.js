@@ -1,25 +1,25 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 function SmallCard({
-  title = '',
-  salary = '',
-  icon = '',
-  id = '',
-  url1 = '',
-  url2 = '',
+  title = "",
+  salary = "",
+  icon = "",
+  id = "",
+  url1 = "",
+  url2 = "",
 }) {
-  const history = useHistory()
+  const history = useHistory();
   return (
     <div>
-      <div class='card' style={{ border: 'none' }}>
-        <div class='card-body'>
+      <div class="card" style={{ border: "none" }}>
+        <div class="card shadow-lg m-4">
           <center>
             {/* <i class={icon} style={{ fontSize: 80 }}></i> */}
-            <img src={icon} style={{ width: 100, height: 80 }} />
+            <img src={icon} style={{ width: "100%", height: "180px" }} />
           </center>
-          <figure class='text-center'>
-            <blockquote class='blockquote'>
+          <figure class="text-center">
+            <blockquote class="blockquote">
               <p>{title}</p>
             </blockquote>
             {/* <figcaption class="blockquote-footer">
@@ -31,25 +31,25 @@ function SmallCard({
             </figcaption> */}
 
             <a href={url1}>
-              <i class='fas fa-long-arrow-alt-right'></i>
+              <i class="fas fa-long-arrow-alt-right"></i>
             </a>
             <a href={url2}>
-              <i class='fas fa-long-arrow-alt-right'></i>
+              <i class="fas fa-long-arrow-alt-right"></i>
             </a>
 
             <br />
             <button
-              type='button'
-              class='btn btn-outline-info'
-              onClick={() => history.push('/creers/descp/' + id)}
+              type="button"
+              class="btn btn-outline-info"
+              onClick={() => history.push("/creers/descp/" + id)}
             >
-              Learn More <i class='fas fa-long-arrow-alt-right'></i>
+              Learn More <i class="fas fa-long-arrow-alt-right"></i>
             </button>
           </figure>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SmallCard
+export default SmallCard;

@@ -32,8 +32,11 @@ function CourseDiscp() {
         src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/scholarship.jpeg"}
         style={{ width: "100%" }}
       />
-      <div className="container">
-        <div class="card mx-lg-4  my-4 shadow-sm" style={{ maxWidth: 500 }}>
+      <div
+        className="container"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <div class="card mx-lg-4  my-4 shadow-lg" style={{ maxWidth: "80%" }}>
           <div class="card-header bg-white">
             <h5 class="card-title">{job.title}</h5>
           </div>
@@ -52,7 +55,13 @@ function CourseDiscp() {
               // __v: 0
               // _id:
             }
-            <h5 class="card-subtitle mb-2 text-muted">Job Description</h5>
+            <img src={job.icon} style={{ width: "100%", height: "22vw" }} />
+            <h5
+              class="card-subtitle mb-2 text-muted"
+              style={{ paddingTop: "1vw" }}
+            >
+              Job Description
+            </h5>
             <p class="card-text">{job.description}</p>
             <h5 class="card-subtitle mb-2 text-muted">
               No. Of Vacancies : {job.number_of_vacancies}
