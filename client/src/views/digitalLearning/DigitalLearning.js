@@ -22,7 +22,7 @@ function DigitalLearning() {
         src={
           "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527073622-563412800-digi_learning.jpeg"
         }
-        style={{ width: "100%" }}
+        style={{ width: "100%", height: "300px"}}
       />
       <div className="container" style={{ paddingTop: 15, paddingBottom: 15 }}>
         <div className="row">

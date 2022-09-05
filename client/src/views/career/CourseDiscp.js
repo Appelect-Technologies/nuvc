@@ -76,6 +76,9 @@ function CourseDiscp() {
 
             <h5 class="card-subtitle mb-2 text-muted">Salary : {job.salary}</h5>
             <h5 class="card-subtitle mb-2 text-muted">
+              Last Date : {job.lastdate}
+            </h5>
+            <h5 class="card-subtitle mb-2 text-muted">
               Exame Date : {job.exam_date}
             </h5>
             <h5 class="card-subtitle mb-2 text-muted">
