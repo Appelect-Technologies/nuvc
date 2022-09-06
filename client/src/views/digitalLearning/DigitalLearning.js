@@ -20,9 +20,9 @@ function DigitalLearning() {
     <div>
       <img
         src={
-          "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527073622-563412800-digi_learning.jpeg"
+          "https://nuvc-public.s3.ap-south-1.amazonaws.com/1-01.png"
         }
-        style={{ width: "100%" }}
+        style={{ width: "100%", height: "300px"}}
       />
       <div className="container" style={{ paddingTop: 15, paddingBottom: 15 }}>
         <div className="row">

@@ -26,6 +26,11 @@ const navConfig = [
     icon: getIcon('eos-icons:job'),
   },
   {
+    title: 'Training Centres',
+    path: '/dashboard/traningCenters',
+    icon: getIcon('eos-icons:job'),
+  },
+  {
     title: 'Digital Learning Programs',
     path: '/dashboard/courses',
     icon: getIcon('icon-park-outline:degree-hat'),

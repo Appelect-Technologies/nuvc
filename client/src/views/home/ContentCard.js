@@ -2,7 +2,9 @@ import React from "react";
 
 function ContentCard() {
   return (
-    <div className="card my-4">
+    <div className="shadow-lg p-3 mb-5 bg-white rounded my-4" 
+    style={{backgroundImage: "url('https://nuvc-public.s3.ap-south-1.amazonaws.com/Untitled+design+(16).png')",backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',backgroundAttachment: 'fixed',backgroundPosition: 'bottom'}}>
       <div className="card-header bg-white">
         <h2>
           <b>आपका स्वागत है</b>

@@ -28,17 +28,17 @@ function CourseDiscp() {
 
   return (
     <div>
-      <img
-        src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/scholarship.jpeg"}
-        style={{ width: "100%" }}
-      />
+      {/* <img
+        src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/SCHOLARSHIPS+website+for+banner-01.png"}
+        style={{ width: "100%", height: "200px"}}
+      /> */}
       <div
         className="container"
         style={{ display: "flex", justifyContent: "center" }}
       >
         <div class="card mx-lg-4  my-4 shadow-lg" style={{ maxWidth: "80%" }}>
           <div class="card-header bg-white">
-            <h5 class="card-title">{job.title}</h5>
+            <h4 class="card-title" style={{textAlign: "center"}}>{job.title}</h4>
           </div>
 
           <div class="card-body">
@@ -75,6 +75,9 @@ function CourseDiscp() {
             </h5>
 
             <h5 class="card-subtitle mb-2 text-muted">Salary : {job.salary}</h5>
+            <h5 class="card-subtitle mb-2 text-muted">
+              Last Date : {job.lastdate}
+            </h5>
             <h5 class="card-subtitle mb-2 text-muted">
               Exame Date : {job.exam_date}
             </h5>

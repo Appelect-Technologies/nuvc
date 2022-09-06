@@ -6,24 +6,24 @@ import education from "../asstes/education.jpeg";
 
 function OurPrograms({ data }) {
   return (
-    <div class="container">
+    <div   style={{backgroundColor: "#5c007a" , borderRadius: "20px", paddingLeft: "130px", paddingRight: "130px"}}> 
       <center>
         <br />
-        <h4>Our Programs</h4>
+        <h2 style={{ color: "white" ,  fontWeight: "bold"}} >Our Programs</h2>
         <br />
       </center>
-      <div class="row no-gutters">
+      <div class="row no-gutters" >
         {data.map((item, i) => (
-          <div className="col-12 col-sm-6 col-xl-3" key={i}>
-            <div class="card">
+          <div className="col-md-3 col-sm-12" key={i}>
+            <div class="shadow-lg p-3 mb-5 bg-white rounded" style={{ }}>
               <img
                 src={item.image}
                 class="card-img-top"
                 style={{ objectFit: "cover" }}
               />
               <div class="card-body">
-                <h5 class="card-title">{item.heading}</h5>
-                <p class="card-text">{item.desc}</p>
+                <h5 class="card-title" style={{textAlign: "center"}}>{item.heading}</h5>
+                <p class="card-text" style={{textAlign: "justify"}}>{item.desc}</p>
               </div>
             </div>
           </div>
@@ -41,9 +41,9 @@ OurPrograms.defaultProps = {
       goverment or Non-government sector.Promoting awareness on National
       apprentice program, National Career service, NSDC ASEEM PORTAL,
       SKILL INDIA, GOVERNMENT Employment exchange, Atmanirvar Bharat
-      Rojgar Abhiyan, Gareeb Kalyan Rojgar Abhiyan etc`,
+      Rojgar Abhiyan, etc`,
       image:
-        "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527212006-737562494-entrepreneur.jpeg",
+        "https://nuvc-public.s3.ap-south-1.amazonaws.com/%E0%A4%86%E0%A4%A4%E0%A5%8D%E0%A4%AE%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AD%E0%A4%B0+%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4+%E0%A4%B0%E0%A5%8B%E0%A4%9C%E0%A4%97%E0%A4%BE%E0%A4%B0+%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A4%BE.png",
     },
     {
       heading: "Entrepreneur Development Center",
@@ -53,16 +53,12 @@ OurPrograms.defaultProps = {
       Promoting awareness on fundraising through loan or equity
       investor.`,
       image:
-        "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527174567-364336451-employment.jpeg",
+        "https://nuvc-public.s3.ap-south-1.amazonaws.com/Entrepreneurship-post--website.png",
     },
     {
       heading: "Skill Development Program",
-      desc: `To train unemployed youth respective of available opportunities.
-      various entrepreneurship skill development program as PMKVY, Sikho
-      Kamao, DAY-NULM, DDUGKY, Hunar se Rojgar Tak, Sankalp scheme, Nayi
-      Roshni, Recruit-Train-Deploy Skill Development Program`,
-      image:
-        "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527192502-265544053-skill.jpeg",
+      desc: `To train unemployed youth respective of available opportunities and various entrepreneurship skill development program as PMKVY, Sikho Kamao, DAY-NULM, DDUGKY, Hunar se Rojgar Tak, Sankalp scheme, Nayi Roshni, Recruit-Train-Deploy Skill Development Program`,
+      image:"https://nuvc-public.s3.ap-south-1.amazonaws.com/Skill+Development+Program.png",
     },
     {
       heading: "Empowerment Education System",
@@ -72,7 +68,7 @@ OurPrograms.defaultProps = {
       every course, Coding Class from class 6, KAUSHAL YUVA - KUSHAL
       BHARAT, AATMANIRBHAR YUVA- AATMANIRBHAR BHARAT.`,
       image:
-        "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661527140769-912915342-education.jpeg",
+        "https://nuvc-public.s3.ap-south-1.amazonaws.com/NEW++NATIONAL.png",
     },
   ],
 };
