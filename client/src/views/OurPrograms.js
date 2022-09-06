@@ -6,7 +6,7 @@ import education from "../asstes/education.jpeg";
 
 function OurPrograms({ data }) {
   return (
-    <div   style={{backgroundColor: "#5c007a" , borderRadius: "20px", paddingLeft: "130px", paddingRight: "130px"}}> 
+    <div   style={{backgroundColor: "#5c007a" , borderRadius: "20px"}}> 
       <center>
         <br />
         <h2 style={{ color: "white" ,  fontWeight: "bold"}} >Our Programs</h2>
