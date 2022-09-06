@@ -5,14 +5,15 @@ function About() {
     <div>
       <img
         src={
-          "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661526920825-917177555-about-us.jpeg"
+          "https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+4+PART-01-01.png"
         }
-        style={{ width: "100%" }}
+        style={{ width: "100%" ,height:"300px"}}
       />
 
       <div className="container">
-        <div className="card shadow-sm my-5">
-          <div className="card-header bg-white">
+        <div className="shadow-lg p-3 mb-5 bg-white rounded my-4" style={{backgroundImage: "url('https://nuvc-public.s3.ap-south-1.amazonaws.com/Untitled+design+(17).png')",backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',backgroundAttachment: 'fixed'}}>
+          <div className="card-header   ">
             <b style={{ color: "red" }}>
               <h1> उद्यमित कार्नर </h1>
             </b>

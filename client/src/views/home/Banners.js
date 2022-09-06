@@ -52,7 +52,7 @@ function Banners() {
         ></button>
       </div>
       <div className="carousel-inner">
-        <div className="carousel-item active">
+        <div className="carousel-item active"  >
           <img src={b1} className="d-block w-100 banner" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
