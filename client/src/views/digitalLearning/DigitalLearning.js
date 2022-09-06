@@ -1,7 +1,7 @@
 import React from "react";
 import DigitalCard from "../../components/digitalLearning/DigitalCard";
 import { getDigitalCourses } from "../../utils/dataApi";
-
+import hero from "../../asstes/digital/hero.png";
 function DigitalLearning() {
   const [courses, setCourses] = React.useState([]);
   React.useEffect(() => {
@@ -18,12 +18,12 @@ function DigitalLearning() {
   }, []);
   return (
     <div>
+      <div>
       <img
-        src={
-          "https://nuvc-public.s3.ap-south-1.amazonaws.com/1-01.png"
-        }
-        style={{ width: "100%", height: "300px"}}
+        src={hero}
+        style={{ width: "100%", height: "200px"}}
       />
+      </div>
       <div className="container" style={{ paddingTop: 15, paddingBottom: 15 }}>
         <div className="row">
           {courses?.map((course) => {
