@@ -18,6 +18,7 @@ import {
   CREATE_COURSES,
   GET_JOB_APPLICANTS,
   GET_SUBSCRIPTIONS,
+  UPDATE_JOB,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -69,6 +70,10 @@ export function getNews(query = '') {
 
 export function createNewJob(values) {
   return Axios.post(CREATE_JOB, values);
+}
+
+export function updateJob(values) {
+  return Axios.patch(UPDATE_JOB.replace(':jobId', values._id), values);
 }
 
 export function createNews(values) {

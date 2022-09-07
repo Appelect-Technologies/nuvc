@@ -4,11 +4,16 @@ import FullScreenDialog from 'src/components/fullScreenDialog';
 import { getJobs } from 'src/services';
 import CreateJobForm from './createJob';
 import JobsComponent from './list';
+import UpdateJobForm from './updateJob';
 
 const Jobs = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [values, setValues] = useState([]);
   const [show, setShow] = useState(false);
+  const [updateJob, setUpdateJob] = useState({
+    show: false,
+    data: null,
+  });
 
   const handleFetchData = async () => {
     try {
@@ -35,6 +40,21 @@ const Jobs = () => {
     handleFetchData();
   };
 
+  // update funcitons
+  const handleShowUpdateJobScreen = (values) => {
+    setUpdateJob({
+      show: true,
+      data: values,
+    });
+  };
+
+  const handleHideUpdateJobScreen = () => {
+    setUpdateJob({
+      show: false,
+      data: null,
+    });
+  };
+
   useEffect(() => {
     handleFetchData();
   }, []);
@@ -42,10 +62,15 @@ const Jobs = () => {
   if (isFetching) return <CircularProgress />;
   return (
     <Fragment>
-      <JobsComponent data={values} onAdd={handleShowDialog} />
+      <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateJobScreen} />
       <FullScreenDialog title="Add New Job" open={show} handleClose={handleHideDialog}>
         <CreateJobForm />
       </FullScreenDialog>
+      {updateJob.show && (
+        <FullScreenDialog title="Update Job" open={updateJob.show} handleClose={handleHideUpdateJobScreen}>
+          <UpdateJobForm data={updateJob.data} />
+        </FullScreenDialog>
+      )}
     </Fragment>
   );
 };

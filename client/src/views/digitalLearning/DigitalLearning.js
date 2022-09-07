@@ -19,16 +19,16 @@ function DigitalLearning() {
   return (
     <div>
       <div>
-      <img
-        src={hero}
-        style={{ width: "100%", height: "200px"}}
-      />
+        <img src={hero} style={{ width: "100%", height: "200px" }} />
       </div>
-      <div className="container" style={{ paddingTop: 15, paddingBottom: 15 }}>
+      <div
+        className="container-fluid"
+        style={{ paddingTop: 15, paddingBottom: 15 }}
+      >
         <div className="row">
           {courses?.map((course) => {
             return (
-              <div className="col-md-4 col-sm-12">
+              <div className="col-12 col-md-6 col-xl-4">
                 <DigitalCard
                   name={course.name}
                   price={course.price}
