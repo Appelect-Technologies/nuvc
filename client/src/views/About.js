@@ -1,12 +1,10 @@
 import React from "react";
-import banner from "../asstes/about-us.jpeg";
+
 function About() {
   return (
     <div>
       <img
-        src={
-          "https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+4+PART-01-01.png"
-        }
+        src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+IIi+PART-01.png"}
         style={{ width: "100%" ,height:"300px"}}
       />
 

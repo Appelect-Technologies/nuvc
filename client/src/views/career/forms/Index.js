@@ -15,6 +15,7 @@ import { auth } from "firebase-admin";
 import pay from "../../../utils/pay";
 import Pay from "./Pay";
 import Thanku from "./thanku";
+import Preview from "./preview";
 
 // Qualification
 // State
@@ -302,7 +303,7 @@ function Index({ user }) {
       );
     case 6:
       return (
-        <Thanku />
+        <Preview />
         
       );
       case 7:
@@ -319,6 +320,11 @@ function Index({ user }) {
           id={jobId}
         />
         );
+      //   case 8:
+      // return (
+      //   <Thanku />
+        
+      // );
   }
 }
 
