@@ -14,6 +14,7 @@ import { checkApplyStatus } from "../../../utils/dataApi";
 import { auth } from "firebase-admin";
 import pay from "../../../utils/pay";
 import Pay from "./Pay";
+import Thanku from "./thanku";
 
 // Qualification
 // State
@@ -301,7 +302,12 @@ function Index({ user }) {
       );
     case 6:
       return (
-        <Pay
+        <Thanku />
+        
+      );
+      case 7:
+        return (
+          <Pay
           email={user.email}
           uid={user.uid}
           body={{
@@ -312,7 +318,7 @@ function Index({ user }) {
           }}
           id={jobId}
         />
-      );
+        );
   }
 }
 

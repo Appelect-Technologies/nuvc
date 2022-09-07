@@ -110,7 +110,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
                 />
               </div>
             </div> */}
-            <div className="col-md-12 col-sm-12">
+            {/* <div className="col-md-12 col-sm-12">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">
                   Job Role / पद का नाम
@@ -123,7 +123,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
                   onChange={handleChange}
                 />
               </div>
-            </div>
+            </div> */}
             {/* <div className="col-md-12 col-sm-12">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">
@@ -207,7 +207,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
             style={{ marginRight: 10 }}
             onClick={back}
           >
-            Back <i className="fas fa-long-arrow-alt-right"></i>
+             <i className="fas fa-long-arrow-alt-left"></i>Back
           </button>
           <button
             type="button"
