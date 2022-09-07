@@ -23,7 +23,7 @@ function UpdateJobForm({ data }) {
       formik.resetForm();
       formRef.current.reset();
     } catch (error) {
-      alert(error.message);
+      alert(error.message); 
     } finally {
       formik.setSubmitting();
     }

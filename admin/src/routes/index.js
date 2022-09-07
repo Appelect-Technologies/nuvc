@@ -17,6 +17,7 @@ import News from 'src/pages/news';
 import Notifications from 'src/pages/notifications';
 import Applicants from 'src/pages/applicants';
 import Subscriptions from 'src/pages/subscriptions';
+import Center from 'src/pages/./TrainingCenter/Center';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -45,6 +46,7 @@ export default function Router() {
         { path: 'notifications', element: PrivateRoute(Notifications) },
         { path: 'courses', element: PrivateRoute(Courses) },
         { path: 'leads', element: PrivateRoute(Leads) },
+        { path: 'center', element: PrivateRoute(Center) },
       ],
     },
     { path: '*', element: <Navigate to="/404" replace /> },

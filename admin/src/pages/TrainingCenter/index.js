@@ -1,8 +1,8 @@
 import { CircularProgress } from '@mui/material';
 import React, { Fragment, useEffect, useState } from 'react';
 import FullScreenDialog from 'src/components/fullScreenDialog';
-import { getJobs } from 'src/services';
-import CreateJobForm from './createJob';
+import { getCenter } from 'src/services';
+import CreateJobForm from './createCenters';
 import JobsComponent from './list';
 import UpdateJobForm from './updateJob'; 
 
@@ -12,7 +12,7 @@ const Jobs = () => {
   const [show, setShow] = useState(false);
   const [updateJob, setUpdateJob] = useState({
     show: false,
-    data: null, 
+    data: null,
   });
 
   const handleFetchData = async () => {

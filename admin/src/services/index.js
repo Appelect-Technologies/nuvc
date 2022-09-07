@@ -19,6 +19,8 @@ import {
   GET_JOB_APPLICANTS,
   GET_SUBSCRIPTIONS,
   UPDATE_JOB,
+  GET_Center,
+  Update_COURSES,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -47,6 +49,9 @@ export function getLeads() {
 export function getJobs() {
   return Axios.get(GET_JOBS);
 }
+export function getCenter() {
+  return Axios.get(GET_Center);
+}
 
 export function getJobApplicants() {
   return Axios.get(GET_JOB_APPLICANTS);
@@ -57,11 +62,15 @@ export function getSubscriptions() {
 }
 
 export function getCourses() {
-  return Axios.get(GET_COURSES);
+  return Axios.get(GET_COURSES); 
 }
 
 export function createCourse(values) {
   return Axios.post(CREATE_COURSES, values);
+}
+
+export function UpdateCourse(values) {
+return Axios.patch(Update_COURSES.replace(':COURSE', values._id), values);
 }
 
 export function getNews(query = '') {
@@ -70,6 +79,13 @@ export function getNews(query = '') {
 
 export function createNewJob(values) {
   return Axios.post(CREATE_JOB, values);
+}
+
+export function CreateCenter(values) {
+  return Axios.post(GET_Center, values);
+}
+export function createCenter(values) {
+  return Axios.post(GET_Center, values);
 }
 
 export function updateJob(values) {

@@ -7,9 +7,11 @@ export const GET_LEADS = '/api/leads';
 export const GET_JOBS = '/api/jobs';
 export const GET_JOB_APPLICANTS = '/api/jobapplicants';
 export const GET_SUBSCRIPTIONS = '/api/subscriptions';
+export const GET_Center = '/api/Center';
 
 export const CREATE_COURSES = '/api/digital';
-export const GET_COURSES = '/api/digitals';
+export const GET_COURSES = '/api/digitals'; 
+export const Update_COURSES = '/api/digitals';
 
 export const FILE_UPLOAD = '/upload';
 
@@ -21,3 +23,5 @@ export const CREATE_NEWS = '/api/news?type=news';
 
 export const GET_NOTIFICATIONS = '/api/getAllNews';
 export const CREATE_NOTIFICATION = '/api/news?type=notify';
+
+
