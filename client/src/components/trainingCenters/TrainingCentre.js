@@ -42,7 +42,7 @@ export default function TrainingCentre() {
   }, []);
 
   return (
-    <div className="my-4 p-2 p-md-4">
+    <div className="container-xl my-4">
       <h2 style={{ color: "#5c007a", textAlign: "center" }}>
         Training Centres
       </h2>

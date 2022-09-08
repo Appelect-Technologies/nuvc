@@ -179,7 +179,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
                 type="radio"
                 name="isJobOutsideIndia"
                 id="exampleRadios211"
-                value={true}
+                value={"yes"}
                 onChange={handleChange}
               />
               <label class="form-check-label" for="exampleRadios211">
@@ -192,7 +192,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
                 type="radio"
                 name="isJobOutsideIndia"
                 id="exampleRadios214"
-                value={false}
+                value={"no"}
                 onChange={handleChange}
               />
               <label class="form-check-label" for="exampleRadios214">
@@ -207,7 +207,7 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
             style={{ marginRight: 10 }}
             onClick={back}
           >
-             <i className="fas fa-long-arrow-alt-left"></i>Back
+            <i className="fas fa-long-arrow-alt-left"></i>Back
           </button>
           <button
             type="button"

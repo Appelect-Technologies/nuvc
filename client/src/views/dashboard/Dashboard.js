@@ -8,6 +8,7 @@ function Dashboard() {
   const auth = getAuth(app);
   const [jobs, setJobs] = React.useState([]);
   const history = useHistory();
+
   React.useEffect(() => {
     async function fetchData() {
       const email = auth?.currentUser ? auth?.currentUser?.email : "";
@@ -21,52 +22,59 @@ function Dashboard() {
       setJobs([]);
     };
   }, []);
-  return (
-    <div className="container">
-      <div class="card" style={{ margin: 20 }}>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">SN</th>
-                <th scope="col">Email</th>
-                <th scope="col">Name</th>
-                <th scope="col">Course</th>
-                <th scope="col">OrderId</th>
-                <th scope="col">PaymentId</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {jobs?.map((value, key) => {
-                return (
-                  <tr>
-                    <th scope="row">{key}</th>
-                    <td>{value.email}</td>
-                    <td>{value.fname + " " + value.lname}</td>
-                    <td>{value.jobId}</td>
-                    <td>{}</td>
-                    <td>{}</td>
-                    <td>
-                      {value.isPaid ? (
-                        <button className="btn btn-success">Paid</button>
-                      ) : (
-                        <button
-                          className="btn btn-info"
-                          onClick={() => history.push("/apply/" + value.jobId)}
-                        >
-                          Pay
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
 
-              <tr></tr>
-            </tbody>
-          </table>
+  return (
+    <div className="container-lg">
+      <div class="card" style={{ margin: 20 }}>
+        <div className="card-header">
+          <h5>Applications</h5>
+        </div>
+        <div class="card-body">
+          <div className="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">SN</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">OrderId</th>
+                  <th scope="col">PaymentId</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {jobs?.map((value, key) => {
+                  return (
+                    <tr>
+                      <th scope="row">{key + 1}</th>
+                      <td>{value.email}</td>
+                      <td>{value.fname + " " + value.lname}</td>
+                      <td>{value.jobId}</td>
+                      <td>{}</td>
+                      <td>{}</td>
+                      <td>
+                        {value.isPaid ? (
+                          <button className="btn btn-success">Paid</button>
+                        ) : (
+                          <button
+                            className="btn btn-info"
+                            onClick={() =>
+                              history.push("/apply/" + value.jobId)
+                            }
+                          >
+                            Pay
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+
+                <tr></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

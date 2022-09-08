@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default function ListCentres({ values = [] }) {
   return (
-    <div class="table-responsive-xl">
+    <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
