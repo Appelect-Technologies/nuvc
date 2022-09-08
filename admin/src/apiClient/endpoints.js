@@ -14,6 +14,7 @@ export const GET_COURSES = '/api/digitals';
 export const FILE_UPLOAD = '/upload';
 
 export const CREATE_JOB = '/api/job';
+export const UPDATE_JOB = '/api/job/:jobId';
 
 export const GET_NEWS = '/api/getAllNews';
 export const CREATE_NEWS = '/api/news?type=news';

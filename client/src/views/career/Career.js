@@ -19,10 +19,10 @@ function Career() {
   return (
     <div className="container">
       {/* <Process /> */}
-      <div className="row crd">
+      <div className="row">
         {jobs?.map((job) => {
           return (
-            <div className="col-md-4 col-sm-12">
+            <div className="col-12 col-md-6 col-xl-4">
               <SmallCard
                 title={job.title}
                 salary={job.salary}
