@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Button, Container, Stack, Tooltip, Typography } from '@mui/material';
 import DataGridCompnent from 'src/components/utils/uiComponents/dataGrid';
 
-const cols = [
+const getColumns = (handleShowUpdateCenterScreen) => [
   { field: 'id', headerName: 'ID', width: 90, hide: true },
   {
     field: 'Sr.No.',
@@ -89,14 +89,25 @@ const cols = [
   //     </Tooltip>
   //   ),
   // },
+  {
+    field: 'actions',
+    headerName: 'Actions',
+    width: 150,
+    renderCell: (param) => (
+      <Tooltip title="Click to edit">
+        <Button onClick={() => handleShowUpdateCenterScreen(param.row)}>Edit</Button>
+      </Tooltip>
+    ),
+  },
 ];
 
-function ListJobs({ data, onAdd = () => {} }) {
+function ListCenter({ data, onAdd = () => {}, handleShowUpdateJobScreen }) {
+  const columns = getColumns(handleShowUpdateJobScreen);
   return (
     <Container maxWidth="xl">
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>
         <Typography variant="h4" gutterBottom>
-          Jobs
+          Centers
         </Typography>
         <Tooltip title="click to add job">
           <Button variant="contained" onClick={onAdd}>
@@ -104,9 +115,9 @@ function ListJobs({ data, onAdd = () => {} }) {
           </Button>
         </Tooltip>
       </Stack>
-      <DataGridCompnent columns={cols} rows={data} />
+      <DataGridCompnent columns={columns} rows={data} />
     </Container>
   );
 }
 
-export default ListJobs;
+export default ListCenter;

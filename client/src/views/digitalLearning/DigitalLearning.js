@@ -19,7 +19,7 @@ function DigitalLearning() {
   return (
     <div>
       <div>
-        <img src={hero} style={{ width: "100%", height: "200px" }} />
+        <img src={hero} style={{ width: "98.9vw", height: "15vw" }} />
       </div>
       <div
         className="container-fluid"

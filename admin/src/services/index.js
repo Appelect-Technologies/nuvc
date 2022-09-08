@@ -21,6 +21,7 @@ import {
   UPDATE_JOB,
   GET_Center,
   Update_COURSES,
+  Update_Center,
 } from '../apiClient/endpoints';
 
 export function signin(values) {
@@ -51,6 +52,10 @@ export function getJobs() {
 }
 export function getCenter() {
   return Axios.get(GET_Center);
+}
+
+export function UpdateCenterForm(values) {
+  return Axios.patch(Update_Center.replace(':Center', values._id), values);
 }
 
 export function getJobApplicants() {
@@ -84,9 +89,7 @@ export function createNewJob(values) {
 export function CreateCenter(values) {
   return Axios.post(GET_Center, values);
 }
-export function createCenter(values) {
-  return Axios.post(GET_Center, values);
-}
+
 
 export function updateJob(values) {
   return Axios.patch(UPDATE_JOB.replace(':jobId', values._id), values);
