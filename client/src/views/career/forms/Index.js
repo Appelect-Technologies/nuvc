@@ -14,6 +14,8 @@ import { checkApplyStatus } from "../../../utils/dataApi";
 import { auth } from "firebase-admin";
 import pay from "../../../utils/pay";
 import Pay from "./Pay";
+import Thanku from "./thanku";
+import Preview from "./preview";
 
 // Qualification
 // State
@@ -59,9 +61,9 @@ function Index({ user }) {
       const { isPaid, step } = res.data?.applyStatus;
       // pay(jobId, user.uid, res.data?.applyStatus);
       if (isPaid) {
-        setIsAlreadyApplied(true);
+        // setIsAlreadyApplied(true);
       } else {
-        setState({ step: step + 1 });
+        // setState({ step: step + 1 });
       }
       console.log("apply data", res?.data);
     } catch (error) {
@@ -300,6 +302,8 @@ function Index({ user }) {
         />
       );
     case 6:
+      return <Preview />;
+    case 7:
       return (
         <Pay
           email={user.email}
@@ -313,6 +317,11 @@ function Index({ user }) {
           id={jobId}
         />
       );
+    //   case 8:
+    // return (
+    //   <Thanku />
+
+    // );
   }
 }
 
