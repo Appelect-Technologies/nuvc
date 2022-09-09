@@ -14,7 +14,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     photo: "",
     idBack: "",
     idFront: "",
-    idName: "0",
+    idName: "Aadhaar",
   });
 
   const [error, setError] = React.useState({
@@ -22,10 +22,10 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     photo: "",
     idBack: "",
     idFront: "",
-    idName: "0",
+    idName: "Aadhaar",
   });
 
-  const [select, setSelect] = React.useState(0);
+  const [select, setSelect] = React.useState("Aadhaar");
   const back = (e) => {
     e.preventDefault();
     prevStep();
@@ -40,7 +40,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
         photo: "",
         idBack: "",
         idFront: "",
-        idName: "0",
+        idName: "Aadhaar",
       });
       return;
     }
@@ -51,7 +51,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
         photo: "Please upload your photo",
         idBack: "",
         idFront: "",
-        idName: "0",
+        idName: "Aadhaar",
       });
       return;
     }
@@ -62,7 +62,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
         photo: "",
         idBack: "",
         idFront: "Please upload front side of  your id",
-        idName: "0",
+        idName: "Aadhaar",
       });
       return;
     }
@@ -73,7 +73,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
         photo: "",
         idBack: "Please upload back side of your id",
         idFront: "",
-        idName: "0",
+        idName: "Aadhaar",
       });
       return;
     }
@@ -219,13 +219,13 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
                 aria-label="Default select example"
                 onChange={handleSelect}
               >
-                <option value="0" selected>
-                  Aadhar
+                <option value="Aadhaar" selected>
+                  Aadhaar Card
                 </option>
-                <option value="1">Voter Id Card</option>
-                <option value="2">PAN Card</option>
-                <option value="3">Passport</option>
-                <option value="4">Driving Licence</option>
+                <option value="Voter ID">Voter Id Card</option>
+                <option value="Pan">PAN Card</option>
+                <option value="Passport">Passport</option>
+                <option value="Driving Licence">Driving Licence</option>
               </select>
             </div>
 

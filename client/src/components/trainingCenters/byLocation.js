@@ -11,7 +11,7 @@ const Location = ({ handleFilterCenters }) => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-12 col-md-4 col-xl-3">
+        <div className="col-12 col-md-4">
           <div className="form-control border-0">
             <label htmlFor="state" style={{ marginRight: 10 }}>
               State
@@ -35,7 +35,7 @@ const Location = ({ handleFilterCenters }) => {
             </select>
           </div>
         </div>
-        <div className="col-12 col-md-4 col-xl-3">
+        <div className="col-12 col-md-4">
           <div className="form-control border-0">
             <label htmlFor="state" style={{ marginRight: 10 }}>
               District

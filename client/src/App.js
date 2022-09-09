@@ -40,7 +40,6 @@ import Faq from "./views/pages/Faq";
 import Pay10 from "./Pay";
 import TrainingCentre from "./components/trainingCenters/TrainingCentre";
 
-
 function App() {
   const auth = getAuth(app);
   const [user, setUser] = React.useState(null);
