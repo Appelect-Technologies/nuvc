@@ -6,24 +6,41 @@ import education from "../asstes/education.jpeg";
 
 function OurPrograms({ data }) {
   return (
-    <div   style={{backgroundColor: "#5c007a" , borderRadius: "20px"}}> 
+    <div
+      style={{
+        backgroundColor: "#9572f8",
+        borderRadius: "2px",
+        width: "98.9vw",
+        // display: "flex",
+        padding: "50px",
+      }}
+    >
       <center>
         <br />
-        <h2 style={{ color: "white" ,  fontWeight: "bold"}} >Our Programs</h2>
+        <h2 style={{ color: "black", fontWeight: "bold", fontSize: "3rem" }}>
+          Our Programs
+        </h2>
         <br />
       </center>
-      <div class="row no-gutters" >
+      <div class="row no-gutters">
         {data.map((item, i) => (
           <div className="col-md-3 col-sm-12" key={i}>
-            <div class="shadow-lg p-3 mb-5 bg-white rounded" style={{ }}>
+            <div
+              class=" p-3 mb-5 bg-white rounded"
+              style={{ boxShadow: " 5px 5px 10px skyblue inset" }}
+            >
               <img
                 src={item.image}
                 class="card-img-top"
                 style={{ objectFit: "cover" }}
               />
               <div class="card-body">
-                <h5 class="card-title" style={{textAlign: "center"}}>{item.heading}</h5>
-                <p class="card-text" style={{textAlign: "justify"}}>{item.desc}</p>
+                <h5 class="card-title" style={{ textAlign: "center" }}>
+                  {item.heading}
+                </h5>
+                <p class="card-text" style={{ textAlign: "justify" }}>
+                  {item.desc}
+                </p>
               </div>
             </div>
           </div>
@@ -58,7 +75,8 @@ OurPrograms.defaultProps = {
     {
       heading: "Skill Development Program",
       desc: `To train unemployed youth respective of available opportunities and various entrepreneurship skill development program as PMKVY, Sikho Kamao, DAY-NULM, DDUGKY, Hunar se Rojgar Tak, Sankalp scheme, Nayi Roshni, Recruit-Train-Deploy Skill Development Program`,
-      image:"https://nuvc-public.s3.ap-south-1.amazonaws.com/Skill+Development+Program.png",
+      image:
+        "https://nuvc-public.s3.ap-south-1.amazonaws.com/Skill+Development+Program.png",
     },
     {
       heading: "Empowerment Education System",
