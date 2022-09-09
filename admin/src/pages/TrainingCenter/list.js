@@ -101,8 +101,8 @@ const getColumns = (handleShowUpdateCenterScreen) => [
   },
 ];
 
-function ListCenter({ data, onAdd = () => {}, handleShowUpdateJobScreen }) {
-  const columns = getColumns(handleShowUpdateJobScreen);
+function ListCenter({ data, onAdd = () => {}, handleShowUpdateCenterScreen }) {
+  const columns = getColumns(handleShowUpdateCenterScreen);
   return (
     <Container maxWidth="xl">
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>

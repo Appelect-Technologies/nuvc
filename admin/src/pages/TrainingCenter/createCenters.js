@@ -2,9 +2,10 @@ import { Button, Card, CardContent, FormGroup, Stack, TextField, Typography } fr
 import { useFormik } from 'formik';
 import React, { useRef } from 'react';
 import toast from 'react-hot-toast';
-import { createNewJob, UploadFileToS3 } from 'src/services';
+import { createNewCenter, UploadFileToS3 } from 'src/services';
+import Center from './Center';
 
-function CreateJobForm() {
+function CreateCenterForm() {
   const formRef = useRef();
   const handleSubmit = async (values) => {
     try {
@@ -18,7 +19,7 @@ function CreateJobForm() {
         Sector: values.Sector,
         JobRole: values.JobRole,
       };
-      await createNewJob(new_values);
+      await Center(new_values);
       toast.success('Successfully created!');
       formik.resetForm();
       formRef.current.reset();
@@ -204,4 +205,4 @@ function CreateJobForm() {
   );
 }
 
-export default CreateJobForm;
+export default CreateCenterForm;

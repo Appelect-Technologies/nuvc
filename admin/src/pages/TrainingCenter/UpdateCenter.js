@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { UpdateCenterForm, UploadFileToS3 } from 'src/services';
 
-function CreateJobForm() {
+function UpdatecenterComponent() {
   const formRef = useRef();
   const handleSubmit = async (values) => {
     try {
@@ -17,7 +17,7 @@ function CreateJobForm() {
         TPName: values.TPName,
         Sector: values.Sector,
         JobRole: values.JobRole,
-      }; 
+      };
       await createNewJob(new_values);
       toast.success('Successfully created!');
       formik.resetForm();
@@ -53,9 +53,25 @@ function CreateJobForm() {
       return errors;
     },
     onSubmit: (values) => {
-      handleSubmit(values);
+      //   handleSubmit(values);
+      console.log(values);
     },
   });
+  useEffect(() => {
+    formik.setValues({
+      SrNo: data.SrNo,
+      state: data.state,
+      District: data.District,
+      TPName: data.TPName,
+      TCName: data.TCName,
+      Sector: data.Sector,
+      JobRole: data.JobRole,
+      TCSPOCName: data.TCSPOCName,
+      TCSPOCEmailID: data.TCSPOCEmailID,
+      TCSpocMobile: data.TCSpocMobile,
+      TCAddress: data.TCAddress,
+    });
+  }, []);
 
   return (
     <form onSubmit={formik.handleSubmit} ref={formRef}>
@@ -204,4 +220,4 @@ function CreateJobForm() {
   );
 }
 
-export default UpdateCenterForm;
+export default UpdatecenterComponent;

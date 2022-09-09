@@ -7,7 +7,7 @@ import { createCourse, UploadFileToS3 } from 'src/services';
 function CreateCourse() {
   const formRef = useRef();
   const handleSubmit = async (values) => {
-    try {
+    try { 
       //  await
       const new_values = {
         ...values,
