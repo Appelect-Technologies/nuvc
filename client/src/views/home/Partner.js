@@ -35,7 +35,7 @@ function Partner() {
           <h4 className='card-title'>Our Partners</h4>
         </center>
       </div>
-      <marquee style={{ scrollamount: '10' }}>
+      <marquee style={{ scrollamount: '1' }}>
         <img
           src={p1}
           alt='logo'
