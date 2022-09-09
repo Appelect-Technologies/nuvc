@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Preview() {
+function Preview({ nextStep, prevStep }) {
   const [values, setValues] = useState({
     _id: "6319702aac4deed01dc1d89b",
     jobApplyId: "6312f61a1eedd7fa2dfbde48tedovov867@ulforex.com",
@@ -246,7 +246,9 @@ function Preview() {
         </div>
 
         <div class="card-footer">
-          <button className="btn btn-dark w-100">Next</button>
+          <button onClick={nextStep} className="btn btn-dark w-100">
+            Confirm & Next
+          </button>
         </div>
       </div>
     </div>

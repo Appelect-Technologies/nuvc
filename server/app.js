@@ -111,7 +111,7 @@ const razorpay = new Razorpay({
   key_secret: process.env.R_SECRATE,
 });
 
-app.post("/pay", async (req, res) => {
+app.get("/pay", async (req, res) => {
   try {
     // const application = null;
     if (req.body.type == "job") {
@@ -168,6 +168,11 @@ const payment = async (amount, req, res) => {
 
 app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(PaymentRouter);
+app.get("/success", (req, res) => {
+  return res.sendFile(
+    path.join(__dirname, "templates", "payment-successful.html")
+  );
+});
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
