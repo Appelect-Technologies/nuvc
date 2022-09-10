@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function EmailVerify() {
+function Mobileotp() {
 
   return (
     <Card style={{margin:"auto", backgroundColor:"rgb(252 252 252)",display: "flex", height: "auto", width: "40vw",borderRadius: "10px",transition: "none",boxShadow:"none"}}>
@@ -39,4 +39,4 @@ function EmailVerify() {
   );
 }
 
-export default EmailVerify;
+export default Mobileotp;
