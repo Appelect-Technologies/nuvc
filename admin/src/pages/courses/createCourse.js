@@ -9,7 +9,7 @@ function CreateCourse() {
   const handleSubmit = async (values) => {
     try { 
       //  await
-      const new_values = {
+      const new_values = { 
         ...values,
       };
       if (values.image) {

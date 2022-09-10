@@ -2,7 +2,7 @@ import { Button, Card, CardContent, FormGroup, Stack, TextField, Typography } fr
 import { useFormik } from 'formik';
 import React, { useRef } from 'react';
 import toast from 'react-hot-toast';
-import { createNewCenter, UploadFileToS3 } from 'src/services';
+import { CreateCenter, UploadFileToS3 } from 'src/services';
 import Center from './Center';
 
 function CreateCenterForm() {

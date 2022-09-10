@@ -54,7 +54,7 @@ export function getCenter() {
   return Axios.get(GET_Center);
 }
 
-export function UpdateCenterForm(values) {
+export function UpdateCenter(values) {
   return Axios.patch(Update_Center.replace(':Center', values._id), values);
 }
 

@@ -9,7 +9,7 @@ import UpdatecourseComponent from './Updatecourse';
 const Courses = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [values, setValues] = useState([]);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false); 
   const [UpdateCourse, setUpdateCourse] = useState({
     show: false,
     data: null,
