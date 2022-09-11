@@ -6,7 +6,7 @@ import CreateCenterForm from './createCenters';
 import JobsComponent from './list';
 import UpdateCenterForm from './updateJob';
 
-const Jobs = () => {
+const Center = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [values, setValues] = useState([]);
   const [show, setShow] = useState(false);
@@ -64,7 +64,7 @@ const Jobs = () => {
     <Fragment>
       <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateCenterScreen} />
       <FullScreenDialog title="Training centers" open={show} handleClose={handleHideDialog}>
-        <CreateJobForm />
+        <CreateCenterForm />
       </FullScreenDialog>
       {updateJob.show && (
         <FullScreenDialog title="Update Center" open={updateJob.show} handleClose={handleHideUpdateCenterScreen}>
@@ -75,4 +75,4 @@ const Jobs = () => {
   );
 };
 
-export default Jobs;
+export default Center;
