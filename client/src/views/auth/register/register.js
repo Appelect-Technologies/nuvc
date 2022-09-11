@@ -6,7 +6,7 @@ import { config } from "../../../config";
 import { toast } from "react-toastify";
 import { Signin } from "../../../auth/auth";
 
-function Register({ handleNext }) {
+function Register() {
   const history = useHistory();
   const location = useLocation();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -40,7 +40,7 @@ function Register({ handleNext }) {
     try {
       setIsSubmitting(true);
       //   registering the user
-      // await axios.post(config.baseUrl + config.register, data);
+      await axios.post(config.baseUrl + config.register, data);
       //   signing in the user
       await Signin(data.email, data.password, () =>
         Boolean(redirectionURL)

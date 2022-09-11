@@ -15,7 +15,7 @@ function Signin(email, password, cb = () => {}) {
   return signInWithEmailAndPassword(auth, email, password).then((data) => {
     if (!data.user.emailVerified) {
       // if email is not verified then send an email
-      // sendEmailVerification(data.user, { url: "https://nuvc.org" });
+      sendEmailVerification(data.user, { url: "https://nuvc.org" });
       // Signout();
     } else {
       cb();
