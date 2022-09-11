@@ -36,9 +36,11 @@ function Profile() {
             <h5 class="card-title">
               {auth.currentUser && auth.currentUser.displayName}
             </h5>
+
             <p class="card-text">
               <b>Email : </b> {auth.currentUser && auth.currentUser.email}
             </p>
+
             <a href="#" class="btn btn-primary" onClick={() => Signout()}>
               Logout
             </a>
