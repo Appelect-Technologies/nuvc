@@ -3,18 +3,13 @@ import { config } from "../../../config";
 
 function Pay({ id, uid, body, email }) {
   const { phone, jobId, name } = body;
+
   return (
     <div class="card">
       <div class="card-header bg-white">
         <h4 className="card-title">Payment</h4>
       </div>
       <div class="card-body">
-        {/*  
-      <h5 class="card-title">{email}</h5>
-        <p class="card-text">{id}</p>
-         <button class="btn btn-primary" onClick={handlePay}>
-            Pay
-          </button> */}
         <form className="form" method="post" action={config.paymentUrl}>
           <div class="mb-3">
             <label htmlFor="id">ID</label>
@@ -58,18 +53,6 @@ function Pay({ id, uid, body, email }) {
               }}
             />
           </div>
-          {/*
-          <div class="mb-3">
-            <label htmlFor="jobId">Job Id</label>
-            <input
-              type="text"
-              class="form-control"
-              value={jobId}
-              id="jobId"
-              name="jobId"
-            />
-          </div>
-        */}
           <div class="mb-3">
             <label htmlFor="phone">Phone</label>
             <input

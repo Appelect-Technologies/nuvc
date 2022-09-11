@@ -20,9 +20,22 @@ export const getJob = async (query) => {
   }
 };
 
+export const getJobById = (id) => {
+  return axios.get(config.baseUrl + config.jobById.replace(":jobId", id));
+};
+
 export const getJobsByEmail = async (query) => {
   try {
     const res = await axios.get(config.baseUrl + config.jobsByEmail + query);
+    return res.data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getSubscriptions = async (query) => {
+  try {
+    const res = await axios.get(config.baseUrl + config.subscriptions + query);
     return res.data;
   } catch (error) {
     return null;

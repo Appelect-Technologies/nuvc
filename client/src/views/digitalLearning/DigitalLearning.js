@@ -2,6 +2,7 @@ import React from "react";
 import DigitalCard from "../../components/digitalLearning/DigitalCard";
 import { getDigitalCourses } from "../../utils/dataApi";
 import hero from "../../asstes/digital/hero.png";
+
 function DigitalLearning() {
   const [courses, setCourses] = React.useState([]);
   React.useEffect(() => {
@@ -19,7 +20,7 @@ function DigitalLearning() {
   return (
     <div>
       <div>
-        <img src={hero} style={{ width: "100%", height: "200px" }} />
+        <img src={hero} style={{ width: "98.9vw", height: "15vw" }} />
       </div>
       <div
         className="container-fluid"

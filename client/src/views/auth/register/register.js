@@ -1,14 +1,16 @@
 import React from "react";
 import login from "../../../asstes/logo/favicon.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { config } from "../../../config";
 import { toast } from "react-toastify";
 import { Signin } from "../../../auth/auth";
 
-function Register({ handleNext }) {
+function Register() {
   const history = useHistory();
+  const location = useLocation();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const redirectionURL = new URLSearchParams(location.search).get("redirect");
 
   const [data, setData] = React.useState({
     name: "",
@@ -40,9 +42,14 @@ function Register({ handleNext }) {
       //   registering the user
       await axios.post(config.baseUrl + config.register, data);
       //   signing in the user
-      await Signin(data.email, data.password, () => history.push("/creers"));
+      await Signin(data.email, data.password, () =>
+        Boolean(redirectionURL)
+          ? history.push(redirectionURL)
+          : history.push("/")
+      );
       toast.success("User registered successfully");
-      handleNext();
+      // history.push("/");
+      // handleNext();
     } catch (error) {
       console.log("reg err", error);
       toast.error("User registeration failed!");
@@ -50,12 +57,22 @@ function Register({ handleNext }) {
       setIsSubmitting(false);
     }
   };
+
+  const handleRedirectToLogin = () => {
+    if (redirectionURL) {
+      history.push(`/login?redirect=${redirectionURL}`);
+    } else {
+      history.push("/login");
+    }
+  };
+
   const handleChange = (event) => {
     setData((prevData) => ({
       ...prevData,
       [event.target.name]: event.target.value,
     }));
   };
+
   return (
     <div class="card m-auto my-4" style={{ maxWidth: 300 }}>
       <center>
@@ -159,7 +176,7 @@ function Register({ handleNext }) {
           disabled={isSubmitting}
           type="button"
           class="btn btn-danger form-control"
-          onClick={() => history.push("/login")}
+          onClick={handleRedirectToLogin}
         >
           Have an Account? Login hare
         </button>

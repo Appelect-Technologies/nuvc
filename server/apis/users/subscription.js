@@ -66,15 +66,16 @@ const userSubscription10 = ({
         },
       });
       await newUserSubscription.save();
-      const job = await JobApply.findOne({ jobApplyId: `${id}${email}` });
-      console.log("--", job);
-      job.isPaid = true;
-      await job.save();
 
+      if (type === "job") {
+        const job = await JobApply.findOne({ jobApplyId: `${id}${email}` });
+        // console.log("--", job);
+        job.isPaid = true;
+        await job.save();
+      }
       //---------------send email logic===========\
 
       //------------------end logic-------------
-
       console.log("payment details saved");
       resolve("payment details saved");
     } catch (error) {
@@ -86,7 +87,8 @@ const userSubscription10 = ({
 
 const getSubscriptions = async (req, res) => {
   try {
-    const data = await UserSubscription.find({}).lean();
+    const query = req.query || {};
+    const data = await UserSubscription.find(query).lean();
     // joining job or course title
     const promisesarr = data.map((item) => {
       if (item.type === "job") {
@@ -111,7 +113,7 @@ const getSubscriptions = async (req, res) => {
         ...item,
         subscriptions: {
           ...item.subscriptions,
-          title: results[i].title,
+          title: results[i].title || results[i].name,
         },
       };
     });

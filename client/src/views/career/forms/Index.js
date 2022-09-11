@@ -31,10 +31,15 @@ function Index({ user }) {
   const { jobId } = useParams();
   const history = useHistory();
   const [isAlreadyApplied, setIsAlreadyApplied] = useState(false);
+  const [jobApplicationId, setJobApplicationId] = useState(null);
+  const [refetchApplication, setRefetchApplication] = useState(false);
   // const [jobId, setJobId] = React.useState(uuidv4());
 
   const nextStep = () => {
     const { step } = state;
+    if (step == 5) {
+      setRefetchApplication(true);
+    }
     setState({
       step: step + 1,
     });
@@ -57,16 +62,17 @@ function Index({ user }) {
   async function fatchData() {
     try {
       const res = await checkApplyStatus("?id=" + jobId + user.email);
-      const { isPaid, step } = res.data?.applyStatus;
-      // pay(jobId, user.uid, res.data?.applyStatus);
+      const { isPaid, step, _id } = res.data?.applyStatus;
+      setJobApplicationId(_id);
       if (isPaid) {
         setIsAlreadyApplied(true);
       } else {
         setState({ step: step + 1 });
       }
-      console.log("apply data", res?.data);
+      // console.log("apply data", res?.data);
     } catch (error) {
-      console.log("error occured: ", error);
+      // console.log("error occured: ", error);
+      alert("Error occured");
     }
   }
 
@@ -75,7 +81,7 @@ function Index({ user }) {
     return () => {
       setState({ step: 1 });
     };
-  }, []);
+  }, [refetchApplication]);
 
   const { step } = state;
   // const inputValues = { firstName, lastName, email, address, city, state, zip };
@@ -301,7 +307,13 @@ function Index({ user }) {
         />
       );
     case 6:
-      return <Preview nextStep={nextStep} prevStep={prevStep} />;
+      return (
+        <Preview
+          nextStep={nextStep}
+          jobApplicationId={jobApplicationId}
+          prevStep={prevStep}
+        />
+      );
     case 7:
       return (
         <Pay

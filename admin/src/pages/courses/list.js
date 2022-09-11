@@ -2,7 +2,7 @@ import { Avatar, Button, Container, Stack, Tooltip, Typography } from '@mui/mate
 import React from 'react';
 import DataGridCompnent from 'src/components/utils/uiComponents/dataGrid';
 
-const cols = [
+const getColumns = (handleShowUpdateCourseScreen) => [
   { field: 'id', headerName: 'ID', width: 90, hide: true },
   {
     field: 'icon',
@@ -61,9 +61,22 @@ const cols = [
     headerName: 'Certification Partner',
     width: 200,
   },
+
+  {
+    field: 'actions',
+    headerName: 'Actions',
+    width: 150,
+    renderCell: (param) => (
+      <Tooltip title="Click to edit">
+        <Button onClick={() => handleShowUpdateCourseScreen(param.row)}>Edit</Button>
+      </Tooltip>
+    ),
+  },
 ];
 
-const ListCourses = ({ data, onAdd = () => {} }) => {
+const ListCourses = ({ data, onAdd = () => {}, handleShowUpdateCourseScreen }) => {
+  const columns = getColumns(handleShowUpdateCourseScreen);
+
   return (
     <Container maxWidth="xl">
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>
@@ -76,7 +89,7 @@ const ListCourses = ({ data, onAdd = () => {} }) => {
           </Button>
         </Tooltip>
       </Stack>
-      <DataGridCompnent columns={cols} rows={data} />
+      <DataGridCompnent columns={columns} rows={data} />
     </Container>
   );
 };

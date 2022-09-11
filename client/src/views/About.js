@@ -4,13 +4,23 @@ function About() {
   return (
     <div>
       <img
-        src={"https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+IIi+PART-01.png"}
-        style={{ width: "100%" ,height:"300px"}}
+        src={
+          "https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+IIi+PART-01.png"
+        }
+        style={{ width: "98.9vw", height: "19vw" }}
       />
 
       <div className="container">
-        <div className="shadow-lg p-3 mb-5 bg-white rounded my-4" style={{backgroundImage: "url('https://nuvc-public.s3.ap-south-1.amazonaws.com/Untitled+design+(17).png')",backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',backgroundAttachment: 'fixed'}}>
+        <div
+          className="shadow-lg p-3 mb-5 bg-white rounded my-4"
+          style={{
+            backgroundImage:
+              "url('https://nuvc-public.s3.ap-south-1.amazonaws.com/Untitled+design+(17).png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundAttachment: "fixed",
+          }}
+        >
           <div className="card-header   ">
             <b style={{ color: "red" }}>
               <h1> उद्यमित कार्नर </h1>

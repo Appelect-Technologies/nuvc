@@ -1,22 +1,24 @@
 import { Button, Card, CardContent, FormGroup, Stack, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
-import { createCourse, UploadFileToS3 } from 'src/services';
+import { UpdateCourse, UploadFileToS3 } from 'src/services';
 
-function CreateCourse() {
+function UpdatecourseComponent({ data }) {
   const formRef = useRef();
+  const imageRef = useRef();
+
   const handleSubmit = async (values) => {
-    try { 
+    try {
       //  await
-      const new_values = { 
+      const new_values = {
         ...values,
       };
       if (values.image) {
         const fileres = await UploadFileToS3(values.image);
         new_values.icon = fileres.data.file;
       }
-      await createCourse(new_values);
+      //   await UpdateCourse(new_values);
       toast.success('Successfully created');
       formik.resetForm();
       formRef.current.reset();
@@ -25,6 +27,16 @@ function CreateCourse() {
       toast.error('Error occured');
     } finally {
       formik.setSubmitting();
+    }
+  };
+
+  const handleUploadImage = async (image) => {
+    try {
+      const res = await UploadFileToS3(image);
+      formik.setFieldValue('icon', res.data.file);
+      imageRef.current.reset();
+    } catch (error) {
+      alert(error);
     }
   };
 
@@ -53,9 +65,26 @@ function CreateCourse() {
       return errors;
     },
     onSubmit: (values) => {
-      handleSubmit(values);
+      //   handleSubmit(values);
+      console.log(values);
     },
   });
+
+  useEffect(() => {
+    formik.setValues({
+      image: data.image,
+      name: data.name,
+      description: data.description,
+      qualification: data.qualification,
+      language: data.language,
+      duration: data.duration,
+      sector: data.sector,
+      price: data.price,
+      availability: data.availability,
+      certificationProgram: data.certificationProgram,
+      certificationPartner: data.certificationPartner,
+    });
+  }, []);
 
   return (
     <form onSubmit={formik.handleSubmit} ref={formRef}>
@@ -180,7 +209,7 @@ function CreateCourse() {
 
             <FormGroup>
               <Button type="submit" variant="contained" disabled={formik.isSubmitting} size="large">
-                Submit
+                Update
               </Button>
             </FormGroup>
           </Stack>
@@ -190,4 +219,4 @@ function CreateCourse() {
   );
 }
 
-export default CreateCourse;
+export default UpdatecourseComponent;

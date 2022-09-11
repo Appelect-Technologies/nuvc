@@ -2,23 +2,24 @@ import { Button, Card, CardContent, FormGroup, Stack, TextField, Typography } fr
 import { useFormik } from 'formik';
 import React, { useRef } from 'react';
 import toast from 'react-hot-toast';
-import { createNewJob, UploadFileToS3 } from 'src/services';
+import { CreateCenter, UploadFileToS3 } from 'src/services';
+import Center from './Center';
 
-function CreateJobForm() {
+function CreateCenterForm() {
   const formRef = useRef();
-  const handleSubmit = async (values) => { 
+  const handleSubmit = async (values) => {
     try {
       const fileres = await UploadFileToS3(values.icon);
       const new_values = {
         ...values,
-        icon: fileres.data.file,
-        application_fee_dis: values.applicationFeeDisc,
-        application_fee: values.applicationFee,
-        exam_date: values.examDate,
-        number_of_vacancies: values.noOfVacancies,
-        syllabus_url: values.syllabusUrl,
+        SrNo: fileres.data.SrNo,
+        state: values.state,
+        District: values.District,
+        TPName: values.TPName,
+        Sector: values.Sector,
+        JobRole: values.JobRole,
       };
-      await createNewJob(new_values);
+      await Center(new_values);
       toast.success('Successfully created!');
       formik.resetForm();
       formRef.current.reset();
@@ -31,18 +32,17 @@ function CreateJobForm() {
 
   const formik = useFormik({
     initialValues: {
-      icon: '',
-      title: '',
-      description: '',
-      examDate: '',
-      applicationFeeDisc: '',
-      applicationFee: '',
-      url1: '',
-      url2: '',
-      qualification: '',
-      noOfVacancies: '',
-      salary: '',
-      syllabusUrl: '',
+      SrNo: '',
+      state: '',
+      District: '',
+      TPName: '',
+      TCName: '',
+      Sector: '',
+      JobRole: '',
+      TCSPOCName: '',
+      TCSPOCEmailID: '',
+      TCSpocMobile: '',
+      TCAddress: '',
     },
     validate: (values) => {
       const errors = {};
@@ -64,95 +64,95 @@ function CreateJobForm() {
         <CardContent>
           <Stack spacing={4}>
             <FormGroup>
-              <Typography>Image</Typography>
+              <Typography>Sr.No.</Typography>
               <TextField
-                name="icon"
-                onChange={(e) => formik.setFieldValue('icon', e.target.files[0])}
-                type="file"
+                name="Sr.no"
+                onChange={(e) => formik.setFieldValue('number', e.target.number[0])}
+                type="number"
                 inputProps={{
-                  accept: 'image/*',
+                  accept: 'number',
                 }}
               />
             </FormGroup>
             <FormGroup>
-              <Typography>Job Title</Typography>
+              <Typography>State</Typography>
               <TextField
-                {...formik.getFieldProps('title')}
-                helperText={formik.errors.title}
+                {...formik.getFieldProps('state')}
+                helperText={formik.errors.state}
                 disabled={formik.isSubmitting}
-                error={formik.errors.title}
+                error={formik.errors.state}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Description</Typography>
+              <Typography> District</Typography>
               <TextField
-                {...formik.getFieldProps('description')}
-                rows={4}
+                {...formik.getFieldProps('	District')}
+                rows={1}
                 multiline
-                helperText={formik.errors.description}
+                helperText={formik.errors.District}
                 disabled={formik.isSubmitting}
-                error={formik.errors.description}
+                error={formik.errors.District}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Exam Date</Typography>
+              <Typography> TP Name</Typography>
               <TextField
-                {...formik.getFieldProps('examDate')}
-                type="date"
-                helperText={formik.errors.date}
+                {...formik.getFieldProps('TP Name')}
+                type=""
+                helperText={formik.errors.Name}
                 disabled={formik.isSubmitting}
-                error={formik.errors.date}
+                error={formik.errors.Name}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Qualification</Typography>
+              <Typography>TC Name</Typography>
               <TextField
-                {...formik.getFieldProps('qualification')}
-                rows={2}
+                {...formik.getFieldProps('TC Name')}
+                rows={1}
                 multiline
-                helperText={formik.errors.qualification}
+                helperText={formik.errors.TCName}
                 disabled={formik.isSubmitting}
-                error={formik.errors.qualification}
+                error={formik.errors.TCName}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Number Of Vacancies</Typography>
+              <Typography>Sector</Typography>
               <TextField
-                {...formik.getFieldProps('noOfVacancies')}
+                {...formik.getFieldProps('Sector')}
                 type="number"
-                helperText={formik.errors.noOfVacancies}
+                helperText={formik.errors.Sector}
                 disabled={formik.isSubmitting}
-                error={formik.errors.noOfVacancies}
+                error={formik.errors.Sector}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Salary</Typography>
+              <Typography>Job Role</Typography>
               <TextField
-                {...formik.getFieldProps('salary')}
-                type="number"
-                helperText={formik.errors.salary}
+                {...formik.getFieldProps('Job Role')}
+                type=""
+                helperText={formik.errors.JobRole}
                 disabled={formik.isSubmitting}
-                error={formik.errors.salary}
+                error={formik.errors.JobRole}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>Application Fee Discount (for SC,ST,physical handicapped)</Typography>
+              <Typography>TC SPOC Name (TC SPOC Name)</Typography>
               <TextField
-                {...formik.getFieldProps('applicationFeeDisc')}
-                type="number"
-                helperText={formik.errors.applicationFeeDisc}
+                {...formik.getFieldProps('TC SPOC Name')}
+                type=""
+                helperText={formik.errors.TCSPOCName}
                 disabled={formik.isSubmitting}
-                error={formik.errors.applicationFeeDisc}
+                error={formik.errors.TCSPOCName}
               />
             </FormGroup>
 
-            <FormGroup>
+            {/* <FormGroup>
               <Typography>Application Fee</Typography>
               <TextField
                 {...formik.getFieldProps('applicationFee')}
@@ -161,35 +161,35 @@ function CreateJobForm() {
                 disabled={formik.isSubmitting}
                 error={formik.errors.applicationFee}
               />
-            </FormGroup>
+            </FormGroup> */}
 
             <FormGroup>
-              <Typography>Syllabus Url</Typography>
+              <Typography> TC SPOC Email ID</Typography>
               <TextField
-                {...formik.getFieldProps('syllabusUrl')}
-                helperText={formik.errors.syllabusUrl}
+                {...formik.getFieldProps('	TC SPOC Email ID')}
+                helperText={formik.errors.TCSPOCEmailID}
                 disabled={formik.isSubmitting}
-                error={formik.errors.syllabusUrl}
+                error={formik.errors.TCSPOCEmailID}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>URL 1</Typography>
+              <Typography> TC Spoc Mobile</Typography>
               <TextField
-                {...formik.getFieldProps('url1')}
-                helperText={formik.errors.url1}
+                {...formik.getFieldProps('	TC Spoc Mobile')}
+                helperText={formik.errors.TCSpocMobile}
                 disabled={formik.isSubmitting}
-                error={formik.errors.url1}
+                error={formik.errors.TCSpocMobile}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>URL 2</Typography>
+              <Typography>TC Address</Typography>
               <TextField
-                {...formik.getFieldProps('url2')}
-                helperText={formik.errors.url2}
+                {...formik.getFieldProps('TC Address')}
+                helperText={formik.errors.TCAddress}
                 disabled={formik.isSubmitting}
-                error={formik.errors.url2}
+                error={formik.errors.TCAddress}
               />
             </FormGroup>
 
@@ -205,4 +205,4 @@ function CreateJobForm() {
   );
 }
 
-export default CreateJobForm;
+export default CreateCenterForm;

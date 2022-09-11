@@ -11,7 +11,7 @@ const getColumns = (handleShowUpdateJobScreen) => [
   //   renderCell: (param) => <Avatar src={param.value} />,
   // },
   {
-    field: 'title',
+    field: 'title', 
     headerName: 'title',
     width: 400,
   },

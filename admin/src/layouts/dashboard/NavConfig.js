@@ -27,7 +27,7 @@ const navConfig = [
   },
   {
     title: 'Training Centres',
-    path: '/dashboard/traningCenters',
+    path: '/dashboard/Center',
     icon: getIcon('eos-icons:job'),
   },
   {

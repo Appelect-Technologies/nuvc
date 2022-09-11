@@ -20,7 +20,7 @@ function SmallCard({
         />
       </div>
 
-      <figure class="text-center">
+      <figure style={{ textAlign: "center", paddingTop: "30px" }}>
         <blockquote class="blockquote">
           <strong>{title}</strong>
         </blockquote>

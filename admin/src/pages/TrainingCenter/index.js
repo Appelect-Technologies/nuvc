@@ -1,24 +1,24 @@
 import { CircularProgress } from '@mui/material';
 import React, { Fragment, useEffect, useState } from 'react';
 import FullScreenDialog from 'src/components/fullScreenDialog';
-import { getJobs } from 'src/services';
-import CreateJobForm from './createJob';
+import { getCenter } from 'src/services';
+import CreateCenterForm from './createCenters';
 import JobsComponent from './list';
-import UpdateJobForm from './updateJob'; 
+import UpdateCenterForm from './updateJob';
 
-const Jobs = () => {
+const Center = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [values, setValues] = useState([]);
   const [show, setShow] = useState(false);
-  const [updateJob, setUpdateJob] = useState({
+  const [updateCenter, setUpdateCenter] = useState({
     show: false,
-    data: null, 
+    data: null,
   });
 
   const handleFetchData = async () => {
     try {
       setIsFetching(true);
-      const res = await getJobs();
+      const res = await getCenter();
       const vals = res.data.jobs.map((item, i) => ({ ...item, id: i + 1 }));
       setValues(vals);
       // console.log('this is jobs: ', vals);
@@ -41,15 +41,15 @@ const Jobs = () => {
   };
 
   // update funcitons
-  const handleShowUpdateJobScreen = (values) => {
+  const handleShowUpdateCenterScreen = (values) => {
     setUpdateJob({
       show: true,
       data: values,
     });
   };
 
-  const handleHideUpdateJobScreen = () => {
-    setUpdateJob({
+  const handleHideUpdateCenterScreen = () => {
+    setUpdateCenter({
       show: false,
       data: null,
     });
@@ -62,17 +62,17 @@ const Jobs = () => {
   if (isFetching) return <CircularProgress />;
   return (
     <Fragment>
-      <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateJobScreen} />
-      <FullScreenDialog title="Add New Job" open={show} handleClose={handleHideDialog}>
-        <CreateJobForm />
+      <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateCenterScreen} />
+      <FullScreenDialog title="Training centers" open={show} handleClose={handleHideDialog}>
+        <CreateCenterForm />
       </FullScreenDialog>
       {updateJob.show && (
-        <FullScreenDialog title="Update Job" open={updateJob.show} handleClose={handleHideUpdateJobScreen}>
-          <UpdateJobForm data={updateJob.data} />
+        <FullScreenDialog title="Update Center" open={updateJob.show} handleClose={handleHideUpdateCenterScreen}>
+          <UpdateCenterForm data={updateCenter.data} />
         </FullScreenDialog>
       )}
     </Fragment>
   );
 };
 
-export default Jobs;
+export default Center;
