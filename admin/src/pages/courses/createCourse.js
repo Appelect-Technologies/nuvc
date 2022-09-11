@@ -10,14 +10,14 @@ function CreateCourse() {
     try { 
       //  await
       const new_values = { 
-        ...values,
+        ...values, 
       };
       if (values.image) {
         const fileres = await UploadFileToS3(values.image);
         new_values.icon = fileres.data.file;
-      }
+      } 
       await createCourse(new_values);
-      toast.success('Successfully created');
+       toast.success('Successfully created');
       formik.resetForm();
       formRef.current.reset();
     } catch (error) {

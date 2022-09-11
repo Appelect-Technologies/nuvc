@@ -67,7 +67,7 @@ export function getSubscriptions() {
 }
 
 export function getCourses() {
-  return Axios.get(GET_COURSES); 
+  return Axios.get(GET_COURSES);
 }
 
 export function createCourse(values) {
@@ -75,7 +75,7 @@ export function createCourse(values) {
 }
 
 export function UpdateCourse(values) {
-return Axios.patch(Update_COURSES.replace(':COURSE', values._id), values);
+  return Axios.patch(Update_COURSES.replace(':COURSE', values._id), values);
 }
 
 export function getNews(query = '') {
@@ -89,7 +89,6 @@ export function createNewJob(values) {
 export function CreateCenter(values) {
   return Axios.post(GET_Center, values);
 }
-
 
 export function updateJob(values) {
   return Axios.patch(UPDATE_JOB.replace(':jobId', values._id), values);
