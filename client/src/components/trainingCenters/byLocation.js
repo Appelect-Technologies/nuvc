@@ -16,6 +16,7 @@ const Location = ({ handleFilterCenters }) => {
             <label htmlFor="state" style={{ marginRight: 10 }}>
               State
             </label>
+          
             <select
               labelId="state"
               className="w-75"
