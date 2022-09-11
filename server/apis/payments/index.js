@@ -4,47 +4,50 @@ const router = express.Router();
 const JobApply = require("../../models/JobApply");
 const JOB = require("../../models/Job");
 const DigitalLearning = require("../../models/DigitalLearning");
-
+const path = require("path");
+const ejs = require("ejs");
+const { v4: uuidv4 } = require("uuid");
 const { userSubscription10 } = require("../../apis/users/subscription");
 const pay = require("../../pay10Util");
+const { getAuth } = require("firebase-admin/auth");
 
 const pay_payid = process.env.PAYID;
 const pay_salt = process.env.PAYSALT;
 
-router.post("/payment", async (req, res) => {
-  try {
-    if (req.body.type == "job") {
-      const application = await JobApply.findOne({
-        jobApplyId: req.body.id + req.body.email,
-      }).lean();
+// router.get("/payment", async (req, res) => {
+//   try {
+//     if (req.body.type == "job") {
+//       const application = await JobApply.findOne({
+//         jobApplyId: req.body.id + req.body.email,
+//       }).lean();
 
-      if (!application) {
-        return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
-      }
+//       if (!application) {
+//         return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
+//       }
 
-      let job = await JOB.findOne({ _id: req.body.id }).lean();
-      if (!job) {
-        return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
-      }
+//       let job = await JOB.findOne({ _id: req.body.id }).lean();
+//       if (!job) {
+//         return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
+//       }
 
-      if (application.category === "SC" || application.category === "PC") {
-        makeJobPayment(job.application_fee_dis, req, res);
-      } else {
-        makeJobPayment(job.application_fee, req, res);
-      }
-    } else if (req.body.type == "course") {
-      let course = await DigitalLearning.findOne({ _id: req.body.id });
-      //   console.log("jobid", job, req.body.id);
-      if (!course) return res.status(404).json({ msg: "bad request" });
-      makeCoursePayment(course.price, req, res);
-    } else {
-      res.redirect(process.env.CLIENT_FRONTEND_URL);
-    }
-  } catch (er) {
-    // console.log(er);
-    res.redirect(process.env.CLIENT_FRONTEND_URL);
-  }
-});
+//       if (application.category === "SC" || application.category === "PC") {
+//         makeJobPayment(job.application_fee_dis, req, res);
+//       } else {
+//         makeJobPayment(job.application_fee, req, res);
+//       }
+//     } else if (req.body.type == "course") {
+//       let course = await DigitalLearning.findOne({ _id: req.body.id });
+//       //   console.log("jobid", job, req.body.id);
+//       if (!course) return res.status(404).json({ msg: "bad request" });
+//       makeCoursePayment(course.price, req, res);
+//     } else {
+//       res.redirect(process.env.CLIENT_FRONTEND_URL);
+//     }
+//   } catch (er) {
+//     // console.log(er);
+//     res.redirect(process.env.CLIENT_FRONTEND_URL);
+//   }
+// });
 
 async function makeCoursePayment(amount, req, res) {
   const result = req.body;
@@ -414,6 +417,253 @@ const payment10 = async (amount, req, res) => {
   res.write("</body></html>");
   res.end();
 };
+
+// PayU payment Gateway
+
+router.post("/payment", async (req, res) => {
+  try {
+    console.log(req.body);
+    if (req.body.type == "job") {
+      const application = await JobApply.findOne({
+        jobApplyId: req.body.id + req.body.email,
+      }).lean();
+
+      if (!application) {
+        // in case job application doesn't exists
+        return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
+      }
+
+      let job = await JOB.findOne({ _id: req.body.id }).lean();
+      if (!job) {
+        //  in case job itself doesn't exists
+        return res.status(404).redirect(process.env.CLIENT_FRONTEND_URL);
+      }
+
+      if (application.category === "SC" || application.category === "PC") {
+        testPayuJobPayment(job.application_fee_dis, req, res);
+        // makeJobPayment(job.application_fee_dis, req, res);
+      } else {
+        testPayuJobPayment(job.application_fee, req, res);
+        // makeJobPayment(job.application_fee, req, res);
+      }
+    } else if (req.body.type == "course") {
+      let course = await DigitalLearning.findOne({ _id: req.body.id });
+      //   console.log("jobid", job, req.body.id);
+      if (!course) return res.status(404).json({ msg: "bad request" });
+      testPayuCoursePayment(course.price, req, res);
+    } else {
+      res.redirect(process.env.CLIENT_FRONTEND_URL);
+    }
+  } catch (er) {
+    // console.log(er);
+    res.redirect(process.env.CLIENT_FRONTEND_URL);
+  }
+});
+
+router.post("/payu/response-success", async (req, res) => {
+  try {
+    // console.log("payment success: ", req.body);
+    const { txnid, amount, addedon, mihpayid, productinfo, email } = req.body;
+
+    // payment is successfull, now updating the database
+    let isJob = null;
+    let isCourse = null;
+    const [productType, productId] = productinfo.split("-");
+    const uid = await getAuth(global.firebaseApp)
+      .getUserByEmail(email)
+      .then((data) => data.uid);
+
+    if (productType === "job") {
+      isJob = true;
+    } else if (productType === "course") {
+      isCourse = true;
+    } else {
+      return res.sendStatus(500);
+    }
+
+    if (isJob) {
+      let rec = {
+        id: productId,
+        uid: uid,
+        type: "job",
+        email: email,
+        amount: amount,
+        paymentID: mihpayid,
+        orderId: "",
+      };
+      await userSubscription10(rec);
+    }
+
+    if (isCourse) {
+      let rec = {
+        id: productId,
+        uid: uid,
+        type: "course",
+        email: email,
+        amount: amount,
+        paymentID: mihpayid,
+        orderId: "",
+      };
+      await userSubscription10(rec);
+    }
+
+    // sending feedback to user
+    const html = await ejs.renderFile(
+      path.join(
+        path.resolve(__dirname, "../../"),
+        "templates",
+        "payment-successful.ejs"
+      ),
+      {
+        paymentId: mihpayid,
+        amount,
+        date: new Date(addedon).toString(),
+      }
+    );
+    res.send(html);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+router.post("/payu/response-failure", async (req, res) => {
+  try {
+    // console.log("payment failure: ", req.body);
+    const { txnid, amount, addedon, mihpayid } = req.body;
+    const html = await ejs.renderFile(
+      path.join(
+        path.resolve(__dirname, "../../"),
+        "templates",
+        "payment-failed.ejs"
+      ),
+      {
+        paymentId: mihpayid,
+        // txnid,
+        amount,
+        date: new Date(addedon).toString(),
+      }
+    );
+    res.send(html);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+async function testPayuCoursePayment(amount, req, res) {
+  console.log(req.body);
+
+  try {
+    const result = req.body;
+    const txnId = uuidv4();
+    const amount = 1;
+    const courseId = result.id;
+    const productInfo = `course-${courseId}`;
+    const firstName = result.name;
+    const email = result.email;
+    const hash_string = `${process.env.PAYU_MERCHANT_KEY}|${txnId}|${amount}|${productInfo}|${firstName}|${email}|||||||||||${process.env.PAYU_MERCHANT_SALT_V2}`;
+    const secure_hash = createHash(hash_string);
+    const html = await ejs.renderFile(
+      path.join(path.resolve(__dirname, "../../"), "templates", "payuform.ejs"),
+      {
+        payment_gateway_url: "https://secure.payu.in/_payment",
+        merchant_key: process.env.PAYU_MERCHANT_KEY,
+        txn_id: txnId,
+        product_info: productInfo,
+        amount: amount,
+        user_email: email,
+        user_fname: firstName,
+        user_lname: "",
+        success_response_redirection_url: `${process.env.SERVER_URL}/payu/response-success`,
+        failure_response_redirection_url: `${process.env.SERVER_URL}/payu/response-failure`,
+        website_url: process.env.CLIENT_FRONTEND_URL,
+        secure_txn_hash: secure_hash,
+      }
+    );
+    return res.send(html);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+
+  //////////////////////////////////////
+  try {
+    const txnId = uuidv4();
+    const amount = "100";
+    const courseId = "asdf";
+    const productInfo = `course-${courseId}`;
+    const firstName = "lucifer";
+    const email = "user@gmail.com";
+    const hash_string = `${process.env.PAYU_MERCHANT_KEY}|${txnId}|${amount}|${productInfo}|${firstName}|${email}|||||||||||${process.env.PAYU_MERCHANT_SALT_V2}`;
+    const secure_hash = createHash(hash_string);
+    const html = await ejs.renderFile(
+      path.join(path.resolve(__dirname, "../../"), "templates", "payuform.ejs"),
+      {
+        payment_gateway_url: "https://secure.payu.in/_payment",
+        merchant_key: process.env.PAYU_MERCHANT_KEY,
+        txn_id: txnId,
+        product_info: productInfo,
+        amount: amount,
+        user_email: email,
+        user_fname: firstName,
+        user_lname: "hello",
+        address1: "",
+        city: "",
+        state: "",
+        country: "",
+        zipcode: "",
+        success_response_redirection_url:
+          "https://apiplayground-response.herokuapp.com/",
+        failure_response_redirection_url: `${process.env.SERVER_URL}/payu/response`,
+        website_url: "https://nuvc.org",
+        secure_txn_hash: secure_hash,
+      }
+    );
+    res.send(html);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+}
+
+async function testPayuJobPayment(amount, req, res) {
+  console.log(req.body);
+  try {
+    const result = req.body;
+    const txnId = uuidv4();
+    // const amount = 1;
+    const jobId = result.id;
+    const productInfo = `job-${jobId}`;
+    const firstName = result.name;
+    const email = result.email;
+    const hash_string = `${process.env.PAYU_MERCHANT_KEY}|${txnId}|${amount}|${productInfo}|${firstName}|${email}|||||||||||${process.env.PAYU_MERCHANT_SALT_V2}`;
+    const secure_hash = createHash(hash_string);
+    const html = await ejs.renderFile(
+      path.join(path.resolve(__dirname, "../../"), "templates", "payuform.ejs"),
+      {
+        payment_gateway_url: "https://secure.payu.in/_payment",
+        merchant_key: process.env.PAYU_MERCHANT_KEY,
+        txn_id: txnId,
+        product_info: productInfo,
+        amount: amount,
+        user_email: email,
+        user_fname: firstName,
+        user_lname: "",
+        success_response_redirection_url: `${process.env.SERVER_URL}/payu/response-success`,
+        failure_response_redirection_url: `${process.env.SERVER_URL}/payu/response-failure`,
+        website_url: process.env.CLIENT_FRONTEND_URL,
+        secure_txn_hash: secure_hash,
+      }
+    );
+    res.send(html);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+}
+
+function createHash(str) {
+  const hash = crypto.createHash("sha512");
+  data = hash.update(str, "utf-8");
+  gen_hash = data.digest("hex");
+  return gen_hash;
+}
 
 module.exports = router;
 

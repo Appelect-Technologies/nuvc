@@ -2,6 +2,7 @@ import React from "react";
 import DigitalCard from "../../components/digitalLearning/DigitalCard";
 import { getDigitalCourses } from "../../utils/dataApi";
 import hero from "../../asstes/digital/hero.png";
+
 function DigitalLearning() {
   const [courses, setCourses] = React.useState([]);
   React.useEffect(() => {

@@ -249,7 +249,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
             </div>
             <div
               className="col-md-12 col-sm-12"
-              style={{ display: select == 0 ? "block" : "none" }}
+              style={{ display: select == "Aadhaar" ? "block" : "none" }}
             >
               <div class="mb-3">
                 <label for="formFile" class="form-label">
@@ -283,7 +283,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
                 className="btn btn-dark"
                 onClick={saveAndContinue}
               >
-                Finish <i className="fas fa-long-arrow-alt-right"></i>
+                Next <i className="fas fa-long-arrow-alt-right"></i>
               </button>
             </div>
           </div>

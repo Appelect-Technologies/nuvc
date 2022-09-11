@@ -3,9 +3,11 @@ import Jobs from "./jobs";
 import { getAuth } from "firebase/auth";
 import Register from "./register";
 import { app } from "../../../auth/auth";
+import { useLocation } from "react-router-dom";
 
 function Apply() {
   const auth = getAuth(app);
+  const location = useLocation();
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -25,6 +27,8 @@ function Apply() {
         return <Jobs />;
     }
   };
+
+  return <Register handleNext={handleNext} />;
   return <div className="container-fluid">{handleRenderStep()}</div>;
 }
 

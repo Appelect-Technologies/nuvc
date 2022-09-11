@@ -33,9 +33,6 @@ global.firebaseApp = admin.initializeApp({
 
 require("./db");
 
-app.get("/reg", (req, res) => {
-  res.send("hii").end();
-});
 app.post("/api/reg", register);
 
 app.get("/v", (req, res) => res.sendStatus(200));
@@ -49,9 +46,6 @@ aws.config.update({
 });
 
 const s3 = new aws.S3({ signatureVersion: "v4" });
-
-//
-// global.rootDir = __dirname;
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -166,7 +160,7 @@ const payment = async (amount, req, res) => {
   }
 };
 
-app.use(express.static(path.join(__dirname, "/client/build")));
+// app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(PaymentRouter);
 app.get("/success", (req, res) => {
   return res.sendFile(

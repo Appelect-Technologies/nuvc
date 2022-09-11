@@ -1,56 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getJobById } from "../../../utils/dataApi";
 
-function Preview({ nextStep, prevStep }) {
-  const [values, setValues] = useState({
-    _id: "6319702aac4deed01dc1d89b",
-    jobApplyId: "6312f61a1eedd7fa2dfbde48tedovov867@ulforex.com",
-    jobId: {
-      _id: "6312f61a1eedd7fa2dfbde48",
-      title: "Web Developer",
-    },
-    email: "tedovov867@ulforex.com",
-    fname: "user",
-    lname: "user",
-    gender: "0",
-    fatherName: "user",
-    motherName: "user",
-    phone: "8888888888",
-    dob: "1999-10-11",
-    religion: "0",
-    isJobOutsideIndia: true,
-    step: 5,
-    isPaid: false,
-    createdAt: "2022-09-08T04:31:38.891Z",
-    updatedAt: "2022-09-08T04:32:24.877Z",
-    __v: 0,
-    address: "this is an address",
-    district: "new delhi",
-    hn: "22b",
-    pin: "110028",
-    state: "delhi",
-    street: "bakers street",
-    degree: "",
-    discipline: "",
-    pdegree: "",
-    pdiscipline: "",
-    qulification: "1",
-    category: "0",
-    expComment: "",
-    experience: "2",
-    prefrenceA: "",
-    prefrenceB: "",
-    prefrenceC: "",
-    role: "",
-    idBack:
-      "https://nuvc-public.s3.ap-south-1.amazonaws.com/1662611543771-806716689-download%20%281%29.png",
-    idFront:
-      "https://nuvc-public.s3.ap-south-1.amazonaws.com/1662611541639-426738875-download%20%281%29.png",
-    idName: "0",
-    photo:
-      "https://nuvc-public.s3.ap-south-1.amazonaws.com/1662611539367-695137357-download%20%281%29.png",
-    signature:
-      "https://nuvc-public.s3.ap-south-1.amazonaws.com/1662611537290-997562771-download%20%281%29.png",
-  });
+function Preview({ nextStep, prevStep, jobApplicationId }) {
+  const [values, setValues] = useState({});
+
+  const fetchData = async (jobApplicationId) => {
+    try {
+      const res = await getJobById(jobApplicationId);
+      const [vals] = res.data.jobapplicant;
+      setValues(vals);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(jobApplicationId);
+  }, []);
+
   return (
     <div className="container-fluid my-4">
       <div className="card mb-3 shadow-sm">
@@ -245,7 +212,10 @@ function Preview({ nextStep, prevStep }) {
           })}
         </div>
 
-        <div class="card-footer">
+        <div class="card-footer d-flex" style={{ gap: 20 }}>
+          <button onClick={prevStep} className="btn btn-dark w-50">
+            Back
+          </button>
           <button onClick={nextStep} className="btn btn-dark w-100">
             Confirm & Next
           </button>

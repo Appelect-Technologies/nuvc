@@ -21,6 +21,10 @@ const register = async (req, res) => {
       "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";
 
     getAuth(global.firebaseApp)
+      // .generateEmailVerificationLink(email, { url: "https://nuvc.org" })
+      .then((data) => {
+        console.log("after generating email link: ", data);
+      })
       .setCustomUserClaims(uid, { role: role })
       .then(() => {
         console.log("user created");
@@ -56,16 +60,16 @@ const register = async (req, res) => {
           })
           .then(
             function (data) {
-              console.log(data);
+              console.log("email successful response: ", data);
             },
             function (error) {
-              console.error(error);
+              console.error("email successful error: ", error);
             }
           );
       });
     res.status(200).json({ msg: "success" });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
     res.status(500).json({ msg: "fail" });
   }
 };

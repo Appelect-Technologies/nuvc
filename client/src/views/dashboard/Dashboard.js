@@ -1,5 +1,5 @@
 import React from "react";
-import { getJobsByEmail } from "../../utils/dataApi";
+import { getJobsByEmail, getSubscriptions } from "../../utils/dataApi";
 import { app } from "../../auth/auth";
 import { getAuth } from "firebase/auth";
 import { useHistory } from "react-router-dom";
@@ -7,27 +7,86 @@ import { useHistory } from "react-router-dom";
 function Dashboard() {
   const auth = getAuth(app);
   const [jobs, setJobs] = React.useState([]);
+  const [values, setValues] = React.useState([]);
   const history = useHistory();
 
-  React.useEffect(() => {
-    async function fetchData() {
-      const email = auth?.currentUser ? auth?.currentUser?.email : "";
-      console.log("email---", email);
-      const jobData = await getJobsByEmail("?email=" + email);
-
-      setJobs(jobData ? jobData.jobs : []);
+  const fetchSubscriptionsData = async () => {
+    try {
+      const email = auth.currentUser.email;
+      const response = await getSubscriptions("?email=" + email);
+      setValues(response.data);
+    } catch (error) {
+      // console.log("error occured", error);
+      alert("Error occured while fetching purchases data");
     }
+  };
+
+  const fetchData = async () => {
+    try {
+      const email = auth.currentUser.email;
+      const response = await getJobsByEmail("?email=" + email);
+      const jobs = response.jobs.filter((job) => !job.isPaid);
+      setJobs(jobs);
+    } catch (error) {
+      // console.log("error occured", error);
+      alert("Error occured while fetching purchases data");
+    }
+  };
+
+  React.useEffect(() => {
+    fetchSubscriptionsData();
     fetchData();
-    return () => {
-      setJobs([]);
-    };
   }, []);
 
   return (
     <div className="container-lg">
-      <div class="card" style={{ margin: 20 }}>
+      <div class="card shadow-sm my-3">
         <div className="card-header">
-          <h5>Applications</h5>
+          <h5>My Purchases</h5>
+        </div>
+        <div class="card-body">
+          <div className="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">SN</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Payment ID</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Array.isArray(values) &&
+                  values.map((value, key) => {
+                    return (
+                      <tr>
+                        <th scope="row">{key + 1}</th>
+                        <td>{value.email}</td>
+                        <td>{value.subscriptions.title}</td>
+                        <td>{value.type}</td>
+                        <td>{value.subscriptions.paymentID}</td>
+                        <td>{new Date(value.createdAt).toLocaleString()}</td>
+                        <td>
+                          <button className="btn btn-sm btn-success">
+                            Paid
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                <tr></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm my-3">
+        <div className="card-header">
+          <h5>Pending</h5>
         </div>
         <div class="card-body">
           <div className="table-responsive">

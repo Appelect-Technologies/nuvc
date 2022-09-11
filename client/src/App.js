@@ -39,6 +39,34 @@ import FooterExt from "./views/FooterExt";
 import Faq from "./views/pages/Faq";
 import Pay10 from "./Pay";
 import TrainingCentre from "./components/trainingCenters/TrainingCentre";
+import VerifyEmail from "./views/auth/VerifyEmail";
+
+function AuthenticatedRoutes(Component, props = {}) {
+  const auth = getAuth(app);
+  if (auth && auth.currentUser) {
+    return <Component {...{ ...props }} />;
+  } else {
+    return <Redirect to="/reg" />;
+  }
+}
+
+function UnAuthenticatedRoutes(Component) {
+  const auth = getAuth(app);
+  if (auth && auth.currentUser) {
+    return <Redirect to="/" />;
+  } else {
+    return <Component />;
+  }
+}
+
+function AuthAndEmailVerifiedRoutes(Component) {
+  const auth = getAuth(app);
+  if (auth && auth.currentUser && auth.currentUser.emailVerified) {
+    return <Component />;
+  } else {
+    return <Redirect to="/verify" />;
+  }
+}
 
 function App() {
   const auth = getAuth(app);
@@ -78,6 +106,7 @@ function App() {
         <Switch>
           {/* <Route exact path="/" component={Pay10} /> */}
           <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/creers" component={Career} />
           <Route exact path="/digitalLearning" component={DigitalLearning} />
           <Route
@@ -85,9 +114,13 @@ function App() {
             path="/digitalLearning/descp/:cid"
             component={CourseDetails}
           />
-          <Route path="/login" component={Login} />
-          <Route path="/reg" component={Register} />
-          <Route path="/reset" component={ResetPassword} />
+          <Route exact path="/verify" component={VerifyEmail} />
+          <Route path="/login" render={() => UnAuthenticatedRoutes(Login)} />
+          <Route path="/reg" render={() => UnAuthenticatedRoutes(Register)} />
+          <Route
+            path="/reset"
+            render={() => UnAuthenticatedRoutes(ResetPassword)}
+          />
           <Route path="/creers/descp/:id" component={CourseDiscp} />
           <Route path="/news/descp/:nid" component={NewsDiscp} />
           <Route path="/trainingCentre" component={TrainingCentre} />
@@ -95,24 +128,13 @@ function App() {
           <Route
             path="/apply/:jobId"
             render={() =>
-              auth?.currentUser ? (
-                <Apply user={auth?.currentUser} />
-              ) : (
-                <Redirect to="/reg" />
-              )
+              AuthenticatedRoutes(Apply, { user: auth?.currentUser })
             }
           />
-          <Route
-            path="/profile"
-            render={() =>
-              auth?.currentUser ? <Profile /> : <Redirect to="/login" />
-            }
-          />
+          <Route path="/profile" render={() => AuthenticatedRoutes(Profile)} />
           <Route
             path="/dashboard"
-            render={() =>
-              auth?.currentUser ? <Dashboard /> : <Redirect to="/login" />
-            }
+            render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
           />
           <Route path="/contact" component={ContactUs} />
           <Route path="/privacy" component={PrivacyPolicy} />

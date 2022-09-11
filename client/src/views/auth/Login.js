@@ -1,13 +1,15 @@
 import React from "react";
 import login from "../../asstes/logo/favicon.png";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../auth/auth";
-import { useHistory } from "react-router-dom";
+import { app, Signin } from "../../auth/auth";
+import { useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Login() {
   const history = useHistory();
   const auth = getAuth(app);
+  const location = useLocation();
+  const redirectionURL = new URLSearchParams(location.search).get("redirect");
   const [data, setData] = React.useState({
     email: "",
     password: "",
@@ -23,11 +25,15 @@ function Login() {
       return;
     }
     // console.log("Login", data);
-    signInWithEmailAndPassword(auth, data.email, data.password)
-      .then((userCredential) => {
-        console.log("user cread ", userCredential);
+    // signInWithEmailAndPassword(auth, data.email, data.password)
+    Signin(data.email, data.password)
+      .then(() => {
         toast.success("Successfully  Loged in");
-        history.push("/digitalLearning");
+        if (redirectionURL) {
+          history.push(redirectionURL);
+        } else {
+          history.push("/");
+        }
       })
       .catch((error) => {
         console.log("error", error);
