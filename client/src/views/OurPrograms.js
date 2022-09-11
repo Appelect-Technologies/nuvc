@@ -17,7 +17,7 @@ function OurPrograms({ data }) {
     >
       <center>
         <br />
-        <h2 style={{ color: "black", fontWeight: "bold", fontSize: "3rem" }}>
+        <h2 style={{ color: "white", fontWeight: "bold", fontSize: "3rem" }}>
           Our Programs
         </h2>
         <br />
