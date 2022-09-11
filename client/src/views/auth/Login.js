@@ -63,8 +63,8 @@ function Login() {
             <input
               type="text"
               class="form-control"
-              placeholder="UserEmail"
-              aria-label="UserEmail"
+              placeholder="Username"
+              aria-label="Username"
               aria-describedby="addon-wrapping"
               onChange={(e) =>
                 setData((p) => ({ ...p, email: e.target.value }))
