@@ -10,7 +10,6 @@ const register = async (req, res) => {
       emailVerified: false,
       password: password,
       displayName: name,
-
       photoURL: "http://www.example.com/12345678/photo.png",
       disabled: false,
     });
@@ -20,11 +19,8 @@ const register = async (req, res) => {
     SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
       "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";
 
+    // .generateEmailVerificationLink(email, { url: "https://nuvc.org" })
     getAuth(global.firebaseApp)
-      // .generateEmailVerificationLink(email, { url: "https://nuvc.org" })
-      .then((data) => {
-        console.log("after generating email link: ", data);
-      })
       .setCustomUserClaims(uid, { role: role })
       .then(() => {
         console.log("user created");
