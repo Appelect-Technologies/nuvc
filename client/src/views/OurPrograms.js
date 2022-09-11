@@ -8,7 +8,7 @@ function OurPrograms({ data }) {
   return (
     <div
       style={{
-        backgroundColor: "#9572f8",
+        backgroundColor: "#5c007a",
         borderRadius: "2px",
         width: "98.9vw",
         // display: "flex",
