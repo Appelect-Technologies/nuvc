@@ -10,6 +10,7 @@ import {
   QUORA_LINK,
   REDDIT_LINK,
   TWITTER_LINK,
+  YOUTUBE_LINK,
 } from "../../constants";
 
 function Footer() {
@@ -120,7 +121,7 @@ function Footer() {
                   ></i>
                 </a>
 
-                <a href={TWITTER_LINK} target="_blank">
+                <a href={YOUTUBE_LINK} target="_blank">
                   <i
                     class="fa-brands fa-youtube"
                     style={{
