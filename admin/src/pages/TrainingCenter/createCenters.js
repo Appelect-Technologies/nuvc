@@ -19,12 +19,13 @@ function CreateCenterForm() {
         Sector: values.Sector,
         JobRole: values.JobRole,
       };
-      await Center(new_values);
-      toast.success('Successfully created!');
+      await CreateCenter(new_values);
+      toast.success('Successfully created');
       formik.resetForm();
       formRef.current.reset();
     } catch (error) {
-      alert(error.message);
+      console.log(error);
+      toast.error('Error occured');
     } finally {
       formik.setSubmitting();
     }
@@ -74,7 +75,7 @@ function CreateCenterForm() {
                 }}
               />
             </FormGroup>
-            <FormGroup>
+            <FormGroup> 
               <Typography>State</Typography>
               <TextField
                 {...formik.getFieldProps('state')}

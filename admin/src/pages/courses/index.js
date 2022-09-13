@@ -57,7 +57,7 @@ const Courses = () => {
     });
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     handleFetchData();
   }, []);
 

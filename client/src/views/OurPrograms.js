@@ -8,7 +8,7 @@ function OurPrograms({ data }) {
   return (
     <div
       style={{
-        backgroundColor: "#9572f8",
+        backgroundColor: "#5c007a",
         borderRadius: "2px",
         width: "98.9vw",
         // display: "flex",
@@ -17,7 +17,7 @@ function OurPrograms({ data }) {
     >
       <center>
         <br />
-        <h2 style={{ color: "black", fontWeight: "bold", fontSize: "3rem" }}>
+        <h2 style={{ color: "white", fontWeight: "bold", fontSize: "3rem" }}>
           Our Programs
         </h2>
         <br />

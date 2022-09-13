@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import FullScreenDialog from 'src/components/fullScreenDialog';
 import { getCenter } from 'src/services';
 import CreateJobForm from './createCenters';
-import JobsComponent from './list';
+import CenterComponent from './list';
 
 const Center = () => {
   const [isFetching, setIsFetching] = useState(false);
@@ -20,7 +20,7 @@ const Center = () => {
     } catch (error) {
       alert(JSON.stringify(error));
     } finally {
-      setTimeout(() => {
+      setTimeout(() => { 
         setIsFetching(false);
       }, 500);
     }
@@ -42,7 +42,7 @@ const Center = () => {
   if (isFetching) return <CircularProgress />;
   return (
     <Fragment>
-      <JobsComponent data={values} onAdd={handleShowDialog} />
+      <CenterComponent data={values} onAdd={handleShowDialog} />
       <FullScreenDialog title="Center " open={show} handleClose={handleHideDialog}>
         <CreateJobForm />
       </FullScreenDialog>

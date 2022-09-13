@@ -10,6 +10,7 @@ import {
   QUORA_LINK,
   REDDIT_LINK,
   TWITTER_LINK,
+  YOUTUBE_LINK,
 } from "../../constants";
 
 function Footer() {
@@ -120,7 +121,7 @@ function Footer() {
                   ></i>
                 </a>
 
-                <a href={TWITTER_LINK} target="_blank">
+                <a href={YOUTUBE_LINK} target="_blank">
                   <i
                     class="fa-brands fa-youtube"
                     style={{
@@ -185,7 +186,7 @@ function Footer() {
                 </address>
                 <div class="emailfield">
                   <p>
-                    <b>Phone:</b> <a href="tel:01146579553">011-46579553</a>
+                    <b>Phone:</b> <a href="tel:01146579553">+91 9599581858</a>
                   </p>
                   <p>
                     <b>Email:</b>
@@ -216,7 +217,7 @@ function Footer() {
               </p>
 
               <div class="col-md-12 text-center">
-                <p>Copyright Udyamit © 2021. All rights reserved.</p>
+                <p>Copyright Udyamit © {new Date().getFullYear()}. All rights reserved.</p>
               </div>
             </div>
           </div>

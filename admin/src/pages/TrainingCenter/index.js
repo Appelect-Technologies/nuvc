@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import FullScreenDialog from 'src/components/fullScreenDialog';
 import { getCenter } from 'src/services';
 import CreateCenterForm from './createCenters';
-import JobsComponent from './list';
+import CenterComponent from './list';
 import UpdateCenterForm from './updateJob';
 
 const Center = () => {
@@ -19,9 +19,8 @@ const Center = () => {
     try {
       setIsFetching(true);
       const res = await getCenter();
-      const vals = res.data.jobs.map((item, i) => ({ ...item, id: i + 1 }));
+      const vals = res.data.Center.map((item, i) => ({ ...item, id: i + 1 }));
       setValues(vals);
-      // console.log('this is jobs: ', vals);
     } catch (error) {
       alert(JSON.stringify(error));
     } finally {
@@ -62,11 +61,15 @@ const Center = () => {
   if (isFetching) return <CircularProgress />;
   return (
     <Fragment>
-      <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateCenterScreen} />
+      <CenterComponent
+        data={values}
+        onAdd={handleShowDialog}
+        handleShowUpdateJobScreen={handleShowUpdateCenterScreen}
+      />
       <FullScreenDialog title="Training centers" open={show} handleClose={handleHideDialog}>
         <CreateCenterForm />
       </FullScreenDialog>
-      {updateJob.show && (
+      {updateCenter.show && (
         <FullScreenDialog title="Update Center" open={updateJob.show} handleClose={handleHideUpdateCenterScreen}>
           <UpdateCenterForm data={updateCenter.data} />
         </FullScreenDialog>
