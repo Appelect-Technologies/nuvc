@@ -18,14 +18,16 @@ function CreateCenterForm() {
         TPName: values.TPName,
         Sector: values.Sector,
         JobRole: values.JobRole,
+        TCSPOCName: values.TCSPOCName,
+        TCSPOCEmailID: values.TCSPOCEmailID,
+        TCAddress: values.TCAddress,
       };
       await CreateCenter(new_values);
       toast.success('Successfully created');
       formik.resetForm();
       formRef.current.reset();
     } catch (error) {
-      console.log(error);
-      toast.error('Error occured');
+      alert(error.message);
     } finally {
       formik.setSubmitting();
     }
@@ -68,14 +70,14 @@ function CreateCenterForm() {
               <Typography>Sr.No.</Typography>
               <TextField
                 name="Sr.no"
-                onChange={(e) => formik.setFieldValue('number', e.target.number[0])}
+                // onChange={(e) => formik.setFieldValue('number', e.target.number[0])}
                 type="number"
                 inputProps={{
                   accept: 'number',
                 }}
               />
             </FormGroup>
-            <FormGroup> 
+            <FormGroup>
               <Typography>State</Typography>
               <TextField
                 {...formik.getFieldProps('state')}
@@ -101,7 +103,7 @@ function CreateCenterForm() {
               <Typography> TP Name</Typography>
               <TextField
                 {...formik.getFieldProps('TP Name')}
-                type=""
+                type=" text"
                 helperText={formik.errors.Name}
                 disabled={formik.isSubmitting}
                 error={formik.errors.Name}
@@ -135,7 +137,7 @@ function CreateCenterForm() {
               <Typography>Job Role</Typography>
               <TextField
                 {...formik.getFieldProps('Job Role')}
-                type=""
+                type="text"
                 helperText={formik.errors.JobRole}
                 disabled={formik.isSubmitting}
                 error={formik.errors.JobRole}
@@ -146,7 +148,7 @@ function CreateCenterForm() {
               <Typography>TC SPOC Name (TC SPOC Name)</Typography>
               <TextField
                 {...formik.getFieldProps('TC SPOC Name')}
-                type=""
+                type="text"
                 helperText={formik.errors.TCSPOCName}
                 disabled={formik.isSubmitting}
                 error={formik.errors.TCSPOCName}

@@ -73,7 +73,7 @@ const getColumns = (handleShowUpdateJobScreen) => [
     width: 150,
   },
   {
-    field: 'salary',
+    field: 'salary', 
     headerName: 'salary',
     width: 150,
   },

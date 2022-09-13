@@ -15,7 +15,7 @@ const getColumns = (handleShowUpdateCenterScreen) => [
     headerName: 'State',
     width: 400,
   },
-  {
+  { 
     field: '	District',
     headerName: '	District',
     width: 150,

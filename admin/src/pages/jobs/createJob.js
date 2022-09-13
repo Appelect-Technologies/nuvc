@@ -17,7 +17,7 @@ function CreateJobForm() {
         exam_date: values.examDate,
         number_of_vacancies: values.noOfVacancies,
         syllabus_url: values.syllabusUrl,
-      };
+      }; 
       await createNewJob(new_values);
       toast.success('Successfully created!');
       formik.resetForm();

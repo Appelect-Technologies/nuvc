@@ -20,6 +20,7 @@ import {
   GET_SUBSCRIPTIONS,
   UPDATE_JOB,
   GET_Center,
+  CREATE_Center,
   Update_COURSES,
   Update_Center,
 } from '../apiClient/endpoints';
@@ -87,7 +88,7 @@ export function createNewJob(values) {
 }
 
 export function CreateCenter(values) {
-  return Axios.post(GET_Center, values);
+  return Axios.post(CREATE_Center, values);
 }
 
 export function updateJob(values) {

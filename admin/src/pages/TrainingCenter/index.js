@@ -79,3 +79,17 @@ const Center = () => {
 };
 
 export default Center;
+
+{
+  /* <Fragment>
+  <JobsComponent data={values} onAdd={handleShowDialog} handleShowUpdateJobScreen={handleShowUpdateJobScreen} />
+  <FullScreenDialog title="Add New Job" open={show} handleClose={handleHideDialog}>
+    <CreateJobForm />
+  </FullScreenDialog>
+  {updateJob.show && (
+    <FullScreenDialog title="Update Job" open={updateJob.show} handleClose={handleHideUpdateJobScreen}>
+      <UpdateJobForm data={updateJob.data} />
+    </FullScreenDialog>
+  )}
+</Fragment>; */
+}

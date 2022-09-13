@@ -6,6 +6,7 @@ import { UpdateCenterForm, UploadFileToS3 } from 'src/services';
 
 function UpdatecenterComponent() {
   const formRef = useRef();
+
   const handleSubmit = async (values) => {
     try {
       const fileres = await UploadFileToS3(values.icon);
@@ -102,7 +103,7 @@ function UpdatecenterComponent() {
             <FormGroup>
               <Typography> District</Typography>
               <TextField
-                {...formik.getFieldProps('	District')}
+                {...formik.getFieldProps('District')}
                 rows={1}
                 multiline
                 helperText={formik.errors.District}
