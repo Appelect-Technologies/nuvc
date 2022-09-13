@@ -67,7 +67,7 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
       return;
     }
 
-    if (data.idBack.length < 5) {
+    if (data.idName === "Aadhaar" && data.idBack.length < 5) {
       setError({
         signature: "",
         photo: "",

@@ -72,7 +72,7 @@ function Index({ user }) {
       // console.log("apply data", res?.data);
     } catch (error) {
       // console.log("error occured: ", error);
-      alert("Error occured");
+      // alert("Error occured");
     }
   }
 
@@ -90,7 +90,7 @@ function Index({ user }) {
   if (isAlreadyApplied) {
     // in case user has already applied for this post
     return (
-      <div className="container">
+      <div className="container my-5">
         <div class="card shadow-sm" style={{ maxWidth: 400, margin: "auto" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

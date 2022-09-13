@@ -184,11 +184,11 @@ function Preview({ nextStep, prevStep, jobApplicationId }) {
               value: values.idName,
             },
             {
-              title: "Aadhaar Front",
+              title: "Document Id Front",
               value: values.idFront,
             },
             {
-              title: "Aadhaar Back",
+              title: "Document Id Back",
               value: values.idBack,
             },
           ].map((_, i) => {
