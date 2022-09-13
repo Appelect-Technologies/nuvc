@@ -16,7 +16,7 @@ const getColumns = (handleShowUpdateCenterScreen) => [
     width: 400,
   },
   {
-    field: '	District',
+    field: 'District',
     headerName: '	District',
     width: 150,
     // renderCell: (param) => {
@@ -24,7 +24,7 @@ const getColumns = (handleShowUpdateCenterScreen) => [
     // },
   },
   {
-    field: '	TPName',
+    field: 'TPName',
     headerName: '	TP Name',
     width: 150,
   },
@@ -68,12 +68,12 @@ const getColumns = (handleShowUpdateCenterScreen) => [
     width: 150,
   },
   {
-    field: '	TC Spoc Mobile',
+    field: 'TC Spoc Mobile',
     headerName: '	TC Spoc Mobile',
     width: 150,
   },
   {
-    field: '	TC Address',
+    field: 'TC Address',
     headerName: '	TC Address',
     width: 150,
   },

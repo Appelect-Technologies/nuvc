@@ -9,10 +9,10 @@ function CreateCenterForm() {
   const formRef = useRef();
   const handleSubmit = async (values) => {
     try {
-      const fileres = await UploadFileToS3(values.icon);
+      // const fileres = await UploadFileToS3(values.icon);
       const new_values = {
         ...values,
-        SrNo: fileres.data.SrNo,
+        // SrNo: fileres.data.SrNo,
         state: values.state,
         District: values.District,
         TPName: values.TPName,
@@ -75,7 +75,7 @@ function CreateCenterForm() {
                 }}
               />
             </FormGroup>
-            <FormGroup> 
+            <FormGroup>
               <Typography>State</Typography>
               <TextField
                 {...formik.getFieldProps('state')}
@@ -88,7 +88,7 @@ function CreateCenterForm() {
             <FormGroup>
               <Typography> District</Typography>
               <TextField
-                {...formik.getFieldProps('	District')}
+                {...formik.getFieldProps('District')}
                 rows={1}
                 multiline
                 helperText={formik.errors.District}
@@ -167,7 +167,7 @@ function CreateCenterForm() {
             <FormGroup>
               <Typography> TC SPOC Email ID</Typography>
               <TextField
-                {...formik.getFieldProps('	TC SPOC Email ID')}
+                {...formik.getFieldProps('TC SPOC Email ID')}
                 helperText={formik.errors.TCSPOCEmailID}
                 disabled={formik.isSubmitting}
                 error={formik.errors.TCSPOCEmailID}
@@ -177,7 +177,7 @@ function CreateCenterForm() {
             <FormGroup>
               <Typography> TC Spoc Mobile</Typography>
               <TextField
-                {...formik.getFieldProps('	TC Spoc Mobile')}
+                {...formik.getFieldProps('TC Spoc Mobile')}
                 helperText={formik.errors.TCSpocMobile}
                 disabled={formik.isSubmitting}
                 error={formik.errors.TCSpocMobile}
