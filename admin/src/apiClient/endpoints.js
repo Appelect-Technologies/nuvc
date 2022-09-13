@@ -7,9 +7,11 @@ export const GET_LEADS = '/api/leads';
 export const GET_JOBS = '/api/jobs';
 export const GET_JOB_APPLICANTS = '/api/jobapplicants';
 export const GET_SUBSCRIPTIONS = '/api/subscriptions';
+
 export const GET_Center = '/api/Center';
 export const Update_Center = '/api/Center';
 export const CREATE_Center = '/api/Center';
+
 
 export const CREATE_COURSES = '/api/digital';
 export const GET_COURSES = '/api/digitals';

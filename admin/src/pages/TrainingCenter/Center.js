@@ -15,11 +15,15 @@ const Center = () => {
     try {
       setIsFetching(true);
       const res = await getCenter();
+<<<<<<< HEAD
       const vals = res.data.CenterComponent.map((item, i) => ({ ...item, id: i + 1 }));
+=======
+      const vals = res.data.map((item, i) => ({ ...item, id: i + 1 }));
+>>>>>>> main
       setValues(vals);
       console.log('this is jobs: ', vals);
     } catch (error) {
-      alert(JSON.stringify(error));
+      // alert(JSON.stringify(error));
     } finally {
       setTimeout(() => {
         setIsFetching(false);
