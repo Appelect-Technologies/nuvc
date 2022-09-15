@@ -17,6 +17,7 @@ function SmallCard({
           src={icon}
           style={{ width: "100%", objectFit: "contain" }}
           loading="lazy"
+          alt="job placement agency"
         />
       </div>
 

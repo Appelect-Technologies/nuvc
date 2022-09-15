@@ -8,6 +8,7 @@ function About() {
           "https://nuvc-public.s3.ap-south-1.amazonaws.com/ABOUT+US+PAGES+FOR+WEBSITE+IIi+PART-01.png"
         }
         style={{ width: "98.9vw", height: "19vw" }}
+        alt={"india development review"}
       />
 
       <div className="container">
@@ -20,6 +21,7 @@ function About() {
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
           }}
+          alt={"skill development"}
         >
           <div className="card-header   ">
             <b style={{ color: "red" }}>

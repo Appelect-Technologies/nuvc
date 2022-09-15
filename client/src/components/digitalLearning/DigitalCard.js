@@ -18,6 +18,7 @@ function DigitalCard({
             src={icon}
             style={{ width: "100%", objectFit: "cover" }}
             loading="lazy"
+            alt="job placement agency"
           />
         </div>
         <div class="card-body">

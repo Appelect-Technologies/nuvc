@@ -13,7 +13,11 @@ function Nav() {
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/" style={{ color: "white" }}>
-          <img src={logo} alt="logo" style={{ width: 30 }} />
+          <img
+            src={logo}
+            alt="Navachar Udyamita Vikash Council"
+            style={{ width: 30 }}
+          />
         </Link>
         <Link
           to="/creers"
@@ -98,7 +102,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link to="/trainingCentre" className="nav-link" href="#">
-              Training Centre
+                Training Centre
               </Link>
             </li>
 

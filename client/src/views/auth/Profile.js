@@ -26,7 +26,7 @@ function Profile() {
                 borderRadius: 200,
                 //   background: "red",
               }}
-              alt="pic"
+              alt="job placement agency"
             />
           </div>
           <div
