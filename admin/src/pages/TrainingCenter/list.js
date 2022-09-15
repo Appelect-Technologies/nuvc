@@ -5,76 +5,58 @@ import DataGridCompnent from 'src/components/utils/uiComponents/dataGrid';
 const getColumns = (handleShowUpdateCenterScreen) => [
   { field: 'id', headerName: 'ID', width: 90, hide: true },
   {
-    field: 'Sr.No.',
+    field: 'srNo',
     headerName: 'Sr.No.',
     width: 150,
-    // renderCell: (param) => <Avatar src={param.value} />,
   },
   {
-    field: 'State',
+    field: 'state',
     headerName: 'State',
     width: 400,
   },
   {
-    field: 'District',
-    headerName: '	District',
-    width: 150,
-    // renderCell: (param) => {
-    //   return <Button onClick={() => alert(param.value)}>See Desc</Button>;
-    // },
-  },
-  {
-    field: 'TPName',
-    headerName: '	TP Name',
+    field: 'district',
+    headerName: 'District',
     width: 150,
   },
   {
-    field: 'TCName',
+    field: 'tpName',
+    headerName: 'TP Name',
+    width: 150,
+  },
+  {
+    field: 'tcName',
     headerName: 'TC Name',
     width: 180,
   },
   {
-    field: 'Sector',
+    field: 'sector',
     headerName: 'Sector',
     width: 180,
   },
   {
-    field: 'JobRole',
+    field: 'jobRole',
     headerName: 'Job Role',
     width: 150,
-    // renderCell: (param) => (
-    //   <Tooltip title="Click to go to url">
-    //     <Button href={param.value} target="_blank">
-    //       Link
-    //     </Button>
-    //   </Tooltip>
-    // ),
   },
   {
-    field: 'TCSPOCName',
+    field: 'tcSpocName',
     headerName: 'TC SPOC Name',
     width: 150,
-    // renderCell: (param) => (
-    //   <Tooltip title="Click to go to url">
-    //     <Button href={param.value} target="_blank">
-    //       Link
-    //     </Button>
-    //   </Tooltip>
-    // ),
   },
   {
-    field: 'TC SPOC Email ID',
+    field: 'tcSpocEmail',
     headerName: 'TC SPOC Email ID',
     width: 150,
   },
   {
-    field: 'TC Spoc Mobile',
+    field: 'TCSpocMobile',
     headerName: '	TC Spoc Mobile',
     width: 150,
   },
   {
-    field: 'TC Address',
-    headerName: '	TC Address',
+    field: 'tcAddress',
+    headerName: 'TC Address',
     width: 150,
   },
   // {
@@ -95,7 +77,13 @@ const getColumns = (handleShowUpdateCenterScreen) => [
     width: 150,
     renderCell: (param) => (
       <Tooltip title="Click to edit">
-        <Button onClick={() => handleShowUpdateCenterScreen(param.row)}>Edit</Button>
+        <Button
+          onClick={() => {
+            handleShowUpdateCenterScreen(param.row);
+          }}
+        >
+          Edit
+        </Button>
       </Tooltip>
     ),
   },

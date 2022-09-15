@@ -12,12 +12,12 @@ function CreateCenterForm() {
       // const fileres = await UploadFileToS3(values.icon);
       const new_values = {
         ...values,
-        // SrNo: fileres.data.SrNo,
+        // srNo: fileres.data.srNo,
         state: values.state,
-        District: values.District,
-        TPName: values.TPName,
-        Sector: values.Sector,
-        JobRole: values.JobRole,
+        district: values.district,
+        tpName: values.tpName,
+        sector: values.Sector,
+        jobRole: values.jobRole,
       };
       await CreateCenter(new_values);
       toast.success('Successfully created');
@@ -33,17 +33,17 @@ function CreateCenterForm() {
 
   const formik = useFormik({
     initialValues: {
-      SrNo: '',
+      srNo: '',
       state: '',
-      District: '',
-      TPName: '',
-      TCName: '',
-      Sector: '',
-      JobRole: '',
-      TCSPOCName: '',
-      TCSPOCEmailID: '',
-      TCSpocMobile: '',
-      TCAddress: '',
+      district: '',
+      tpName: '',
+      tcName: '',
+      sector: '',
+      jobRole: '',
+      tcSpocName: '',
+      tcSpocEmail: '',
+      tcSpocMobile: '',
+      tcAddress: '',
     },
     validate: (values) => {
       const errors = {};
@@ -86,70 +86,64 @@ function CreateCenterForm() {
             </FormGroup>
 
             <FormGroup>
-              <Typography> District</Typography>
+              <Typography>District</Typography>
               <TextField
-                {...formik.getFieldProps('District')}
+                {...formik.getFieldProps('district')}
                 rows={1}
                 multiline
-                helperText={formik.errors.District}
+                helperText={formik.errors.district}
                 disabled={formik.isSubmitting}
-                error={formik.errors.District}
+                error={formik.errors.district}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography> TP Name</Typography>
               <TextField
-                {...formik.getFieldProps('TP Name')}
-                type=""
-                helperText={formik.errors.Name}
+                {...formik.getFieldProps('tpName')}
+                error={formik.errors.tpName}
+                helperText={formik.errors.tpName}
                 disabled={formik.isSubmitting}
-                error={formik.errors.Name}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography>TC Name</Typography>
               <TextField
-                {...formik.getFieldProps('TC Name')}
-                rows={1}
-                multiline
-                helperText={formik.errors.TCName}
+                {...formik.getFieldProps('tcName')}
+                error={formik.errors.tcName}
+                helperText={formik.errors.tcName}
                 disabled={formik.isSubmitting}
-                error={formik.errors.TCName}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography>Sector</Typography>
               <TextField
-                {...formik.getFieldProps('Sector')}
-                type="number"
-                helperText={formik.errors.Sector}
+                {...formik.getFieldProps('sector')}
+                error={formik.errors.sector}
+                helperText={formik.errors.sector}
                 disabled={formik.isSubmitting}
-                error={formik.errors.Sector}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography>Job Role</Typography>
               <TextField
-                {...formik.getFieldProps('Job Role')}
-                type=""
-                helperText={formik.errors.JobRole}
+                {...formik.getFieldProps('jobRole')}
+                helperText={formik.errors.jobRole}
+                error={formik.errors.jobRole}
                 disabled={formik.isSubmitting}
-                error={formik.errors.JobRole}
               />
             </FormGroup>
 
             <FormGroup>
-              <Typography>TC SPOC Name (TC SPOC Name)</Typography>
+              <Typography>TC SPOC Name</Typography>
               <TextField
-                {...formik.getFieldProps('TC SPOC Name')}
-                type=""
-                helperText={formik.errors.TCSPOCName}
+                {...formik.getFieldProps('tcSpocName')}
+                helperText={formik.errors.tcSpocName}
                 disabled={formik.isSubmitting}
-                error={formik.errors.TCSPOCName}
+                error={formik.errors.tcSpocName}
               />
             </FormGroup>
 
@@ -167,30 +161,30 @@ function CreateCenterForm() {
             <FormGroup>
               <Typography> TC SPOC Email ID</Typography>
               <TextField
-                {...formik.getFieldProps('TC SPOC Email ID')}
-                helperText={formik.errors.TCSPOCEmailID}
+                {...formik.getFieldProps('tcSpocEmail')}
+                helperText={formik.errors.tcSpocEmail}
                 disabled={formik.isSubmitting}
-                error={formik.errors.TCSPOCEmailID}
+                error={formik.errors.tcSpocEmail}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography> TC Spoc Mobile</Typography>
               <TextField
-                {...formik.getFieldProps('TC Spoc Mobile')}
-                helperText={formik.errors.TCSpocMobile}
+                {...formik.getFieldProps('tcSpocMobile')}
+                helperText={formik.errors.tcSpocMobile}
                 disabled={formik.isSubmitting}
-                error={formik.errors.TCSpocMobile}
+                error={formik.errors.tcSpocMobile}
               />
             </FormGroup>
 
             <FormGroup>
               <Typography>TC Address</Typography>
               <TextField
-                {...formik.getFieldProps('TC Address')}
-                helperText={formik.errors.TCAddress}
+                {...formik.getFieldProps('tcAddress')}
+                helperText={formik.errors.tcAddress}
                 disabled={formik.isSubmitting}
-                error={formik.errors.TCAddress}
+                error={formik.errors.tcAddress}
               />
             </FormGroup>
 

@@ -30,6 +30,7 @@ const {
 const {
   getTrainingCenters,
   createTrainingCenters,
+  updateTrainingCenters,
 } = require("../apis/training centers");
 const { getUsers } = require("../apis/users/list");
 const {
@@ -88,5 +89,6 @@ router.get("/subscriptions", getSubscriptions);
 // training centers
 router.get("/training-centers", getTrainingCenters);
 router.post("/training-centers", createTrainingCenters);
+router.patch("/training-centers/:centerId", updateTrainingCenters);
 
 module.exports = router;

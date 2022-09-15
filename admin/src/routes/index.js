@@ -17,7 +17,7 @@ import News from 'src/pages/news';
 import Notifications from 'src/pages/notifications';
 import Applicants from 'src/pages/applicants';
 import Subscriptions from 'src/pages/subscriptions';
-import Center from 'src/pages/./TrainingCenter/Center';
+import Center from 'src/pages/TrainingCenter';
 // ----------------------------------------------------------------------
 
 export default function Router() {
