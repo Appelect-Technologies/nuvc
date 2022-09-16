@@ -4,7 +4,7 @@ import FullScreenDialog from 'src/components/fullScreenDialog';
 import { getCenter } from 'src/services';
 import CreateCenterForm from './createCenters';
 import CenterComponent from './list';
-import UpdateCenterForm from './updateJob';
+import UpdateCenterForm from './UpdateCenter';
 
 const Center = () => {
   const [isFetching, setIsFetching] = useState(false);
@@ -19,7 +19,7 @@ const Center = () => {
     try {
       setIsFetching(true);
       const res = await getCenter();
-      const vals = res.data.Center.map((item, i) => ({ ...item, id: i + 1 }));
+      const vals = res.data.map((item, i) => ({ ...item, id: i + 1, srNo: i + 1 }));
       setValues(vals);
     } catch (error) {
       alert(JSON.stringify(error));
@@ -41,7 +41,7 @@ const Center = () => {
 
   // update funcitons
   const handleShowUpdateCenterScreen = (values) => {
-    setUpdateJob({
+    setUpdateCenter({
       show: true,
       data: values,
     });
@@ -52,6 +52,7 @@ const Center = () => {
       show: false,
       data: null,
     });
+    handleFetchData();
   };
 
   useEffect(() => {
@@ -64,13 +65,13 @@ const Center = () => {
       <CenterComponent
         data={values}
         onAdd={handleShowDialog}
-        handleShowUpdateJobScreen={handleShowUpdateCenterScreen}
+        handleShowUpdateCenterScreen={handleShowUpdateCenterScreen}
       />
       <FullScreenDialog title="Training centers" open={show} handleClose={handleHideDialog}>
         <CreateCenterForm />
       </FullScreenDialog>
       {updateCenter.show && (
-        <FullScreenDialog title="Update Center" open={updateJob.show} handleClose={handleHideUpdateCenterScreen}>
+        <FullScreenDialog title="Update Center" open={updateCenter.show} handleClose={handleHideUpdateCenterScreen}>
           <UpdateCenterForm data={updateCenter.data} />
         </FullScreenDialog>
       )}

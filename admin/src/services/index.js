@@ -55,7 +55,7 @@ export function getCenter() {
 }
 
 export function UpdateCenter(values) {
-  return Axios.patch(Update_Center.replace(':Center', values._id), values);
+  return Axios.patch(Update_Center.replace(':centerId', values._id), values);
 }
 
 export function getJobApplicants() {

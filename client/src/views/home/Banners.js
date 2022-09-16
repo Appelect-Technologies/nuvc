@@ -52,36 +52,56 @@ function Banners() {
         ></button>
       </div>
       <div className="carousel-inner">
-        <div className="carousel-item active"  >
-          <img src={b1} className="d-block w-100 banner" alt="..." />
+        <div className="carousel-item active">
+          <img
+            src={b1}
+            className="d-block w-100 banner"
+            alt="indian development sector"
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src={b2} className="d-block w-100 banner" alt="..." />
+          <img
+            src={b2}
+            className="d-block w-100 banner"
+            alt="india development review"
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src={b3} className="d-block w-100 banner" alt="..." />
+          <img
+            src={b3}
+            className="d-block w-100 banner"
+            alt="skill development"
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src={b4} className="d-block w-100 banner" alt="..." />
+          <img
+            src={b4}
+            className="d-block w-100 banner"
+            alt="Hire the Right Person"
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src={b5} className="d-block w-100 banner" alt="..." />
+          <img
+            src={b5}
+            className="d-block w-100 banner"
+            alt="Hire the Right Person"
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>

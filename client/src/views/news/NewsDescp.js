@@ -40,6 +40,7 @@ function NewsDiscp() {
                 maxHeight: 400,
                 objectFit: "contain",
               }}
+              alt="Hire the Right Person"
             />
           </div>
           <div class="col-md-8">

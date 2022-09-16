@@ -28,7 +28,7 @@ function Botton() {
           src={
             "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
           }
-          alt="logo"
+          alt="job placement agency"
           style={{
             width: "100%",
             // height: 220,
@@ -40,7 +40,7 @@ function Botton() {
           src={
             "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
           }
-          alt="logo"
+          alt="job placement agency"
           style={{
             width: "100%",
             // height: 220,
