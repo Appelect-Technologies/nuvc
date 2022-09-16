@@ -42,13 +42,13 @@ function Register() {
       //   registering the user
       await axios.post(config.baseUrl + config.register, data);
       //   signing in the user
-      await Signin(data.email, data.password, () =>
-        Boolean(redirectionURL)
-          ? history.push(redirectionURL)
-          : history.push("/")
-      );
-      toast.success("User registered successfully");
-      // history.push("/");
+      // await Signin(data.email, data.password, () =>
+      //   Boolean(redirectionURL)
+      //     ? history.push(redirectionURL)
+      //     : history.push("/")
+      // );
+
+      history.push("/verify");
       // handleNext();
     } catch (error) {
       console.log("reg err", error);

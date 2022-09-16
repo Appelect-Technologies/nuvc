@@ -1,5 +1,11 @@
 const { getAuth } = require("firebase-admin/auth");
 var SibApiV3Sdk = require("sib-api-v3-sdk");
+const jwt = require("jsonwebtoken");
+const { sendMail } = require("../../utils/mailer");
+const admin = require("firebase-admin");
+const ejs = require("ejs");
+const path = require("path");
+
 var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 const register = async (req, res) => {
@@ -14,55 +20,27 @@ const register = async (req, res) => {
       disabled: false,
     });
 
-    console.log(uid);
-
-    SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
-      "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";
-
-    // .generateEmailVerificationLink(email, { url: "https://nuvc.org" })
-    getAuth(global.firebaseApp)
-      .setCustomUserClaims(uid, { role: role })
-      .then(() => {
-        console.log("user created");
-
-        new SibApiV3Sdk.TransactionalEmailsApi()
-          .sendTransacEmail({
-            sender: { email: "seedonline21@gmail.com", name: "Seed Online" },
-            subject: "Registered Successfully",
-            templateId: 27,
-            params: {
-              greeting: "Congrats! " + name,
-              headline:
-                "You successfully registered with SeedOnline \n your password " +
-                password,
-            },
-            messageVersions: [
-              {
-                to: [
-                  {
-                    email: { email },
-                    name: { name },
-                  },
-                ],
-                params: {
-                  greeting: "Congrats! " + name,
-                  headline:
-                    "You successfully registered with SeedOnline \n your password " +
-                    password,
-                },
-                subject: "Registered Successfully with SeedOnline!",
-              },
-            ],
-          })
-          .then(
-            function (data) {
-              console.log("email successful response: ", data);
-            },
-            function (error) {
-              console.error("email successful error: ", error);
-            }
-          );
-      });
+    // sending email verification link to user
+    const code = jwt.sign(
+      { type: "student", id: uid },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: process.env.EMAIL_VERIFICATION_EXPIRATION,
+      }
+    );
+    const html = await ejs.renderFile(
+      path.join(
+        path.resolve(__dirname, "../../"),
+        "templates",
+        "email-verification.ejs"
+      ),
+      {
+        // SERVER_URL: process.env.SERVER_URL,
+        FRONTEND_URL: process.env.CLIENT_FRONTEND_URL,
+        VERIFICATION_URL: `${process.env.SERVER_URL}/api/verify-email?code=${code}`,
+      }
+    );
+    sendMail(email, html);
     res.status(200).json({ msg: "success" });
   } catch (err) {
     console.log(err.message);
@@ -70,4 +48,35 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { register };
+const verifyEmail = async (req, res) => {
+  try {
+    const { code } = req.query;
+    if (!code) throw new Error("Error occured");
+    const parsed = jwt.verify(code, process.env.JWT_SECRET);
+    if (!parsed) throw new Error("Session Expired");
+    const user = await admin
+      .auth(global.firebaseApp)
+      .updateUser(parsed.id, { emailVerified: true });
+
+    // sending registration successful email
+    const html = await ejs.renderFile(
+      path.join(
+        path.resolve(__dirname, "../../"),
+        "templates",
+        "registration-successful.ejs"
+      ),
+      {
+        FRONTEND_URL: process.env.CLIENT_FRONTEND_URL,
+      }
+    );
+    sendMail(user.email, html);
+    res.redirect(process.env.CLIENT_FRONTEND_URL + "/login");
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(400)
+      .send(`<h1>Failed to verify email, please try again</h1>`);
+  }
+};
+
+module.exports = { register, verifyEmail };

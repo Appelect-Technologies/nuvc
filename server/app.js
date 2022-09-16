@@ -6,6 +6,7 @@ const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
 const aws = require("aws-sdk");
+
 app.use(cors());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
@@ -18,11 +19,9 @@ const JobApply = require("./models/JobApply.js");
 // misseleneous
 const Razorpay = require("razorpay");
 const PaymentRouter = require("./apis/payments");
-const { register } = require("./apis/users/register");
+const { register, verifyEmail } = require("./apis/users/register");
 const { userSubscription10 } = require("./apis/users/subscription.js");
-var pay = require("./pay10Util");
-
-// const { initializeApp } = require("firebase-admin/app");
+require("./db");
 const firebaseConfig = require("./config.js");
 
 const admin = require("firebase-admin");
@@ -31,12 +30,6 @@ global.firebaseApp = admin.initializeApp({
   credential: admin.credential.cert(firebaseConfig),
 });
 
-require("./db");
-
-app.post("/api/reg", register);
-
-app.get("/v", (req, res) => res.sendStatus(200));
-
 aws.config.update({
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET,
@@ -44,6 +37,10 @@ aws.config.update({
   Bucket: process.env.BUCKET,
   signatureVersion: "v4",
 });
+
+app.post("/api/reg", register);
+app.get("/api/verify-email", verifyEmail);
+app.get("/v", async (req, res) => res.sendStatus(200));
 
 const s3 = new aws.S3({ signatureVersion: "v4" });
 

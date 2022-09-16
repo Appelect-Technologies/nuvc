@@ -1,25 +1,14 @@
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "./config";
-import {
-  getAuth,
-  signOut,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const app = initializeApp(firebaseConfig);
 
-function Signin(email, password, cb = () => {}) {
+function Signin(email, password) {
   const auth = getAuth(app);
   return signInWithEmailAndPassword(auth, email, password).then((data) => {
-    if (!data.user.emailVerified) {
-      // if email is not verified then send an email
-      sendEmailVerification(data.user, { url: "https://nuvc.org" });
-      // Signout();
-    } else {
-      cb();
-    }
+    return data.user;
   });
 }
 

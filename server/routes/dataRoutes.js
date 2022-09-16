@@ -37,6 +37,7 @@ const {
   userSubscription,
   getSubscriptions,
 } = require("../apis/users/subscription");
+const { sendMail } = require("../utils/mailer");
 
 // users
 router.get("/users", getUsers);
@@ -90,5 +91,10 @@ router.get("/subscriptions", getSubscriptions);
 router.get("/training-centers", getTrainingCenters);
 router.post("/training-centers", createTrainingCenters);
 router.patch("/training-centers/:centerId", updateTrainingCenters);
+
+router.post("/email", (req, res) => {
+  sendMail(req.body.email);
+  res.sendStatus(200);
+});
 
 module.exports = router;

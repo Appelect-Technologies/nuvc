@@ -27,12 +27,16 @@ function Login() {
     // console.log("Login", data);
     // signInWithEmailAndPassword(auth, data.email, data.password)
     Signin(data.email, data.password)
-      .then(() => {
-        toast.success("Successfully  Loged in");
-        if (redirectionURL) {
-          history.push(redirectionURL);
+      .then((user) => {
+        if (user.emailVerified) {
+          toast.success("Successfully  Loged in");
+          if (redirectionURL) {
+            history.push(redirectionURL);
+          } else {
+            history.push("/");
+          }
         } else {
-          history.push("/");
+          history.push("/verify");
         }
       })
       .catch((error) => {
