@@ -38,7 +38,7 @@ import About from "./views/About";
 import FooterExt from "./views/FooterExt";
 import Faq from "./views/pages/Faq";
 import Pay10 from "./Pay";
-import TrainingCentre from "./components/trainingCenters/TrainingCentre";
+// import TrainingCentre from "./components/trainingCenters/TrainingCentre";
 import VerifyEmail from "./views/auth/VerifyEmail";
 
 function AuthenticatedRoutes(Component, props = {}) {
@@ -123,7 +123,7 @@ function App() {
           />
           <Route path="/creers/descp/:id" component={CourseDiscp} />
           <Route path="/news/descp/:nid" component={NewsDiscp} />
-          <Route path="/trainingCentre" component={TrainingCentre} />
+//           <Route path="/trainingCentre" component={TrainingCentre} />
           <Route path="/program" component={Programs} />
           <Route
             path="/apply/:jobId"
@@ -143,7 +143,7 @@ function App() {
           <Route path="/disclaimers" component={Disclaimers} />
           <Route path="/process" component={Process} />
           <Route path="/ourPrograms" component={OurPrograms} />
-          <Route path="/trainingCentre" component={TrainingCentre} />
+//           <Route path="/trainingCentre" component={TrainingCentre} />
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
           <Route path="*" component={NotFound} />

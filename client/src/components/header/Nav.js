@@ -100,11 +100,19 @@ function Nav() {
                 </ul>
               </div>
             </li>
+<<<<<<< HEAD
+//             <li className="nav-item">
+//               <Link to="/trainingCentre" className="nav-link" href="#">
+//               Training Centre
+//               </Link>
+//             </li>
+=======
             <li className="nav-item">
               <Link to="/trainingCentre" className="nav-link" href="#">
                 Training Centre
               </Link>
             </li>
+>>>>>>> main
 
             <li className="nav-item">
               <Link to="/contact" className="nav-link" href="#">
