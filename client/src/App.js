@@ -123,7 +123,7 @@ function App() {
           />
           <Route path="/creers/descp/:id" component={CourseDiscp} />
           <Route path="/news/descp/:nid" component={NewsDiscp} />
-//           <Route path="/trainingCentre" component={TrainingCentre} />
+          {/* <Route path="/trainingCentre" component={TrainingCentre} /> */}
           <Route path="/program" component={Programs} />
           <Route
             path="/apply/:jobId"
@@ -143,7 +143,6 @@ function App() {
           <Route path="/disclaimers" component={Disclaimers} />
           <Route path="/process" component={Process} />
           <Route path="/ourPrograms" component={OurPrograms} />
-//           <Route path="/trainingCentre" component={TrainingCentre} />
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
           <Route path="*" component={NotFound} />
@@ -155,3 +154,5 @@ function App() {
 }
 
 export default App;
+
+//<Route path="/trainingCentre" component={TrainingCentre} />
