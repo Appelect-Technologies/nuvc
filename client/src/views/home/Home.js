@@ -7,7 +7,7 @@ import Partner from "./Partner";
 import Headlines from "./Headlines";
 import Credit from "../pages/Credit";
 import OurPrograms from "../OurPrograms";
-
+import what from "../../asstes/WhatsApp.svg.webp";
 function Home() {
   return (
     <div>
@@ -19,6 +19,19 @@ function Home() {
       <Partner />
       {/* <Credit /> */}
       {/* <Footer /> */}
+      <div
+        style={{
+          width: "60px",
+          height: "60px",
+          position: "fixed",
+          right: "10px",
+          bottom: "10px",
+        }}
+      >
+        <a href="https://wa.me/919599581858">
+          <img src={what} alt="" style={{ width: "60px", height: "60px" }} />
+        </a>
+      </div>
     </div>
   );
 }
