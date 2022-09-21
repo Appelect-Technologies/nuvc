@@ -49,6 +49,23 @@ function SmallCard({
           Learn More <i class="fas fa-long-arrow-alt-right"></i>
         </button>
       </figure>
+      <div
+        style={{
+          width: "60px",
+          height: "60px",
+          position: "fixed",
+          right: "10px",
+          bottom: "10px",
+        }}
+      >
+        <a href="https://wa.me/919599581858">
+          <img
+            src="https://nuvc-public.s3.ap-south-1.amazonaws.com/WhatsApp.svg.webp"
+            alt=""
+            style={{ width: "60px", height: "60px" }}
+          />
+        </a>
+      </div>
     </div>
   );
 }
