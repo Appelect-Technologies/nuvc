@@ -113,7 +113,7 @@ function Nav() {
             </li>
 
             <li className="nav-item">
-              <Link to="/blogs" className="nav-link" href="#">
+              <Link to="/Blog" className="nav-link" href="#">
                 Blog
               </Link>
             </li>

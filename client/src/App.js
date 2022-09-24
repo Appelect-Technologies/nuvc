@@ -38,6 +38,8 @@ import About from "./views/About";
 import FooterExt from "./views/FooterExt";
 import Faq from "./views/pages/Faq";
 import Pay10 from "./Pay";
+import Blog from "./views/Blog/Blog";
+import Learnmore from "./views/Blog/Learnmore";
 // import TrainingCentre from "./components/trainingCenters/TrainingCentre";
 import VerifyEmail from "./views/auth/VerifyEmail";
 
@@ -108,6 +110,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/creers" component={Career} />
+          <Route path="/Blog" component={Blog} />
+          <Route path="/Learn" component={Learnmore} />
           <Route exact path="/digitalLearning" component={DigitalLearning} />
           <Route
             exact
@@ -145,6 +149,7 @@ function App() {
           <Route path="/ourPrograms" component={OurPrograms} />
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
+          {/* <Route path="/Blog" component={Blog} /> */}
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
