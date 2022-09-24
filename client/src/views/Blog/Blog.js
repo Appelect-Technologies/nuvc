@@ -94,24 +94,24 @@ function Blog() {
         </div>
         <ul class="cards">
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image89} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/7D7I6dI.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">skill india</h3>
-                    <span class="card__status">1 hour ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">skill india</h3>
+                    <span class="carde__status">1 hour ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -124,24 +124,24 @@ function Blog() {
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image90} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/sjLMNDM.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">kim Cattrall</h3>
+                    <span class="carde__status">3 hours ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -154,27 +154,27 @@ function Blog() {
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image89} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/7D7I6dI.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">Jessica Parker</h3>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">Jessica Parker</h3>
                     {/* <span class="card__tagline">
                       Lorem ipsum dolor sit amet consectetur
                     </span> */}
-                    <span class="card__status">1 hour ago</span>
+                    <span class="carde__status">1 hour ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -187,24 +187,24 @@ function Blog() {
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image91} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/sjLMNDM.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">kim Cattrall</h3>
+                    <span class="carde__status">3 hours ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -222,24 +222,24 @@ function Blog() {
       <div>
         <ul class="cards">
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image89} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/7D7I6dI.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">Jessica Parker</h3>
-                    <span class="card__status">1 hour ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">Jessica Parker</h3>
+                    <span class="carde__status">1 hour ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -252,24 +252,24 @@ function Blog() {
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image90} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/sjLMNDM.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">kim Cattrall</h3>
+                    <span class="carde__status">3 hours ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
@@ -282,65 +282,55 @@ function Blog() {
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image89} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/7D7I6dI.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">Jessica Parker</h3>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">Jessica Parker</h3>
                     {/* <span class="card__tagline">
                       Lorem ipsum dolor sit amet consectetur
                     </span> */}
-                    <span class="card__status">1 hour ago</span>
+                    <span class="carde__status">1 hour ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
-                <li className="nav-item">
-                  <Link to="/learn" className="nav-link" href="#">
-                    <button>Learnmore</button>
-                  </Link>
-                </li>
               </div>
             </a>
           </li>
           <li>
-            <a href="" class="card">
+            <a href="" class="carde">
               <img src={image91} alt="image" class="card__image" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <div class="carde__overlay">
+                <div class="carde__header">
+                  <svg class="carde__arc" xmlns="http://www.w3.org/2000/svg">
                     <path />
                   </svg>
                   <img
-                    class="card__thumb"
+                    class="carde__thumb"
                     src="https://i.imgur.com/sjLMNDM.png"
                     alt=""
                   />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
+                  <div class="carde__header-text">
+                    <h3 class="carde__title">kim Cattrall</h3>
+                    <span class="carde__status">3 hours ago</span>
                   </div>
                 </div>
-                <p class="card__description">
+                <p class="carde__description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
-                <li className="nav-item">
-                  <Link to="/learn" className="nav-link" href="#">
-                    <button>Learnmore</button>
-                  </Link>
-                </li>
               </div>
             </a>
           </li>

@@ -91,7 +91,7 @@ body {
   list-style-type: none;
 }
 
-.card {
+.carde {
   position: relative;
   display: block;
   height: 400px;
@@ -109,7 +109,7 @@ body {
   border: 1px solid gray;
 }
 
-.card__overlay {
+.carde__overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -121,11 +121,11 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.card:hover .card__overlay {
+.carde:hover .carde__overlay {
   transform: translateY(0);
 }
 
-.card__header {
+.carde__header {
   position: relative;
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.card__arc {
+.carde__arc {
   width: 80px;
   height: 80px;
   position: absolute;
@@ -146,29 +146,29 @@ body {
   z-index: 1;
 }
 
-.card__arc path {
+.carde__arc path {
   fill: var(--surface-color);
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }
 
-.card:hover .card__header {
+.carde:hover .carde__header {
   transform: translateY(0);
 }
 
-.card__thumb {
+.carde__thumb {
   flex-shrink: 0;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.card__title {
+.carde__title {
   font-size: 1em;
   margin: 0 0 0.3em;
   color: #6a515e;
 }
 
-.card__tagline {
+.carde__tagline {
   display: block;
   margin: 1em 0;
   font-family: "MockFlowFont";
@@ -176,12 +176,12 @@ body {
   color: #d7bdca;
 }
 
-.card__status {
+.carde__status {
   font-size: 0.8em;
   color: #d7bdca;
 }
 
-.card__description {
+.carde__description {
   padding: 0 2em 2em;
   margin: 0;
   color: #d7bdca;
