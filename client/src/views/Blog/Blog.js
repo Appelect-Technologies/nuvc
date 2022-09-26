@@ -306,6 +306,11 @@ function Blog() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
+                <li className="nav-item">
+                  <Link to="/learn" className="nav-link" href="#">
+                    <button>Learnmore</button>
+                  </Link>
+                </li>
               </div>
             </a>
           </li>
@@ -331,6 +336,11 @@ function Blog() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Asperiores, blanditiis?
                 </p>
+                <li className="nav-item">
+                  <Link to="/learn" className="nav-link" href="#">
+                    <button>Learnmore</button>
+                  </Link>
+                </li>
               </div>
             </a>
           </li>
