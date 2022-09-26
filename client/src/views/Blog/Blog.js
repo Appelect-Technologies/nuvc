@@ -186,7 +186,7 @@ function Blog() {
               </div>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="" class="carde">
               <img src={image91} alt="image" class="card__image" />
               <div class="carde__overlay">
@@ -215,7 +215,7 @@ function Blog() {
                 </li>
               </div>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -314,7 +314,7 @@ function Blog() {
               </div>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="" class="carde">
               <img src={image91} alt="image" class="card__image" />
               <div class="carde__overlay">
@@ -343,7 +343,7 @@ function Blog() {
                 </li>
               </div>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
