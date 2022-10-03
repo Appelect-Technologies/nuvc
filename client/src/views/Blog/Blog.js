@@ -348,7 +348,10 @@ function Blog() {
       </div>
       <div className="nuvcblog">
         <div className="nuvccate">
-          <img src={nuvc} alt="image" />
+          <img
+            src="https://nuvc-public.s3.ap-south-1.amazonaws.com/nuvcblog.jpeg"
+            alt="image"
+          />
           <h2>
             शिक्षा मंत्रालय ने एक नई पहल की है। केंद्रीय मंत्री रमेश पोखरियाल
             निशंक के निर्देश पर शिक्षा मंत्रालय ने 15 से 23 अक्टूबर के बीच
