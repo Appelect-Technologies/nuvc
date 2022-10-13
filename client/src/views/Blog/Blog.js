@@ -483,7 +483,7 @@ function Blog() {
           <li>
             <p class="carde">
               <img
-                src={image91}
+                src="https://nuvc-public.s3.ap-south-1.amazonaws.com/support.jpeg"
                 alt="government free online courses with certificates"
                 class="card__image"
               />
@@ -525,7 +525,7 @@ function Blog() {
             >
               <Box className="style">
                 <img
-                  src={nuvc}
+                  src="https://nuvc-public.s3.ap-south-1.amazonaws.com/support2.jpeg"
                   alt="skill development courses list"
                   // style={{
                   //   width: "75vw",
