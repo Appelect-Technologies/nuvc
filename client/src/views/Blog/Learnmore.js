@@ -1,5 +1,5 @@
 import React from "react";
-import blog from "./blog.css";
+import "./blog.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

@@ -244,6 +244,32 @@ body {
   background-color: red;
 }
 
+.blog1 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: rgb(253, 250, 250);
+  padding: 50px;
+}
+
+.blog2 li {
+  list-style: none;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  width: 35vw;
+}
+
+.blog3 {
+  border: 5px solid yellow;
+  padding: 20px;
+}
+.blog3 li {
+  font-size: 14px;
+  margin-left: 5%;
+}
+
+.headline {
+  text-align: center;
+}
 @media (max-width: 640px) {
   .litag {
     width: 100vw;
@@ -255,4 +281,41 @@ body {
   .nuvccate h2 {
     font-size: 15px;
   }
+  .blog1 {
+    display: grid;
+    grid-template-columns: 100%;
+    position: relative;
+    grid-gap: 30px;
+  }
+  .blog2 li {
+    width: 90vw;
+    margin-left: -10%;
+  }
+  .blog3 {
+    font-size: 17px;
+    width: 90vw;
+    margin-left: -10%;
+  }
+  .blog3 {
+    font-size: 17px;
+  }
+  .style {
+    margin: 10%;
+    width: 100vw;
+  }
+}
+
+.style {
+  width: 80vw;
+  background-color: whitesmoke;
+  margin-left: 10%;
+  padding: 20px;
+  height: 750px;
+  color: gray;
+}
+
+.style img {
+  width: 75vw;
+  height: 30vw;
+  margin-left: 2%;
 }
