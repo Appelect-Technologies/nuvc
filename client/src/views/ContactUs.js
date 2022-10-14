@@ -69,7 +69,7 @@ function ContactUs() {
                 </address>
                 <div class="emailfield">
                   <p>
-                    <b>Phone:</b> <a href="tel:01146579553">+91 9599581858</a>
+                    <b>Phone:</b> <a href="tel:01146579553">011 46579553</a>
                   </p>
                   <p>
                     <b>Email:</b>
