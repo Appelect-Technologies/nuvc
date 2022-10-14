@@ -16,6 +16,7 @@ const jobApplySchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    
     fname: String,
     lname: String,
     gender: String,

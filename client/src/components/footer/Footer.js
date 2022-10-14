@@ -51,7 +51,7 @@ function Footer() {
                   </li>
                   <li>
                     <div class="thumb-content">
-                      <Link to="/refund">&nbsp;Refund Policy</Link>
+                      <Link to="/refund">&nbsp;Cancellation & Refund Policy</Link>
                     </div>
                   </li>
                   <li>

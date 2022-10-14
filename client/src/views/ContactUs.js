@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useFormik } from "formik";
 import { postQuery } from "../utils/dataApi";
 import { toast } from "react-toastify";
+import login from "../asstes/logo/favicon.png";
 
 function ContactUs() {
   const handleSubmit = async (values) => {
@@ -32,6 +33,55 @@ function ContactUs() {
 
   return (
     <Fragment>
+      <div className="flex" style={{display:"flex", padding:10}}>
+        <div className="container ">
+        <div className="card shadow-sm my-4" style={{ padding:10, justifyItems:"center"}}>
+        <center>
+          <img
+            src={login}
+            alt="login"
+            style={{
+              width: 60,
+              marginTop: 10,
+            }}
+         
+          />
+          <h2 >
+          Navachar Udyamita Vikash Council
+          </h2>
+        </center>
+          <h6>
+          Navachar Udyamita Vikash Council of India provides a single-Window access to information and services that are elctronicaly delivered to from all Goverment Departments, Institutions and
+       and Organization. It has been a popular source of information to a wide range stakeholders - from citizine, to Goverment,business and Indian Diasporsa.
+       It is a gateway to access Indian Goverment website at center, state and District levels.
+          </h6>
+         
+          <div >
+              <div class="widget no-box">
+                <center>
+                <h5 class="widget-title">
+                  Contact Us At: <span></span>
+                </h5>
+                </center>
+                <address>
+                  <b>Address:</b> B15 Shankar Garden, Janakpuri west metro station, New
+                  Delhi-110018
+                </address>
+                <div class="emailfield">
+                  <p>
+                    <b>Phone:</b> <a href="tel:01146579553">+91 9599581858</a>
+                  </p>
+                  <p>
+                    <b>Email:</b>
+                    <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+
+      
       <div class="container w-auto" style={{ maxWidth: 600 }}>
         <form onSubmit={formik.handleSubmit}>
           <div className="card shadow-sm my-4">
@@ -190,6 +240,7 @@ function ContactUs() {
             />
           </a>
         </div>
+      </div>
       </div>
     </Fragment>
   );

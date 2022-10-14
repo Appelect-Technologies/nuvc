@@ -96,7 +96,7 @@ function Dashboard() {
                   <th scope="col">SN</th>
                   <th scope="col">Email</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Course</th>
+                  <th scope="col">Course ID</th>
                   <th scope="col">OrderId</th>
                   <th scope="col">PaymentId</th>
                   <th scope="col">Action</th>

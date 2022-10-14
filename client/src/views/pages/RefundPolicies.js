@@ -20,7 +20,7 @@ function RefundPolicies() {
               <p>
                 If, for any reason, You are not completely satisfied with a
                 purchase We invite You to review our policy on refunds and
-                returns. This Return and Refund Policy has been created with the
+                returns.You will Receive the Refund within 7 working days through online mode. The Refund will be added to the respective account. This Return and Refund Policy has been created with the
                 help of the
                 <a
                   href="https://www.termsfeed.com/return-refund-policy-generator/"
