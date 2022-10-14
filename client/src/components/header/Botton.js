@@ -26,7 +26,7 @@ function Botton() {
       {isMobile ? (
         <img
           src={
-            "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
+            "https://nuvc-public.s3.ap-south-1.amazonaws.com/nuvc-top-banner-01.jpg"
           }
           alt="job placement agency"
           style={{
@@ -38,7 +38,7 @@ function Botton() {
       ) : (
         <img
           src={
-            "https://nuvc-public.s3.ap-south-1.amazonaws.com/1661528095470-497329847-top.jpeg"
+            "https://nuvc-public.s3.ap-south-1.amazonaws.com/nuvc-top-banner-01.jpg"
           }
           alt="job placement agency"
           style={{
