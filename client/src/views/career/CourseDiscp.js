@@ -50,7 +50,24 @@ function CourseDiscp() {
         </div>
 
         <div class="card-body">
-          <img src={job.icon} style={{ width: "100%", height: "22vw" }} />
+        {false ? (
+            <button
+              type="button"
+              class="btn btn-success"
+              // onClick={() => history.push("/apply/" + id)}
+            >
+              Already Enrolled <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          ) : (
+            <button
+              type="button"
+              class="btn btn-outline-success w-100"
+              onClick={() => handleRedirect(id)}
+            >
+              Apply Now <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          )}
+          
           <h5
             class="card-subtitle mb-2 text-muted"
             style={{ paddingTop: "1vw" }}
@@ -88,23 +105,7 @@ function CourseDiscp() {
             <small class="text-muted">Last updated 3 mins ago</small>
           </p>
 
-          {false ? (
-            <button
-              type="button"
-              class="btn btn-success w-100"
-              // onClick={() => history.push("/apply/" + id)}
-            >
-              Already Enrolled <i class="fas fa-long-arrow-alt-right"></i>
-            </button>
-          ) : (
-            <button
-              type="button"
-              class="btn btn-outline-success w-100"
-              onClick={() => handleRedirect(id)}
-            >
-              Apply Now <i class="fas fa-long-arrow-alt-right"></i>
-            </button>
-          )}
+          <img src={job.icon} style={{ width: "100%", height: "22vw" }} />
         </div>
 
         {/* <div class="row g-0">
