@@ -181,8 +181,9 @@ function Footer() {
                   Contact Us<span></span>
                 </h5>
                 <address>
-                  Address: B15 Shankar Garden, Janakpuri west metro station, New
-                  Delhi-110018
+                  Head Office: B15 Shankar Garden, Janakpuri west metro station, New
+                  Delhi-110018<br></br>
+                  Registered Office: D9 Rajdhani Park New Delhi 110041
                 </address>
                 <div class="emailfield">
                   <p>
