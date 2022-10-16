@@ -25,8 +25,8 @@ export default function LoginForm() {
 
   const formik = useFormik({
     initialValues: {
-      username: 'admin',
-      password: 'admin',
+      username: 'Gautam',
+      password: 'phonenumber@135',
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
