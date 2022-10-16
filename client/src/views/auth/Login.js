@@ -28,15 +28,21 @@ function Login() {
     // signInWithEmailAndPassword(auth, data.email, data.password)
     Signin(data.email, data.password)
       .then((user) => {
-        if (user.emailVerified) {
-          toast.success("Successfully  Loged in");
-          if (redirectionURL) {
-            history.push(redirectionURL);
-          } else {
-            history.push("/");
-          }
+        // if (user.emailVerified) {
+        //   toast.success("Successfully  Loged in");
+        //   if (redirectionURL) {
+        //     history.push(redirectionURL);
+        //   } else {
+        //     history.push("/");
+        //   }
+        // } else {
+        //   history.push("/verify");
+        // }
+        toast.success("Successfully  Loged in");
+        if (redirectionURL) {
+          history.push(redirectionURL);
         } else {
-          history.push("/verify");
+          history.push("/");
         }
       })
       .catch((error) => {
@@ -56,7 +62,6 @@ function Login() {
               width: 60,
               marginTop: 10,
             }}
-         
           />
         </center>
         <div class="card-body">

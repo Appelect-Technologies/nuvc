@@ -42,13 +42,15 @@ function Register() {
       //   registering the user
       await axios.post(config.baseUrl + config.register, data);
       //   signing in the user
-      // await Signin(data.email, data.password, () =>
-      //   Boolean(redirectionURL)
-      //     ? history.push(redirectionURL)
-      //     : history.push("/")
-      // );
+      await Signin(data.email, data.password);
+      if (Boolean(redirectionURL)) {
+        history.push(redirectionURL);
+      } else {
+        history.push("/creers");
+      }
 
-      history.push("/verify");
+      // history.push("/");
+      // history.push("/verify");
       // handleNext();
     } catch (error) {
       console.log("reg err", error);

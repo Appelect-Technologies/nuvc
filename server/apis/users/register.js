@@ -13,7 +13,7 @@ const register = async (req, res) => {
     const { name, email, password, role = "student" } = req.body;
     const { uid } = await getAuth(global.firebaseApp).createUser({
       email: email,
-      emailVerified: false,
+      emailVerified: true,
       password: password,
       displayName: name,
       photoURL: "http://www.example.com/12345678/photo.png",
@@ -21,26 +21,26 @@ const register = async (req, res) => {
     });
 
     // sending email verification link to user
-    const code = jwt.sign(
-      { type: "student", id: uid },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: process.env.EMAIL_VERIFICATION_EXPIRATION,
-      }
-    );
-    const html = await ejs.renderFile(
-      path.join(
-        path.resolve(__dirname, "../../"),
-        "templates",
-        "email-verification.ejs"
-      ),
-      {
-        // SERVER_URL: process.env.SERVER_URL,
-        FRONTEND_URL: process.env.CLIENT_FRONTEND_URL,
-        VERIFICATION_URL: `${process.env.SERVER_URL}/api/verify-email?code=${code}`,
-      }
-    );
-    sendMail(email, html);
+    // const code = jwt.sign(
+    //   { type: "student", id: uid },
+    //   process.env.JWT_SECRET,
+    //   {
+    //     expiresIn: process.env.EMAIL_VERIFICATION_EXPIRATION,
+    //   }
+    // );
+    // const html = await ejs.renderFile(
+    //   path.join(
+    //     path.resolve(__dirname, "../../"),
+    //     "templates",
+    //     "email-verification.ejs"
+    //   ),
+    //   {
+    //     // SERVER_URL: process.env.SERVER_URL,
+    //     FRONTEND_URL: process.env.CLIENT_FRONTEND_URL,
+    //     VERIFICATION_URL: `${process.env.SERVER_URL}/api/verify-email?code=${code}`,
+    //   }
+    // );
+    // sendMail(email, html);
     res.status(200).json({ msg: "success" });
   } catch (err) {
     console.log(err.message);
