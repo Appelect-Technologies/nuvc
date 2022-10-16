@@ -42,6 +42,7 @@ import Blog from "./views/Blog/Blog";
 import Learnmore from "./views/Blog/Learnmore";
 // import TrainingCentre from "./components/trainingCenters/TrainingCentre";
 import VerifyEmail from "./views/auth/VerifyEmail";
+import ApplyProcess from "./views/ApplyProcess";
 
 function AuthenticatedRoutes(Component, props = {}) {
   const auth = getAuth(app);
@@ -140,6 +141,7 @@ function App() {
             path="/dashboard"
             render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
           />
+          <Route path="/applyprocess" component={ApplyProcess} />
           <Route path="/contact" component={ContactUs} />
           <Route path="/privacy" component={PrivacyPolicy} />
           <Route path="/terms" component={TermAndConditions} />
