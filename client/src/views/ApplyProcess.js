@@ -47,6 +47,9 @@ class ApplyProcess extends Component {
         <nav>
           <button type="button" class="btn btn-primary" onClick={this.goToPrevPage}>Prev</button>
           <button type="button" class="btn btn-primary" onClick={this.goToNextPage}>Next</button>
+          <a href='https://nuvc-public.s3.ap-south-1.amazonaws.com/apply+process.pdf'>
+          <button type="button" class="btn btn-success">View PDF</button>
+          </a>
         </nav>
 
         <div style={{ width: 600 }}>
