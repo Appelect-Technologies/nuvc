@@ -46,7 +46,7 @@ class ApplyProcess extends Component {
       <div className='container' style={{alignContent:"center"}}>
         <nav>
           <button type="button" class="btn btn-primary" onClick={this.goToPrevPage}>Prev</button>
-          <button type="button" class="btn btn-primary" onClick={this.goToPrevPage}>Next</button>
+          <button type="button" class="btn btn-primary" onClick={this.goToNextPage}>Next</button>
         </nav>
 
         <div style={{ width: 600 }}>
