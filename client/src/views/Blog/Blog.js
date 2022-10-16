@@ -1,5 +1,4 @@
 import React from "react";
-import "./blog.css";
 import image89 from "../.././asstes/5-min.jpg";
 import image90 from "../.././asstes/apply jobs-min.jpg";
 import image91 from "../.././asstes/support.jpeg";
@@ -8,8 +7,8 @@ import ContentCard from "../home/ContentCard";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { Box, Button } from "@mui/material";
+import "./blog.css";
 // const style = {
 //   position: "absolute",
 //   top: "50%",
