@@ -74,6 +74,9 @@ function ContactUs() {
                     <b>Phone:</b> <a href="tel:01146579553">011 46579553</a>
                   </p>
                   <p>
+                  <b>Timing:</b> <a >Monday - Sunday 9:30 AM - 7 PM</a>
+                  </p>
+                  <p>
                     <b>Email:</b>
                     <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a>
                   </p>
