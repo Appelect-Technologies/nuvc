@@ -79,14 +79,14 @@ function Qulification({ prevStep, nextStep, jobId, jobApplyId }) {
         return;
       }
     }
-    console.log("qquli", data);
+    // console.log("qquli", data);
 
     data.jobApplyId = jobApplyId;
     axios
       .post(config.baseUrl + config.qulification, data)
       .then((res) => {
-        console.log("step 3 comp");
-        toast.success("3st step completed");
+        // console.log("step 3 comp");
+        toast.success("4th step completed");
         nextStep();
       })
       .catch((err) => {

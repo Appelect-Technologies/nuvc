@@ -15,6 +15,7 @@ import { auth } from "firebase-admin";
 import pay from "../../../utils/pay";
 import Pay from "./Pay";
 import Preview from "./preview";
+import SelectJob from "./SelectJob";
 
 // Qualification
 // State
@@ -30,6 +31,7 @@ function Index({ user }) {
   });
   const { jobId } = useParams();
   const history = useHistory();
+  const [selectedJobId, setSelectedJobId] = useState(null);
   const [isAlreadyApplied, setIsAlreadyApplied] = useState(false);
   const [jobApplicationId, setJobApplicationId] = useState(null);
   const [refetchApplication, setRefetchApplication] = useState(false);
@@ -77,7 +79,16 @@ function Index({ user }) {
   }
 
   React.useEffect(() => {
-    fatchData();
+    if (jobId) {
+      // setState({ step: 2 });
+      setSelectedJobId(jobId);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (jobId) {
+      fatchData();
+    }
     return () => {
       setState({ step: 1 });
     };
@@ -86,7 +97,7 @@ function Index({ user }) {
   const { step } = state;
   // const inputValues = { firstName, lastName, email, address, city, state, zip };
 
-  if (!jobId || jobId.length < 3) return <Redirect to="/creers" />;
+  // if (!jobId || jobId.length < 3) return <Redirect to="/creers" />;
   if (isAlreadyApplied) {
     // in case user has already applied for this post
     return (
@@ -251,62 +262,69 @@ function Index({ user }) {
   switch (step) {
     case 1:
       return (
-        <Personal
+        <SelectJob
+          jobId={selectedJobId}
+          setSelectedJobId={setSelectedJobId}
           nextStep={nextStep}
-          handleChange={handleChange}
-          jobId={jobId}
-          user={user}
-          jobApplyId={jobId + user.email}
-          //   inputValues={inputValues}
+          prevStep={prevStep}
         />
       );
     case 2:
       return (
-        <Address
+        <Personal
           nextStep={nextStep}
-          prevStep={prevStep}
-          jobId={jobId}
-          jobApplyId={jobId + user.email}
-
-          //   handleChange={handleChange}
+          handleChange={handleChange}
+          user={user}
+          jobId={selectedJobId}
+          jobApplyId={selectedJobId + user.email}
           //   inputValues={inputValues}
         />
       );
     case 3:
       return (
-        <Qulification
+        <Address
           nextStep={nextStep}
           prevStep={prevStep}
-          jobId={jobId}
-          jobApplyId={jobId + user.email}
+          jobId={selectedJobId}
+          jobApplyId={selectedJobId + user.email}
 
+          //   handleChange={handleChange}
           //   inputValues={inputValues}
         />
       );
     case 4:
       return (
-        <JobLocation
+        <Qulification
           nextStep={nextStep}
           prevStep={prevStep}
-          jobId={jobId}
-          jobApplyId={jobId + user.email}
+          jobId={selectedJobId}
+          jobApplyId={selectedJobId + user.email}
 
           //   inputValues={inputValues}
         />
       );
-
     case 5:
+      return (
+        <JobLocation
+          nextStep={nextStep}
+          prevStep={prevStep}
+          jobId={selectedJobId}
+          jobApplyId={selectedJobId + user.email}
+          //   inputValues={inputValues}
+        />
+      );
+
+    case 6:
       return (
         <Documentation
           nextStep={nextStep}
           prevStep={prevStep}
-          jobId={jobId}
-          jobApplyId={jobId + user.email}
-
+          jobId={selectedJobId}
+          jobApplyId={selectedJobId + user.email}
           //   inputValues={inputValues}
         />
       );
-    case 6:
+    case 7:
       return (
         <Preview
           nextStep={nextStep}
@@ -314,7 +332,7 @@ function Index({ user }) {
           prevStep={prevStep}
         />
       );
-    case 7:
+    case 8:
       return (
         <Pay
           email={user.email}
@@ -322,10 +340,10 @@ function Index({ user }) {
           body={{
             email: user.email,
             phone: user.phone,
-            jobId: jobId,
+            jobId: selectedJobId,
             name: user.displayName,
           }}
-          id={jobId}
+          id={selectedJobId}
         />
       );
   }

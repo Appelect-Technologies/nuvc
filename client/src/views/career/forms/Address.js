@@ -80,8 +80,8 @@ function Address({ prevStep, nextStep, jobId, jobApplyId }) {
           toast.error("Please complete step 1");
           return;
         }
-        console.log("step 2 comp", res);
-        toast.success("2st step completed");
+        // console.log("step 2 comp", res);
+        toast.success("3rd step completed");
         nextStep();
       })
       .catch((err) => {

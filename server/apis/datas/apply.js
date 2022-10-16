@@ -19,7 +19,7 @@ const personal = async (req, res) => {
     } = req.body;
 
     if (jobId.length < 5)
-      return res.status(202).json({ msg: "please provide job id" });
+      return res.status(400).json({ msg: "please provide job id" });
     const isApply = await JobApply.findOne({ jobApplyId });
     if (isApply) return res.status(201).json({ msg: "you already applied" });
 

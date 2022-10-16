@@ -83,9 +83,11 @@ function Documentation({ prevStep, nextStep, jobId, jobApplyId }) {
     axios
       .post(config.baseUrl + config.document, data)
       .then((res) => {
-        console.log("step 1 comp", res.data.body);
-        toast.success("5st step completed");
-        toast.success("you are successfully completed all steps");
+        // console.log("step 1 comp", res.data.body);
+        toast.success("6th step completed");
+        // toast.success(
+        // "you are successfully completed all steps, please proceed for payment"
+        // );
         // pay(jobApplyId, auth?.currentUser?.uid, res.data.body);
         nextStep();
       })

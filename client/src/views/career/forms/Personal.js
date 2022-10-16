@@ -112,7 +112,7 @@ function Personal({ nextStep, jobId, user, jobApplyId }) {
         }
 
         console.log("step 1 comp");
-        toast.success("1st step completed");
+        toast.success("2nd step completed");
         nextStep();
       })
       .catch((err) => {

@@ -46,7 +46,8 @@ function Register() {
       if (Boolean(redirectionURL)) {
         history.push(redirectionURL);
       } else {
-        history.push("/creers");
+        history.push("/apply");
+        // history.push("/creers");
       }
 
       // history.push("/");

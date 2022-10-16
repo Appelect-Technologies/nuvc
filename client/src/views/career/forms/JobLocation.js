@@ -52,8 +52,8 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
     axios
       .post(config.baseUrl + config.prefrance, data)
       .then((res) => {
-        console.log("step 4 comp");
-        toast.success("4st step completed");
+        // console.log("step 4 comp");
+        toast.success("5th step completed");
         nextStep();
       })
       .catch((err) => {

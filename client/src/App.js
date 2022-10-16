@@ -136,6 +136,12 @@ function App() {
               AuthenticatedRoutes(Apply, { user: auth?.currentUser })
             }
           />
+          <Route
+            path="/apply"
+            render={() =>
+              AuthenticatedRoutes(Apply, { user: auth?.currentUser })
+            }
+          />
           <Route path="/profile" render={() => AuthenticatedRoutes(Profile)} />
           <Route
             path="/dashboard"
