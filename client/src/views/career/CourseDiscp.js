@@ -53,7 +53,7 @@ function CourseDiscp() {
         {false ? (
             <button
               type="button"
-              class="btn btn-success"
+              class="btn btn-success w-100"
               // onClick={() => history.push("/apply/" + id)}
             >
               Already Enrolled <i class="fas fa-long-arrow-alt-right"></i>
@@ -61,7 +61,7 @@ function CourseDiscp() {
           ) : (
             <button
               type="button"
-              class="btn btn-outline-success w-100"
+              class="btn btn-success w-100"
               onClick={() => handleRedirect(id)}
             >
               Apply Now <i class="fas fa-long-arrow-alt-right"></i>
