@@ -54,7 +54,7 @@ class ApplyProcess extends Component {
             file={applyprocess}
             onLoadSuccess={this.onDocumentLoadSuccess}
           >
-            <Page pageNumber={pageNumber} width={600} />
+            <Page pageNumber={pageNumber} width={1000} />
           </Document>
         </div>
 
