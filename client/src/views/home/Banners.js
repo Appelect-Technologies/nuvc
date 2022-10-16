@@ -107,6 +107,28 @@ function Banners() {
             <p></p>
           </div>
         </div>
+        <div className="carousel-item">
+          <img
+            src="https://nuvc-public.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2022-10-16+at+2.40.47+PM.jpeg"
+            className="d-block w-100 banner"
+            alt="Hire the Right Person"
+          />
+          <div className="carousel-caption d-none d-md-block">
+            <h5></h5>
+            <p></p>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <img
+            src="https://nuvc-public.s3.ap-south-1.amazonaws.com/banner.jpg"
+            className="d-block w-100 banner"
+            alt="Hire the Right Person"
+          />
+          <div className="carousel-caption d-none d-md-block">
+            <h5></h5>
+            <p></p>
+          </div>
+        </div>
       </div>
       <button
         className="carousel-control-prev"
