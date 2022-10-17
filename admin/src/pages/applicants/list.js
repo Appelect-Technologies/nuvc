@@ -18,19 +18,19 @@ const columns = (handleClick) => [
   {
     field: 'fname',
     headerName: 'Applicant Name',
-    width: 150,
+    width: 200,
     renderCell: (param) => `${param.row.fname} ${param.row.lname}`,
   },
   {
     field: 'email',
     headerName: 'Email',
-    width: 250,
+    width: 300,
   },
   {
     field: 'jobId',
     headerName: 'Job',
-    width: 100,
-    renderCell: (param) => param.value.title,
+    width: 250,
+    renderCell: ({ value }) => value && value.title,
   },
   {
     field: 'isPaid',
@@ -79,7 +79,7 @@ function ListJobs({ data }) {
           Applicants
         </Typography>
       </Stack>
-      <DataGridCompnent columns={cols} rows={data} />
+      <DataGridCompnent columns={cols} rows={data} searchFields={['fname', 'lname', 'email']} />
       <Dialog open={dialog.show} TransitionComponent={Transition} keepMounted onClose={handleHide}>
         <AppBar position="static">
           <Toolbar>

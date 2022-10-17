@@ -1,15 +1,31 @@
 import { DataGrid } from '@mui/x-data-grid';
-import { TextField, Box, Grid } from '@mui/material';
+import { TextField, Box, Grid, IconButton } from '@mui/material';
 import React, { useState } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
-const DataGridCompnent = ({ rows, columns, dgProps = {} }) => {
+const DataGridCompnent = ({ rows, columns, dgProps = {}, searchFields = [] }) => {
   const [value, setValue] = useState(rows);
-  const requestSearch = (searchedVal) => {
-    const filteredRows = rows.filter((_) =>
-      Object.keys(_).some((k) => _[k].toString().toLowerCase().indexOf(searchedVal.toLowerCase()) !== -1)
-    );
+  const [search, setSearch] = useState('');
+
+  const requestSearch = () => {
+    if (!search.trim()) {
+      setValue(rows);
+      return;
+    }
+    // const filteredRows = rows.filter((_) => {
+    //   return Object.keys(_).filter((k) => `${_[k]}`?.toLowerCase()?.indexOf(search.toLowerCase()) !== -1);
+    // });
+
+    const filteredRows = rows.filter((_) => {
+      let arr = searchFields.filter((field) => {
+        return _[field].includes(search.toLowerCase());
+      });
+      return arr.length;
+    });
+
     setValue(filteredRows);
   };
+
   return (
     <Box
       sx={{
@@ -38,36 +54,43 @@ const DataGridCompnent = ({ rows, columns, dgProps = {} }) => {
         <Grid container>
           <Grid xs={6}></Grid>
           <Grid xs={6}>
-            <TextField
-              onChange={(e) => requestSearch(e.target.value)}
-              id="outlined-basic"
-              label="Search"
-              variant="outlined"
-              size="small"
-              fullWidth
-              sx={{
-                '& .MuiInputBase-root': {
-                  borderRadius: '12px',
-                  background: 'white',
-                },
-                marginBottom: '10px',
-              }}
-            />
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', width: '100%' }}>
+              <TextField
+                onChange={(e) => setSearch(e.target.value)}
+                id="outlined-basic"
+                placeholder="Search"
+                variant="outlined"
+                size="small"
+                fullWidth
+                sx={{
+                  '& .MuiInputBase-root': {
+                    borderRadius: '12px',
+                    background: 'white',
+                  },
+                  marginBottom: '10px',
+                }}
+              />
+              <IconButton onClick={requestSearch} color="primary">
+                <SearchIcon />
+              </IconButton>
+            </Box>
           </Grid>
         </Grid>
       </Box>
-      <DataGrid
-        autoHeight
-        rows={value}
-        columns={columns}
-        pageSize={6}
-        disableSelectionOnClick
-        {...dgProps}
-        density="comfortable"
-        sx={{
-          background: 'white',
-        }}
-      />
+      <Box sx={{ maxHeight: 500, overflowY: 'auto' }}>
+        <DataGrid
+          autoHeight
+          rows={value}
+          columns={columns}
+          pageSize={100}
+          disableSelectionOnClick
+          {...dgProps}
+          density="standard"
+          sx={{
+            background: 'white',
+          }}
+        />
+      </Box>
     </Box>
   );
 };
