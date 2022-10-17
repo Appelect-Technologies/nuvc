@@ -7,8 +7,11 @@ let users = [];
 const getUsers = async (req, res) => {
   try {
     await getAllUsers();
-    const filtereddata = users.flat().map((_) => _.providerData);
-    return res.send({ msg: "success", users: filtereddata.length });
+    const filtereddata = users
+      .flat()
+      .map((_) => _.providerData)
+      .flat();
+    return res.send({ msg: "success", users: filtereddata });
   } catch (error) {
     return res.status(400).json({ msg: "error", error: error.message });
   } finally {
