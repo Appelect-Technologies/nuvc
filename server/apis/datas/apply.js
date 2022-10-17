@@ -13,7 +13,7 @@ const personal = async (req, res) => {
       lname,
       motherName,
       phone,
-      step = 1,
+      step = 2,
       dob,
       religion,
     } = req.body;
@@ -77,7 +77,7 @@ const address = async (req, res) => {
     job.pin = pin;
     job.state = state;
     job.street = street;
-    job.step = 2;
+    job.step += 1;
     await job.save();
     return res.status(200).json({
       msg: "step 2 completed",
@@ -114,7 +114,7 @@ const qulification = async (req, res) => {
     job.discipline = discipline;
     job.pdegree = pdegree;
     job.pdiscipline = pdiscipline;
-    job.step = 3;
+    job.step += 1;
     await job.save();
     return res.status(200).json({
       msg: "step 2 completed",
@@ -157,7 +157,7 @@ const perfrance = async (req, res) => {
     job.experience = experience;
     job.expComment = expComment;
     job.isJobOutsideIndia = isJobOutsideIndia;
-    job.step = 4;
+    job.step += 1;
     await job.save();
     return res.status(200).json({
       msg: "step 2 completed",
@@ -186,7 +186,7 @@ const document = async (req, res) => {
     job.idBack = idBack;
     job.idFront = idFront;
     job.idName = idName;
-    job.step = 5;
+    job.step += 1;
 
     await job.save();
 

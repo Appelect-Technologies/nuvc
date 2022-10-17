@@ -39,8 +39,8 @@ function Index({ user }) {
 
   const nextStep = () => {
     const { step } = state;
-    if (step == 5) {
-      setRefetchApplication(true);
+    if (step == 6) {
+      setRefetchApplication((pre) => !pre);
     }
     setState({
       step: step + 1,
@@ -61,9 +61,9 @@ function Index({ user }) {
     }));
   };
 
-  async function fatchData() {
+  async function fatchData(jid) {
     try {
-      const res = await checkApplyStatus("?id=" + jobId + user.email);
+      const res = await checkApplyStatus("?id=" + jid + user.email);
       const { isPaid, step, _id } = res.data?.applyStatus;
       setJobApplicationId(_id);
       if (isPaid) {
@@ -86,8 +86,9 @@ function Index({ user }) {
   }, []);
 
   React.useEffect(() => {
-    if (jobId) {
-      fatchData();
+    if (selectedJobId || jobId) {
+      const jid = selectedJobId || jobId;
+      fatchData(jid);
     }
     return () => {
       setState({ step: 1 });
