@@ -82,7 +82,7 @@ const DataGridCompnent = ({ rows, columns, dgProps = {}, searchFields = [] }) =>
           autoHeight
           rows={value}
           columns={columns}
-          pageSize={500}
+          pageSize={100}
           disableSelectionOnClick
           {...dgProps}
           density="standard"
