@@ -69,7 +69,11 @@ function Index({ user }) {
       if (isPaid) {
         setIsAlreadyApplied(true);
       } else {
-        setState({ step: step + 1 });
+        if (step < 8) {
+          setState({ step: step });
+        } else {
+          setState({ step: 7 });
+        }
       }
       // console.log("apply data", res?.data);
     } catch (error) {
@@ -98,7 +102,10 @@ function Index({ user }) {
   const { step } = state;
   // const inputValues = { firstName, lastName, email, address, city, state, zip };
 
+  // console.log("this is step: ", step, selectedJobId);
+
   // if (!jobId || jobId.length < 3) return <Redirect to="/creers" />;
+  // if (!selectedJobId) return null;
   if (isAlreadyApplied) {
     // in case user has already applied for this post
     return (
@@ -274,6 +281,7 @@ function Index({ user }) {
       return (
         <Personal
           nextStep={nextStep}
+          prevStep={prevStep}
           handleChange={handleChange}
           user={user}
           jobId={selectedJobId}

@@ -3,7 +3,7 @@ import axios from "axios";
 import { config } from "../../../config";
 import { toast } from "react-toastify";
 
-function Personal({ nextStep, jobId, user, jobApplyId }) {
+function Personal({ nextStep, jobId, user, jobApplyId, prevStep }) {
   const [data, setData] = React.useState({
     email: user?.email,
     fatherName: "",
@@ -336,7 +336,15 @@ function Personal({ nextStep, jobId, user, jobApplyId }) {
       <div className="card-footer">
         <button
           type="button"
-          className="btn btn-dark w-100"
+          className="btn btn-dark"
+          style={{ marginRight: 10, marginLeft: "auto" }}
+          onClick={prevStep}
+        >
+          <i className="fas fa-long-arrow-alt-left"></i> Back
+        </button>
+        <button
+          type="button"
+          className="btn btn-dark"
           onClick={saveAndContinue}
         >
           Next <i className="fas fa-long-arrow-alt-right"></i>

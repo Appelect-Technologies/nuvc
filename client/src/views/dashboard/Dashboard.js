@@ -109,7 +109,7 @@ function Dashboard() {
                       <th scope="row">{key + 1}</th>
                       <td>{value.email}</td>
                       <td>{value.fname + " " + value.lname}</td>
-                      <td>{value.jobId}</td>
+                      <td>{value.job?.title}</td>
                       <td>{}</td>
                       <td>{}</td>
                       <td>

@@ -1,3 +1,4 @@
+const { Mongoose } = require("mongoose");
 const Job = require("../../models/Job");
 const JobApply = require("../../models/JobApply");
 
@@ -209,9 +210,34 @@ const document = async (req, res) => {
 
 const getJobsByEmail = async (req, res) => {
   try {
-    console.log("job get", req.query);
-    const jobs = await JobApply.find({ email: req.query.email });
-    console.log("job get", jobs);
+    // console.log("job get", req.query);
+    const jobs = await JobApply.aggregate([
+      {
+        $match: { email: req.query.email },
+      },
+      {
+        $lookup: {
+          from: "jobs",
+          let: { jobId: "$jobId" },
+          pipeline: [
+            {
+              $match: { $expr: { $eq: ["$_id", "$$jobId"] } },
+            },
+            {
+              $project: {
+                title: 1,
+              },
+            },
+          ],
+          as: "job",
+        },
+      },
+      {
+        $unwind: "$job",
+      },
+    ]);
+    // const job = await Job.findById(jobs)
+    // console.log("job get", jobs);
     return res.status(200).json({ msg: "new job fatched", jobs });
   } catch (error) {
     console.log("get jobs", error);
