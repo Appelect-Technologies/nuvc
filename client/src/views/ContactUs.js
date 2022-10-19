@@ -67,7 +67,6 @@ function ContactUs() {
                   <b>Address:</b> B15 Shankar Garden, Janakpuri west metro station, New
                   Delhi-110018
                   <br></br>
-                  <b>Registered Office:</b> D9 Rajdhani Park New Delhi 110041
                 </address>
                 <div class="emailfield">
                   <p>
