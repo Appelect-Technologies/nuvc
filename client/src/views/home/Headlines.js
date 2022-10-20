@@ -47,7 +47,7 @@ function Headlines() {
   return (
     <div
       className="top-container"
-      style={{ background: "#0098ff", display: "flex" }}
+      style={{ background: "#86c4ee", display: "flex" }}
     >
       <marquee behavior="scroll" direction="left" scrollamount="2">
         <Maquree
