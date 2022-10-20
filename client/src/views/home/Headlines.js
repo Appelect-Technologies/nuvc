@@ -1,36 +1,36 @@
-import React from 'react'
-const { useState, useEffect } = React
-const width = window.innerWidth
+import React from "react";
+const { useState, useEffect } = React;
+const width = window.innerWidth;
 
 const Maquree = ({ title, text }) => {
-  const [pos, setPos] = useState(0)
-  const [run, setRun] = useState(true)
+  const [pos, setPos] = useState(0);
+  const [run, setRun] = useState(true);
   const scrollEff = () => {
-    if (run) setPos((p) => (p < width ? p + 1 : -width))
-  }
+    if (run) setPos((p) => (p < width ? p + 1 : -width));
+  };
 
   useEffect(() => {
-    const tm = setTimeout(scrollEff, 10)
-    return () => clearTimeout(tm)
-  }, [pos])
+    const tm = setTimeout(scrollEff, 10);
+    return () => clearTimeout(tm);
+  }, [pos]);
 
   const onMouseEnter = (e) => {
     // console.log("mouse enter");
-    setRun(false)
-  }
+    setRun(false);
+  };
 
   const onMouseLeave = (e) => {
     // console.log("mouse leave");
-    setRun(true)
-    setPos(pos + 1) // to trigger useEffect
-  }
+    setRun(true);
+    setPos(pos + 1); // to trigger useEffect
+  };
 
   const styles = {
-    position: 'relative',
-    fontSize: '1em',
-    right: pos + 'px',
-    color: '#ffeb3b',
-  }
+    position: "relative",
+    fontSize: "1em",
+    right: pos + "px",
+    color: "#0098ff",
+  };
 
   //background: "#d51906"
 
@@ -40,19 +40,20 @@ const Maquree = ({ title, text }) => {
         {title} {text}
       </mark>
     </h1>
-  )
-}
+  );
+};
 
 function Headlines() {
   return (
     <div
-      className='top-container'
-      style={{ background: 'red', display: 'flex' }}
+      className="top-container"
+      style={{ background: "red", display: "flex", color: "white" }}
     >
-      <marquee behavior='scroll' direction='left' scrollamount='2'>
+      <marquee behavior="scroll" direction="left" scrollamount="2">
         <Maquree
-          title='उद्यमित'
-          text='युवा की डोर, उद्यमित की ओर आत्मनिर्भर युवा : आत्मनिर्भर भारत 5 ट्रिलियन अर्थव्यवस्था की ओर नया भारत'
+          style={{ color: "white" }}
+          title=""
+          text="Syllabus Will be Updated on Monday,24 October 2022"
         />
       </marquee>
     </div>
@@ -77,7 +78,7 @@ function Headlines() {
     //     <div className="top-right"></div>
     //   </marquee>
     // </div>
-  )
+  );
 }
 
-export default Headlines
+export default Headlines;
