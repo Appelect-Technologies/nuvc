@@ -47,11 +47,10 @@ function Headlines() {
   return (
     <div
       className="top-container"
-      style={{ background: "red", display: "flex", color: "white" }}
+      style={{ background: "#0098ff", display: "flex" }}
     >
       <marquee behavior="scroll" direction="left" scrollamount="2">
         <Maquree
-          style={{ color: "white" }}
           title=""
           text="Syllabus Will be Updated on Monday,24 October 2022"
         />
