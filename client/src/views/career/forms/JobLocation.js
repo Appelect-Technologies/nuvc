@@ -151,7 +151,8 @@ function JobLocation({ prevStep, nextStep, jobId, jobApplyId }) {
                   General
                 </option>
                 <option value="OBC">OBC</option>
-                <option value="SC">SC/ST</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
                 <option value="PC">Physically Challenged</option>
               </select>
             </div>
