@@ -61,7 +61,7 @@ function Headlines() {
       <marquee behavior="scroll" direction="left">
         <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
           {" "}
-          Syllabus Will be Updated on Monday,24 October 2022
+          Syllabus Will be Updated on Sunday,6 November 2022 ,Morning 7am
         </h5>
       </marquee>
       <svg
