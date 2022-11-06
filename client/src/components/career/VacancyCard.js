@@ -129,7 +129,7 @@ export default function VacancyCard(props) {
           )}
         </CardContent>
         <CardContent>
-          {/* <Button
+          <Button
             variant="text"
             href={props.url1}
             size="small"
@@ -138,9 +138,9 @@ export default function VacancyCard(props) {
             endIcon={<i class="fas fa-long-arrow-alt-right"></i>}
           >
             Download Document 1
-          </Button> */}
+          </Button>
 
-          {/* <Button
+          <Button
             variant="text"
             href={props.url2}
             fullWidth
@@ -149,7 +149,7 @@ export default function VacancyCard(props) {
             endIcon={<i class="fas fa-long-arrow-alt-right"></i>}
           >
             Download Document 2
-          </Button> */}
+          </Button>
 
           <Button
             variant="text"
