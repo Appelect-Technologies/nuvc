@@ -65,7 +65,7 @@ function Headlines() {
         </h5>
         <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
           {" "}
-          Last Date to apply extented till 29 November
+          Last Date to apply extented till 21 November
         </h5>
       </marquee>
       <svg
