@@ -61,7 +61,11 @@ function Headlines() {
       <marquee behavior="scroll" direction="left">
         <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
           {" "}
-          Syllabus is uploaded and live here <a href="/syllabus">Syllabus</a>
+          Please Download Updated notification and syllabus here<a href="/syllabus">"Syllabus"</a>
+        </h5>
+        <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
+          {" "}
+          Last Date to apply extented till 29 November
         </h5>
       </marquee>
       <svg
