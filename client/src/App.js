@@ -40,7 +40,7 @@ import Faq from "./views/pages/Faq";
 import Pay10 from "./Pay";
 import Blog from "./views/Blog/Blog";
 import Learnmore from "./views/Blog/Learnmore";
-// import TrainingCentre from "./components/trainingCenters/TrainingCentre";
+import Syllabus from "./views/Syllabus";
 import VerifyEmail from "./views/auth/VerifyEmail";
 import ApplyProcess from "./views/ApplyProcess";
 
@@ -148,6 +148,7 @@ function App() {
             render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
           />
           <Route path="/applyprocess" component={ApplyProcess} />
+          <Route path="/syllabus" component={Syllabus} />
           <Route path="/contact" component={ContactUs} />
           <Route path="/privacy" component={PrivacyPolicy} />
           <Route path="/terms" component={TermAndConditions} />
