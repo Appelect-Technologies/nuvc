@@ -137,7 +137,7 @@ export default function VacancyCard(props) {
             target={"_blank"}
             endIcon={<i class="fas fa-long-arrow-alt-right"></i>}
           >
-            Download Document 1
+            Syllabus and Notification
           </Button>
 
           <Button
@@ -149,6 +149,7 @@ export default function VacancyCard(props) {
             endIcon={<i class="fas fa-long-arrow-alt-right"></i>}
           >
             Download Document 2
+            <img src="https://nuvc.s3.ap-south-1.amazonaws.com/bcd.jpeg" />
           </Button>
 
           <Button

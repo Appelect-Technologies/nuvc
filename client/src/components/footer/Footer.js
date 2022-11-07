@@ -51,7 +51,9 @@ function Footer() {
                   </li>
                   <li>
                     <div class="thumb-content">
-                      <Link to="/refund">&nbsp;Cancellation & Refund Policy</Link>
+                      <Link to="/refund">
+                        &nbsp;Cancellation & Refund Policy
+                      </Link>
                     </div>
                   </li>
                   <li>
@@ -181,19 +183,21 @@ function Footer() {
                   Contact Us<span></span>
                 </h5>
                 <address>
-                  Head Office: B15 Shankar Garden, Janakpuri west metro station, New
-                  Delhi-110018<br></br>
+                  Head Office: B15 Shankar Garden, Janakpuri west metro station,
+                  New Delhi-110018<br></br>
                 </address>
                 <div class="emailfield">
                   <p>
-                    <b>Phone:</b> <a href="tel:01146579553">+91 9599581858,011 46579553</a>
+                    <b>Phone:</b>{" "}
+                    <a href="tel:01146579553">+91 9599581858,011 46579553</a>
                   </p>
                   <p>
-                  <b>Timing:</b> <a >Monday - Sunday 9:30 AM - 7 PM</a>
+                    <b>Timing:</b> <a>Monday - Sunday 9:30 AM - 7 PM</a>
                   </p>
                   <p>
                     <b>Email:</b>
                     <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a>
+                    <a href="nuvchelp@gmail.com"> nuvchelp@gmail.com</a>
                   </p>
                   {/* <input type="text" name="email" value="Email" />
                   <input name="uri" type="hidden" value="arabiantheme" />
@@ -220,7 +224,10 @@ function Footer() {
               </p>
 
               <div class="col-md-12 text-center">
-                <p>Copyright Udyamit © {new Date().getFullYear()}. All rights reserved.</p>
+                <p>
+                  Copyright Udyamit © {new Date().getFullYear()}. All rights
+                  reserved.
+                </p>
               </div>
             </div>
           </div>
