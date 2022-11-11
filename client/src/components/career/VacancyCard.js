@@ -142,7 +142,7 @@ export default function VacancyCard(props) {
 
           <Button
             variant="text"
-            href={props.url2}
+            href="/syllabus"
             fullWidth
             size="small"
             target={"_blank"}
@@ -178,3 +178,11 @@ export default function VacancyCard(props) {
     </Card>
   );
 }
+
+
+
+
+
+
+
+
