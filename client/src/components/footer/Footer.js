@@ -196,7 +196,7 @@ function Footer() {
                   </p>
                   <p>
                     <b>Email:</b>
-                    <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a>
+                    {/* <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a> */}
                     <a href="nuvchelp@gmail.com"> nuvchelp@gmail.com</a>
                   </p>
                   {/* <input type="text" name="email" value="Email" />

@@ -74,8 +74,18 @@ function Nav() {
                 Digital Learning
               </Link>
             </li>
-
             <li className="nav-item">
+              <Link to="/creers" className="nav-link" href="#">
+              Vacancy
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/process" className="nav-link" href="#">
+              Apply Process
+              </Link>
+            </li>
+
+            {/* <li className="nav-item">
               <div class="btn-group">
                 <button
                   type="button"
@@ -99,7 +109,7 @@ function Nav() {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
             {/* <li className="nav-item">
               <Link to="/trainingCentre" className="nav-link" href="#">
                 Training Centre

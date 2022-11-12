@@ -77,7 +77,7 @@ function ContactUs() {
                   </p>
                   <p>
                     <b>Email:</b>
-                    <a href="mailto:admin@nuvc.org"> admin@nuvc.org</a>
+                    <a href="nuvchelp@gmail.com"> nuvchelp@gmail.com</a>
                   </p>
                 </div>
               </div>
