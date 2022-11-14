@@ -145,7 +145,7 @@ function App() {
           <Route path="/profile" render={() => AuthenticatedRoutes(Profile)} />
           <Route
             path="/dashboard"
-            render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
+            render={() => AuthenticatedRoutes(Dashboard)}
           />
           <Route path="/applyprocess" component={ApplyProcess} />
           <Route path="/syllabus" component={Syllabus} />
