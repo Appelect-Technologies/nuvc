@@ -6,7 +6,7 @@ function update() {
     <>
       <div className="update" style={{ height: "70vw" }}>
         <img
-          src={image}
+          src="https://nuvc-public.s3.ap-south-1.amazonaws.com/bcd.jpeg"
           alt="/"
           style={{ width: "80vw", marginLeft: "10%", marginTop: "5%" }}
         />
