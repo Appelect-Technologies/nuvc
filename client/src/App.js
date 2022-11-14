@@ -62,14 +62,14 @@ function UnAuthenticatedRoutes(Component) {
   }
 }
 
-function AuthAndEmailVerifiedRoutes(Component) {
-  const auth = getAuth(app);
-  if (auth && auth.currentUser && auth.currentUser.emailVerified) {
-    return <Component />;
-  } else {
-    return <Redirect to="/verify" />;
-  }
-}
+// function AuthAndEmailVerifiedRoutes(Component) {
+//   const auth = getAuth(app);
+//   if (auth && auth.currentUser && auth.currentUser.emailVerified) {
+//     return <Component />;
+//   } else {
+//     return <Redirect to="/verify" />;
+//   }
+// }
 
 function App() {
   const auth = getAuth(app);
@@ -119,7 +119,7 @@ function App() {
             path="/digitalLearning/descp/:cid"
             component={CourseDetails}
           />
-          <Route exact path="/verify" component={VerifyEmail} />
+          {/*<Route exact path="/verify" component={VerifyEmail} /> */}
           <Route path="/login" render={() => UnAuthenticatedRoutes(Login)} />
           <Route path="/reg" render={() => UnAuthenticatedRoutes(Register)} />
           <Route
@@ -143,9 +143,13 @@ function App() {
             }
           />
           <Route path="/profile" render={() => AuthenticatedRoutes(Profile)} />
-          <Route
+          {/*<Route
             path="/dashboard"
             render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
+          />*/}
+          <Route
+            path="/dashboard"
+            render={() => AuthenticatedRoutes(Dashboard)}
           />
           <Route path="/applyprocess" component={ApplyProcess} />
           <Route path="/syllabus" component={Syllabus} />
