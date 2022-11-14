@@ -61,7 +61,10 @@ function Headlines() {
       <marquee behavior="scroll" direction="left">
         <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
           {" "}
-          Please Download Updated notification and syllabus here<a href="/syllabus">"Syllabus"</a>
+          Please Download Updated notification and syllabus here
+          <a href="/syllabus" style={{ color: "#ecf901" }}>
+            "Syllabus"
+          </a>
         </h5>
         <h5 style={{ color: "#2e5162", fontWeight: "bold" }}>
           {" "}
