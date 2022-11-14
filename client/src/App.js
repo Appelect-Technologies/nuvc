@@ -43,6 +43,7 @@ import Learnmore from "./views/Blog/Learnmore";
 import Syllabus from "./views/Syllabus";
 import VerifyEmail from "./views/auth/VerifyEmail";
 import ApplyProcess from "./views/ApplyProcess";
+import update from "./components/career/update";
 
 function AuthenticatedRoutes(Component, props = {}) {
   const auth = getAuth(app);
@@ -62,14 +63,14 @@ function UnAuthenticatedRoutes(Component) {
   }
 }
 
-function AuthAndEmailVerifiedRoutes(Component) {
-  const auth = getAuth(app);
-  if (auth && auth.currentUser && auth.currentUser.emailVerified) {
-    return <Component />;
-  } else {
-    return <Redirect to="/verify" />;
-  }
-}
+// function AuthAndEmailVerifiedRoutes(Component) {
+//   const auth = getAuth(app);
+//   if (auth && auth.currentUser && auth.currentUser.emailVerified) {
+//     return <Component />;
+//   } else {
+//     return <Redirect to="/verify" />;
+//   }
+// }
 
 function App() {
   const auth = getAuth(app);
@@ -119,7 +120,7 @@ function App() {
             path="/digitalLearning/descp/:cid"
             component={CourseDetails}
           />
-          <Route exact path="/verify" component={VerifyEmail} />
+          {/*<Route exact path="/verify" component={VerifyEmail} /> */}
           <Route path="/login" render={() => UnAuthenticatedRoutes(Login)} />
           <Route path="/reg" render={() => UnAuthenticatedRoutes(Register)} />
           <Route
@@ -143,6 +144,10 @@ function App() {
             }
           />
           <Route path="/profile" render={() => AuthenticatedRoutes(Profile)} />
+          {/*<Route
+            path="/dashboard"
+            render={() => AuthAndEmailVerifiedRoutes(Dashboard)}
+          />*/}
           <Route
             path="/dashboard"
             render={() => AuthenticatedRoutes(Dashboard)}
@@ -158,7 +163,7 @@ function App() {
           <Route path="/ourPrograms" component={OurPrograms} />
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
-          {/* <Route path="/Blog" component={Blog} /> */}
+          <Route path="/update" component={update} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
