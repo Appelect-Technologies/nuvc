@@ -21,6 +21,8 @@ function ResetPassword() {
     sendPasswordResetEmail(auth, data)
       .then(() => {
         toast.success("Reset Link successfully send to your email");
+        toast.info("Please Check your Spam Floder in your Mail");
+
         history.push("/");
       })
       .catch((error) => {
