@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require("uuid");
 const { userSubscription10 } = require("../../apis/users/subscription");
 const pay = require("../../pay10Util");
 const { getAuth } = require("firebase-admin/auth");
-
+const {sendMail} = require("../../utils/mailer/index")
 const pay_payid = process.env.PAYID;
 const pay_salt = process.env.PAYSALT;
 
@@ -521,6 +521,7 @@ router.post("/payu/response-success", async (req, res) => {
       }
     );
     res.send(html);
+    sendMail(email, html);
   } catch (error) {
     res.sendStatus(500);
   }
