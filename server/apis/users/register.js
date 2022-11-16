@@ -10,10 +10,11 @@ var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, role = "student" } = req.body;
+    const { name, email, password, role = "student" ,number} = req.body;
     const { uid } = await getAuth(global.firebaseApp).createUser({
       email: email,
       emailVerified: true,
+      phoneNumber: "+91"+number,
       password: password,
       displayName: name,
       photoURL: "http://www.example.com/12345678/photo.png",

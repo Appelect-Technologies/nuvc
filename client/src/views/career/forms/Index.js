@@ -348,7 +348,7 @@ function Index({ user }) {
           uid={user.uid}
           body={{
             email: user.email,
-            phone: user.phone,
+            phone: user.phoneNumber,
             jobId: selectedJobId,
             name: user.displayName,
           }}

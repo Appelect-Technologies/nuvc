@@ -11,7 +11,7 @@ function Personal({ nextStep, jobId, user, jobApplyId, prevStep }) {
     gender: "",
     lname: "",
     motherName: "",
-    phone: "",
+    phone: user?.phoneNumber,
     religion: "",
     dob: new Date().toLocaleDateString("en-CA"),
   });
@@ -195,6 +195,8 @@ function Personal({ nextStep, jobId, user, jobApplyId, prevStep }) {
                 className="form-control"
                 placeholder="Phone Number"
                 name="phone"
+                disabled
+                value={user?.phoneNumber}
                 onChange={handleChange}
               />
               <p style={{ color: "red" }}>{error?.phone}</p>

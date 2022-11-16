@@ -15,6 +15,7 @@ function Register() {
   const [data, setData] = React.useState({
     name: "",
     email: "",
+    number:"",
     password: "",
     cpassword: "",
   });
@@ -39,6 +40,7 @@ function Register() {
 
     try {
       setIsSubmitting(true);
+      console.log(data);
       //   registering the user
       await axios.post(config.baseUrl + config.register, data);
       //   signing in the user
