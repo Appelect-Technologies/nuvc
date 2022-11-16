@@ -44,6 +44,7 @@ import Syllabus from "./views/Syllabus";
 import VerifyEmail from "./views/auth/VerifyEmail";
 import ApplyProcess from "./views/ApplyProcess";
 import update from "./components/career/update";
+import Gellary from "./components/Gellary";
 
 function AuthenticatedRoutes(Component, props = {}) {
   const auth = getAuth(app);
@@ -164,6 +165,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
           <Route path="/update" component={update} />
+          <Route path="/gellery" component={Gellary} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

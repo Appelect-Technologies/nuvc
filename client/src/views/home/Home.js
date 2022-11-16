@@ -8,6 +8,7 @@ import Headlines from "./Headlines";
 import Credit from "../pages/Credit";
 import OurPrograms from "../OurPrograms";
 import what from "../../asstes/WhatsApp.svg.webp";
+import Gellary from "../../components/Gellary";
 function Home() {
   return (
     <div>
@@ -16,6 +17,7 @@ function Home() {
       <Headlines />
       <Content />
       <OurPrograms />
+      <Gellary />
       <Partner />
       {/* <Credit /> */}
       {/* <Footer /> */}
@@ -39,6 +41,5 @@ function Home() {
     </div>
   );
 }
-
 
 export default Home;
