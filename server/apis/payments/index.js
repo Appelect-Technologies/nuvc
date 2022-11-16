@@ -520,8 +520,19 @@ router.post("/payu/response-success", async (req, res) => {
         date: new Date(addedon).toString(),
       }
     );
+
+    const html2 = await ejs.renderFile(
+      path.join(
+        path.resolve(__dirname, "../../"),
+        "templates",
+        "registration-successful.ejs"
+      ),
+      {
+        FRONTEND_URL: process.env.CLIENT_FRONTEND_URL,
+      }
+    );
     res.send(html);
-    sendMail(email, html);
+    sendMail(email, html2);
   } catch (error) {
     res.sendStatus(500);
   }
