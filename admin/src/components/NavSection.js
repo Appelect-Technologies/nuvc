@@ -7,7 +7,7 @@ import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from 
 //
 import Iconify from './Iconify';
 
-// ----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
   ...theme.typography.body2,
@@ -27,7 +27,7 @@ const ListItemIconStyle = styled(ListItemIcon)({
   justifyContent: 'center',
 });
 
-// ----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 NavItem.propTypes = {
   item: PropTypes.object,

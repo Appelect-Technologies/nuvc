@@ -51,6 +51,7 @@ function Notifications() {
             style={{
               listStyle: "none",
               paddingLeft: 0,
+             
             }}
           >
             {news.map((value, index) => (

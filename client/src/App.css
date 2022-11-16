@@ -79,7 +79,7 @@ mark {
   border: none;
 }
 .marquee {
-  width: '100%';
+  width: "100%";
   overflow: hidden;
 }
 
@@ -306,4 +306,8 @@ a:focus {
 }
 .crd {
   width: 100%;
+}
+
+.news-texttext-truncate {
+  color: #f91501;
 }

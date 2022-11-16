@@ -87,7 +87,7 @@ function Banners() {
         </div>
         <div className="carousel-item">
           <img
-            src={b4}
+            src="https://nuvc-public.s3.ap-south-1.amazonaws.com/banner123.jpeg"
             className="d-block w-100 banner"
             alt="Hire the Right Person"
           />
@@ -130,6 +130,7 @@ function Banners() {
           </div>
         </div>
       </div>
+
       <button
         className="carousel-control-prev"
         type="button"
