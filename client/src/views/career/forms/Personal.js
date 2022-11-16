@@ -195,7 +195,7 @@ function Personal({ nextStep, jobId, user, jobApplyId, prevStep }) {
                 className="form-control"
                 placeholder="Phone Number"
                 name="phone"
-                disabled
+                // disabled
                 value={user?.phoneNumber}
                 onChange={handleChange}
               />
