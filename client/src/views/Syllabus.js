@@ -19,8 +19,10 @@ class Syllabus extends Component {
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
     return (
       <div className="container" style={{ alignContent: "center" }}>
-        <nav>
-          <button
+        <nav
+          style={{ display: "flex", justifyContent: "center", margin: "10%" }}
+        >
+          {/* <button
             type="button"
             class="btn btn-primary"
             onClick={this.goToPrevPage}
@@ -33,14 +35,22 @@ class Syllabus extends Component {
             onClick={this.goToNextPage}
           >
             Next
-          </button>
+          </button> */}
           <a href="https://nuvc-public.s3.ap-south-1.amazonaws.com/Detailed+Advertisement+and+syllabus%5B1%5D.pdf">
-            <button type="button" class="btn btn-success">
-              View PDF
+            <button
+              type="button"
+              class="btn btn-success"
+              style={{
+                width: "20vw",
+                height: "10vh",
+                boxShadow: "2px 2px 2px 1px black",
+              }}
+            >
+              DownLoad pdf
             </button>
           </a>
         </nav>
-
+        {/* 
         <div style={{ width: 600 }}>
           <Document file={syllabus} onLoadSuccess={this.onDocumentLoadSuccess}>
             <Page pageNumber={pageNumber} width={1000} />
@@ -49,8 +59,8 @@ class Syllabus extends Component {
 
         <p>
           Page {pageNumber} of {numPages}
-        </p>
-        <nav>
+        </p> */}
+        {/* <nav>
           <button
             type="button"
             class="btn btn-primary"
@@ -70,7 +80,7 @@ class Syllabus extends Component {
               View PDF
             </button>
           </a>
-        </nav>
+        </nav> */}
       </div>
     );
   }
