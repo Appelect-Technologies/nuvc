@@ -8,7 +8,7 @@ import Headlines from "./Headlines";
 import Credit from "../pages/Credit";
 import OurPrograms from "../OurPrograms";
 import what from "../../asstes/WhatsApp.svg.webp";
-import Gellary from "../../components/Gellary";
+import Gallery from "../../components/Gellary";
 function Home() {
   return (
     <div>
@@ -17,7 +17,7 @@ function Home() {
       <Headlines />
       <Content />
       <OurPrograms />
-      <Gellary />
+      <Gallery />
       <Partner />
       {/* <Credit /> */}
       {/* <Footer /> */}
