@@ -282,7 +282,7 @@ function Index({ user }) {
         />
       );
     case 2:
-      console.log("text3",step);
+      console.log("text2",step);
       return (
         <Personal
           nextStep={nextStep}
