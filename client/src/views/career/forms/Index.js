@@ -40,7 +40,7 @@ function Index({ user }) {
   const nextStep = () => {
     const { step } = state;
     console.log("current state",step)
-    if (step == 7) {
+    if (step == 6) {
       setRefetchApplication((pre) => !pre);
     }
     setState({
@@ -70,7 +70,7 @@ function Index({ user }) {
       if (isPaid) {
         setIsAlreadyApplied(true);
       } else {
-        if (step < 8) {
+        if (step < 7) {
           setState({ step: step });
         } else {
           setState({ step: 7 });
