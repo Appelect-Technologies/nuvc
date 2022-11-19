@@ -7,12 +7,14 @@ function SelectJob({ nextStep, jobId, setSelectedJobId }) {
   const [error, setError] = React.useState("");
 
   const handleSelectAndContinue = () => {
-    if (jobId) {
-      nextStep();
-      toast.success("1st step completed");
-    } else {
-      setError("Please select a job");
-    }
+    // if (jobId) {
+    //   nextStep();
+    //   toast.success("1st step completed");
+    // } else {
+    //   setError("Please select a job");
+    // }
+    nextStep();
+    toast.success("1st step completed");
   };
 
   const handleSelectJob = (e) => {

@@ -39,7 +39,7 @@ function Index({ user }) {
 
   const nextStep = () => {
     const { step } = state;
-    console.log("current state",step)
+    console.log("current step",step)
     if (step == 6) {
       setRefetchApplication((pre) => !pre);
     }
@@ -70,22 +70,22 @@ function Index({ user }) {
       if (isPaid) {
         setIsAlreadyApplied(true);
       } else {
-        if (step < 7) {
+        if (step < 8) {
           setState({ step: step });
         } else {
           setState({ step: 7 });
         }
       }
-      // console.log("apply data", res?.data);
+      console.log("apply data", res?.data);
     } catch (error) {
-      // console.log("error occured: ", error);
+      console.log("error occured: ", error);
       // alert("Error occured");
     }
   }
 
   React.useEffect(() => {
     if (jobId) {
-      // setState({ step: 2 });
+      setState({ step: 2 });
       setSelectedJobId(jobId);
     }
   }, []);
@@ -100,7 +100,7 @@ function Index({ user }) {
     };
   }, [refetchApplication]);
 
-  const { step } = state;
+
   // const inputValues = { firstName, lastName, email, address, city, state, zip };
 
   // console.log("this is step: ", step, selectedJobId);
@@ -268,12 +268,12 @@ function Index({ user }) {
       </div>
     );
   }
+  
+  const { step } = state;
   switch (step) {
-    
     case 1:
-      console.log("text1",step);
+      console.log("step",step);
       return (
-        
         <SelectJob
           jobId={selectedJobId}
           setSelectedJobId={setSelectedJobId}
@@ -282,7 +282,7 @@ function Index({ user }) {
         />
       );
     case 2:
-      console.log("text2",step);
+      console.log("step",step);
       return (
         <Personal
           nextStep={nextStep}
@@ -295,9 +295,8 @@ function Index({ user }) {
         />
       );
     case 3:
-      console.log("text3",step);
+      console.log("step",step);
       return (
-        
         <Address
           nextStep={nextStep}
           prevStep={prevStep}
@@ -309,7 +308,7 @@ function Index({ user }) {
         />
       );
     case 4:
-      console.log("text4",step);
+      console.log("step",step);
       return (
         <Qulification
           nextStep={nextStep}
@@ -321,7 +320,7 @@ function Index({ user }) {
         />
       );
     case 5:
-      console.log("text5",step);
+      console.log("step",step);
       return (
         <JobLocation
           nextStep={nextStep}
@@ -333,7 +332,7 @@ function Index({ user }) {
       );
 
     case 6:
-      console.log("text6",step);
+      console.log("step",step);
       return (
         <Documentation
           nextStep={nextStep}
@@ -344,7 +343,7 @@ function Index({ user }) {
         />
       );
     case 7:
-      console.log("text7",step);
+      console.log("step",step);
       return (
         <Preview
           nextStep={nextStep}
@@ -353,8 +352,7 @@ function Index({ user }) {
         />
       );
     case 8:
-      console.log("text8",step);
-
+      console.log("step",step);
       return (
         <Pay
           email={user.email}
