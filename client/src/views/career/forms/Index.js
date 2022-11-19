@@ -39,7 +39,8 @@ function Index({ user }) {
 
   const nextStep = () => {
     const { step } = state;
-    if (step == 6) {
+    console.log("current state",step)
+    if (step == 7) {
       setRefetchApplication((pre) => !pre);
     }
     setState({
@@ -268,8 +269,11 @@ function Index({ user }) {
     );
   }
   switch (step) {
+    
     case 1:
+      console.log("text1",step);
       return (
+        
         <SelectJob
           jobId={selectedJobId}
           setSelectedJobId={setSelectedJobId}
@@ -278,6 +282,7 @@ function Index({ user }) {
         />
       );
     case 2:
+      console.log("text3",step);
       return (
         <Personal
           nextStep={nextStep}
@@ -290,7 +295,9 @@ function Index({ user }) {
         />
       );
     case 3:
+      console.log("text3",step);
       return (
+        
         <Address
           nextStep={nextStep}
           prevStep={prevStep}
@@ -302,6 +309,7 @@ function Index({ user }) {
         />
       );
     case 4:
+      console.log("text4",step);
       return (
         <Qulification
           nextStep={nextStep}
@@ -313,6 +321,7 @@ function Index({ user }) {
         />
       );
     case 5:
+      console.log("text5",step);
       return (
         <JobLocation
           nextStep={nextStep}
@@ -324,6 +333,7 @@ function Index({ user }) {
       );
 
     case 6:
+      console.log("text6",step);
       return (
         <Documentation
           nextStep={nextStep}
@@ -334,6 +344,7 @@ function Index({ user }) {
         />
       );
     case 7:
+      console.log("text7",step);
       return (
         <Preview
           nextStep={nextStep}
@@ -342,6 +353,8 @@ function Index({ user }) {
         />
       );
     case 8:
+      console.log("text8",step);
+
       return (
         <Pay
           email={user.email}

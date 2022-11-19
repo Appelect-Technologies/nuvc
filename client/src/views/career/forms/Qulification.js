@@ -85,7 +85,7 @@ function Qulification({ prevStep, nextStep, jobId, jobApplyId }) {
     axios
       .post(config.baseUrl + config.qulification, data)
       .then((res) => {
-        // console.log("step 3 comp");
+        console.log("step 3 comp",res);
         toast.success("4th step completed");
         nextStep();
       })
